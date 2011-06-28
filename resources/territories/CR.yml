@@ -1,0 +1,40 @@
+--- 
+nationalPrefixForParsing: (1900)
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            02[2-469]|\n            1(?:\n              1[0235-9]|\n              2|\n              37|\n              46|\n              75|\n              8[79]|\n              9[0-379]\n            )|\n            212)\n        "
+  possibleNumberPattern: \d{3,4}
+  exampleNumber: "1022"
+voip: 
+  nationalNumberPattern: 4000\d{4}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "40001234"
+premiumRate: 
+  nationalNumberPattern: 90[059]\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9001234567"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2489]\\d{7,9}"
+  possibleNumberPattern: \d{8,10}
+countryCode: "506"
+mobile: 
+  nationalNumberPattern: 8[36789]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "83123456"
+carrierCodeFormattingRule: $CC $FG
+tollFree: 
+  nationalNumberPattern: 800\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: 2[24-7]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "22123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "\n            [24]|\n            8[3-9]\n          "
+    pattern: (\d{4})(\d{4})
+  - format: $1-$2-$3
+    leadingDigits: "[89]0"
+    pattern: (\d{3})(\d{3})(\d{4})

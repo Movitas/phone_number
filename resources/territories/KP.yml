@@ -1,0 +1,31 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: 00|99
+generalDesc: 
+  nationalNumberPattern: "\n          1\\d{9}|\n          [28]\\d{7}\n        "
+  possibleNumberPattern: "\n          \\d{6,8}|\n          \\d{10}\n        "
+countryCode: "850"
+mobile: 
+  nationalNumberPattern: 19[123]\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1921234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          2\\d{7}|\n          85\\d{6}\n        "
+  possibleNumberPattern: \d{6,8}
+  exampleNumber: "21234567"
+noInternationalDialling: 
+  nationalNumberPattern: "\n          2(?:\n            [0-24-9]\\d{2}|\n            3(?:\n              [0-79]\\d|\n              8[02-9]\n            )\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "23821234"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "1"
+    pattern: (\d{3})(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "2"
+    pattern: (\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "8"
+    pattern: (\d{2})(\d{3})(\d{3})

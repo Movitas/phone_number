@@ -1,0 +1,50 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 700\d{5}
+  exampleNumber: "70012345"
+premiumRate: 
+  nationalNumberPattern: 90\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n            [23567]\\d{5,7}|\n            [489]\\d{6,8}\n        "
+  possibleNumberPattern: \d{5,9}
+countryCode: "359"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            8[7-9]|\n            98\n          )\\d{7}|\n          4(?:\n            3[0789]|\n            8\\d\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "48123456"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            [0-8]\\d{5,6}|\n            9\\d{4,6}\n          )|\n          (?:\n            [36]\\d|\n            5[1-9]|\n            8[1-6]|\n            9[1-7]\n          )\\d{5,6}|\n          (?:\n            4(?:\n              [124-7]\\d|\n              3[1-6]\n            )|\n            7(?:\n              0[1-9]|\n              [1-9]\\d\n            )\n          )\\d{4,5}\n        "
+  possibleNumberPattern: \d{5,8}
+  exampleNumber: "2123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1/$2
+    leadingDigits: "29"
+    pattern: (2)(\d{5})
+  - format: $1/$2 $3
+    leadingDigits: "2"
+    pattern: (2)(\d{3})(\d{3,4})
+  - format: $1/$2
+    leadingDigits: "\n            43[124-7]|\n            70[1-9]\n          "
+    pattern: (\d{3})(\d{4})
+  - format: $1/$2 $3
+    leadingDigits: "\n            43[124-7]|\n            70[1-9]\n          "
+    pattern: (\d{3})(\d{3})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "[78]00"
+    pattern: (\d{3})(\d{2})(\d{3})
+  - format: $1/$2 $3
+    leadingDigits: "\n            [356]|\n            7[1-9]|\n            8[1-6]|\n            9[1-7]\n          "
+    pattern: (\d{2})(\d{3})(\d{2,3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            48|\n            8[7-9]|\n            9[08]\n          "
+    pattern: (\d{2})(\d{3})(\d{3,4})

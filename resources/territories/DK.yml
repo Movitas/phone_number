@@ -1,0 +1,22 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 90\d{6}
+  exampleNumber: "90123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "45"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            2[0-9]|\n            3[0-2]|\n            4[0-2]|\n            5[0-3]|\n            6[01]|\n            7[12]|\n            81|\n            99\n          )\\d{6}\n        "
+  exampleNumber: "20123456"
+tollFree: 
+  nationalNumberPattern: 80\d{6}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3[2-9]|\n            4[3-9]|\n            5[4-9]|\n            6[2-9]|\n            7[02-9]|\n            8[26-9]|\n            9[6-9]\n          )\\d{6}\n        "
+  exampleNumber: "32123456"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([1-9]\d)(\d{2})(\d{2})(\d{2})

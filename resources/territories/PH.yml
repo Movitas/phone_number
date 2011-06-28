@@ -1,0 +1,51 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [2-9]\\d{7,9}|\n          1800\\d{7,9}\n        "
+  possibleNumberPattern: \d{7,13}
+countryCode: "63"
+mobile: 
+  nationalNumberPattern: "\n          9(?:\n            0[5-9]|\n            1[025-9]|\n            2[0-36-9]|\n            3[0235-9]|\n            4[89]|\n            7[349]|\n            89|\n            9[49]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9051234567"
+tollFree: 
+  nationalNumberPattern: 1800\d{7,9}
+  possibleNumberPattern: \d{11,13}
+  exampleNumber: "180012345678"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2|\n            3[2-68]|\n            4[2-9]|\n            5[2-6]|\n            6[2-58]|\n            7[24578]|\n            8[2-8]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "21234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "2"
+    pattern: (2)(\d{3})(\d{4})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2
+    leadingDigits: 
+    - "\n            3(?:\n              23|\n              39|\n              46\n            )|\n            4(?:\n              2[3-6]|\n              [35]9|\n              4[26]|\n              76\n            )|\n            5(?:\n              22|\n              44\n            )|\n            642|\n            8(?:\n              62|\n              8[245]\n            )\n          "
+    - "\n            3(?:\n              230|\n              397|\n              461\n            )|\n            4(?:\n              2(?:\n                35|\n                [46]4|\n                51\n              )|\n              396|\n              4(?:\n                22|\n                63\n              )|\n              59[347]|\n              76[15]\n            )|\n            5(?:\n              221|\n              446\n            )|\n            642[23]|\n            8(?:\n              622|\n              8(?:\n                [24]2|\n                5[13]\n              )\n            )\n          "
+    pattern: (\d{4})(\d{5})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2
+    leadingDigits: 
+    - "\n            346|\n            4(?:\n              27|\n              9[35]\n            )|\n            883\n          "
+    - "\n            3469|\n            4(?:\n              279|\n              9(?:\n                30|\n                56\n              )\n            )|\n            8834\n          "
+    pattern: (\d{5})(\d{4})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2 $3
+    leadingDigits: "[3-8]"
+    pattern: ([3-8]\d)(\d{3})(\d{4})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2 $3
+    leadingDigits: "9"
+    pattern: (9\d{2})(\d{3})(\d{4})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: "1"
+    pattern: (1800)(\d{3})(\d{4})
+  - format: $1 $2 $3 $4
+    leadingDigits: "1"
+    pattern: (1800)(\d{1,2})(\d{3})(\d{4})

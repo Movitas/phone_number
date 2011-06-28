@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[3567]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "245"
+mobile: 
+  nationalNumberPattern: "[5-7]\\d{6}"
+  exampleNumber: "5012345"
+fixedLine: 
+  nationalNumberPattern: "\n          3(?:\n            2[0125]|\n            3[1245]|\n            4[12]|\n            5[1-4]|\n            70|\n            9[1-467]\n          )\\d{4}\n        "
+  exampleNumber: "3201234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

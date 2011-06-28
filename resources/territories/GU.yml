@@ -1,0 +1,26 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: "\n          5(?:\n            00|\n            33|\n            44\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5002345678"
+leadingDigits: "671"
+premiumRate: 
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9002123456"
+internationalPrefix: "011"
+nationalPrefix: "1"
+generalDesc: 
+  nationalNumberPattern: "[5689]\\d{9}"
+  possibleNumberPattern: \d{7}(?:\d{3})?
+countryCode: "1"
+mobile: 
+  nationalNumberPattern: "\n          671(?:\n            3(?:\n              00|\n              3[39]|\n              4[349]|\n              55|\n              6[26]\n            )|\n            4(?:\n              56|\n              7[1-9]|\n              8[23678]\n            )|\n            5(?:\n              55|\n              6[2-5]|\n              88\n            )|\n            6(?:\n              3[2-578]|\n              4[24-9]|\n              5[34]|\n              78|\n              8[5-9]\n            )|\n            7(?:\n              [079]7|\n              2[0167]|\n              3[45]|\n              8[789]\n            )|\n            8(?:\n              [2-5789]8|\n              6[48]\n            )|\n            9(?:\n              2[29]|\n              6[79]|\n              7[179]|\n              8[789]|\n              9[78]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "6713001234"
+tollFree: 
+  nationalNumberPattern: "\n          8(?:\n            00|\n            55|\n            66|\n            77|\n            88\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8002123456"
+fixedLine: 
+  nationalNumberPattern: "\n          671(?:\n            3(?:\n              00|\n              3[39]|\n              4[349]|\n              55|\n              6[26]\n            )|\n            4(?:\n              56|\n              7[1-9]|\n              8[23678]\n            )|\n            5(?:\n              55|\n              6[2-5]|\n              88\n            )|\n            6(?:\n              3[2-578]|\n              4[24-9]|\n              5[34]|\n              78|\n              8[5-9]\n            )|\n            7(?:\n              [079]7|\n              2[0167]|\n              3[45]|\n              8[789]\n            )|\n            8(?:\n              [2-5789]8|\n              6[48]\n            )|\n            9(?:\n              2[29]|\n              6[79]|\n              7[179]|\n              8[789]|\n              9[78]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "6713001234"

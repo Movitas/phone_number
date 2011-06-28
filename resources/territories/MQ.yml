@@ -1,0 +1,18 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[56]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "596"
+mobile: 
+  nationalNumberPattern: "\n          696(?:\n            [0-479]\\d|\n            5[01]|\n            8[0-689]\n          )\\d{4}\n        "
+  exampleNumber: "696201234"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          596(?:\n            0[2-5]|\n            [12]0|\n            3[05-9]|\n            4[024-8]|\n            [5-7]\\d|\n            89|\n            9[4-8]\n          )\\d{4}\n        "
+  exampleNumber: "596301234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{3})(\d{2})(\d{2})(\d{2})

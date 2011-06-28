@@ -1,0 +1,40 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 900\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: 0~0
+generalDesc: 
+  nationalNumberPattern: "[3-689]\\d{8}"
+  possibleNumberPattern: \d{5,9}
+countryCode: "380"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            39|\n            50|\n            6[36-8]|\n            9[1-9]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "391234567"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3[1-8]|\n            4[13-8]|\n            5[1-7]|\n            6[12459]\n          )\\d{7}\n        "
+  exampleNumber: "311234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: 
+    - "\n            39|\n            4(?:\n              [45][0-5]|\n              87\n            )|\n            5(?:\n              0|\n              6[37]|\n              7[37]\n            )|\n            6[36-8]|\n            9[1-9]\n          "
+    - "\n            39|\n            4(?:\n              [45][0-5]|\n              87\n            )|\n            5(?:\n              0|\n              6(?:\n                3[14-7]|\n                7\n              )|\n              7[37]\n            )|\n            6[36-8]|\n            9[1-9]\n          "
+    pattern: ([3-69]\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: 
+    - "\n            3[1-8]2|\n            4[1378]2|\n            5(?:\n              [12457]2|\n              6[24]\n            )|\n            6(?:\n              [49]2|\n              [12][29]|\n              5[24]\n            )|\n            8|\n            90\n          "
+    - "\n            3(?:\n              [1-46-8]2[013-9]|\n              52\n            )|\n            4[1378]2|\n            5(?:\n              [12457]2|\n              6[24]\n            )|\n            6(?:\n              [49]2|\n              [12][29]|\n              5[24]\n            )|\n            8|\n            90\n          "
+    pattern: ([3-689]\d{2})(\d{3})(\d{3})
+  - format: $1 $2
+    leadingDigits: 
+    - "\n            3(?:\n              5[013-9]|\n              [1-46-8]\n            )|\n            4(?:\n              [137][013-9]|\n              6|\n              [45][6-9]|\n              8[4-6]\n            )|\n            5(?:\n              [1245][013-9]|\n              6[0135-9]|\n              3|\n              7[4-6]\n            )|\n            6(?:\n              [49][013-9]|\n              5[0135-9]|\n              [12][13-8]\n            )\n          "
+    - "\n            3(?:\n              5[013-9]|\n              [1-46-8](?:\n                22|\n                [013-9]\n              )\n            )|\n            4(?:\n              [137][013-9]|\n              6|\n              [45][6-9]|\n              8[4-6]\n            )|\n            5(?:\n              [1245][013-9]|\n              6(?:\n                3[02389]|\n                [015689]\n              )|\n              3|\n              7[4-6]\n            )|\n            6(?:\n              [49][013-9]|\n              5[0135-9]|\n              [12][13-8]\n            )\n          "
+    pattern: ([3-6]\d{3})(\d{5})

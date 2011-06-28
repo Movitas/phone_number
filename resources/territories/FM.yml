@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[39]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "691"
+mobile: 
+  nationalNumberPattern: "\n          3[2357]0[1-9]\\d{3}|\n          9[2-7]\\d{5}\n        "
+  exampleNumber: "3501234"
+fixedLine: 
+  nationalNumberPattern: "\n            3[2357]0[1-9]\\d{3}|\n            9[2-6]\\d{5}\n        "
+  exampleNumber: "3201234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

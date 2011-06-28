@@ -1,0 +1,60 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 178\d{6,7}
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "1781234567"
+leadingZeroPossible: "true"
+premiumRate: 
+  nationalNumberPattern: "\n          89(?:\n            2\\d{3}|\n            9\\d{6}\n          )\n        "
+  possibleNumberPattern: \d{6,9}
+  exampleNumber: "899123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[01389]\\d{5,10}"
+  possibleNumberPattern: \d{6,11}
+countryCode: "39"
+mobile: 
+  nationalNumberPattern: 3\d{8,9}
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "312345678"
+sharedCost: 
+  nationalNumberPattern: 84[78]\d{6,7}
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "8481234567"
+tollFree: 
+  nationalNumberPattern: "\n          80(?:\n            0\\d{6}|\n            3\\d{3}\n          )\n        "
+  possibleNumberPattern: \d{6,9}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          0(?:\n            [26]\\d{4,9}|\n            [13-57-9](?:\n              [0159]\\d{4,8}|\n              [2-46-8]\\d{5,8}\n            )\n          )\n        "
+  possibleNumberPattern: \d{6,11}
+  exampleNumber: 0212345678
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: 0[26]
+    pattern: (0[26])(\d{3,4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: 0[26]
+    pattern: (0[26])(\d{4})(\d{5})
+  - format: $1 $2
+    leadingDigits: 0[26]
+    pattern: (0[26])(\d{4,6})
+  - format: $1 $2 $3
+    leadingDigits: 0[13-57-9][0159]
+    pattern: (0\d{2})(\d{3,4})(\d{4})
+  - format: $1 $2
+    leadingDigits: 0[13-57-9][0159]
+    pattern: (0\d{2})(\d{4,6})
+  - format: $1 $2 $3
+    leadingDigits: 0[13-57-9][2-46-8]
+    pattern: (0\d{3})(\d{3})(\d{4})
+  - format: $1 $2
+    leadingDigits: 0[13-57-9][2-46-8]
+    pattern: (0\d{3})(\d{4,6})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [13]|\n            8(?:\n              00|\n              4[78]\n            )\n          "
+    pattern: (\d{3})(\d{3})(\d{3,4})
+  - format: $1 $2
+    leadingDigits: "\n            8(?:\n              03|\n              9\n            )\n          "
+    pattern: (\d{3})(\d{3,6})

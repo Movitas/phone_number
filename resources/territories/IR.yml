@@ -1,0 +1,35 @@
+--- 
+uan: 
+  nationalNumberPattern: 9990\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9990123456"
+voip: 
+  nationalNumberPattern: 993[12]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9932123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+pager: 
+  nationalNumberPattern: 943[24678]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9432123456"
+generalDesc: 
+  nationalNumberPattern: "[2-6]\\d{4,9}|[1789]\\d{9}"
+  possibleNumberPattern: \d{5,10}
+countryCode: "98"
+mobile: 
+  nationalNumberPattern: "\n          9(?:\n            1\\d|\n            3[124-8]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9123456789"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            1[2-9]\\d{2,7}|\n            51\\d{3,7}\n          )|\n          (?:\n            241|\n            3(?:\n              11|\n              5[23]\n            )|\n            441|\n            5[14]1\n          )\\d{4,7}|\n          (?:\n            3(?:\n              34|\n              41\n            )|\n            6(?:\n              11|\n              52\n            )|\n          )\\d{6,7}|\n          (?:\n            1(?:\n              [134589][12]|\n              [27][1-4]\n            )|\n            2(?:\n              2[189]|\n              [3689][12]|\n              42|\n              5[256]|\n              7[34]\n            )|\n            3(?:\n              12|\n              2[1-4]|\n              3[125]|\n              4[24-9]|\n              51|\n              [6-9][12]\n            )|\n            4(?:\n              [135-9][12]|\n              2[1-467]|\n              4[2-4]\n            )|\n            5(?:\n              12|\n              2[89]|\n              3[1-5]|\n              4[2-8]|\n              [5-7][12]|\n              8[1245]\n            )|\n            6(?:\n              12|\n              [347-9][12]|\n              51|\n              6[1-6]\n            )|\n            7(?:\n              [13589][12]|\n              2[1289]|\n              4[1-4]|\n              6[1-6]|\n              7[1-3]\n            )|\n            8(?:\n              [145][12]|\n              3[124578]|\n              6[1256]|\n              7[1245]\n            )\n          )\\d{7}\n        "
+  exampleNumber: "2123456789"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "21"
+    pattern: (21)(\d{4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [13-89]|\n            2[02-9]\n          "
+    pattern: (\d{3})(\d{3})(\d{4})

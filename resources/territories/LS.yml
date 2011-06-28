@@ -1,0 +1,19 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2568]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "266"
+mobile: 
+  nationalNumberPattern: "[56]\\d{7}"
+  exampleNumber: "50123456"
+tollFree: 
+  nationalNumberPattern: 800[256]\d{4}
+  exampleNumber: "80021234"
+fixedLine: 
+  nationalNumberPattern: 2\d{7}
+  exampleNumber: "22123456"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{4})(\d{4})

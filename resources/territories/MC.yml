@@ -1,0 +1,33 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[4689]\\d{7,8}"
+  possibleNumberPattern: \d{8,9}
+countryCode: "377"
+mobile: 
+  nationalNumberPattern: "\n          6\\d{8}|\n          4\\d{7}\n        "
+  exampleNumber: "612345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: "\n          (?:\n            8\\d|\n            90\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90123456"
+fixedLine: 
+  nationalNumberPattern: 9[2-47-9]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "99123456"
+noInternationalDialling: 
+  nationalNumberPattern: 8\d{7}
+  possibleNumberPattern: \d{8}
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "[89]"
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "4"
+    pattern: (\d{2})(\d{3})(\d{3})
+  - format: $1 $2 $3 $4 $5
+    leadingDigits: "6"
+    pattern: (6)(\d{2})(\d{2})(\d{2})(\d{2})

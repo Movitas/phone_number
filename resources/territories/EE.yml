@@ -1,0 +1,54 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70[0-2]\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "70012345"
+shortCode: 
+  nationalNumberPattern: 1[1-9]\d
+  possibleNumberPattern: \d{3}
+  exampleNumber: "112"
+premiumRate: 
+  nationalNumberPattern: 900\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "9001234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [3-9]\\d{6,7}|\n          800\\d{6,7}\n        "
+  possibleNumberPattern: \d{7,10}
+countryCode: "372"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5\\d|\n            8[1-5]\n          )\\d{6}|\n          5(?:\n            [02]\\d{2}|\n            1(?:\n              [0-8]\\d|\n              95\n            )|\n            5[0-478]\\d|\n            64[0-4]|\n            65[1-589]\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "51234567"
+tollFree: 
+  nationalNumberPattern: "\n          800(?:\n            0\\d{3}|\n            1\\d|\n            [2-9]\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3[23589]|\n            4(?:\n              0\\d|\n              [3-8]\n            )|\n            6\\d|\n            7[1-9]|\n            88\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "3212345"
+noInternationalDialling: 
+  nationalNumberPattern: 800[2-9]\d{3}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "8002123"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: 
+    - "\n            [369]|\n            4[3-8]|\n            5(?:\n              [0-2]|\n              5[0-478]|\n              6[45]\n            )|\n            7[1-9]\n          "
+    - "\n            [369]|\n            4[3-8]|\n            5(?:\n              [02]|\n              1(?:\n                [0-8]|\n                95\n              )|\n              5[0-478]|\n              6(?:\n                4[0-4]|\n                5[1-589]\n              )\n            )|\n            7[1-9]\n          "
+    pattern: ([34-79]\d{2})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "70"
+    pattern: (70)(\d{2})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: 
+    - "800"
+    - "8000"
+    pattern: (8000)(\d{3})(\d{3})
+  - format: $1 $2
+    leadingDigits: 
+    - "\n            40|\n            5|\n            8(?:\n              00|\n              [1-5]\n            )\n          "
+    - "\n            40|\n            5|\n            8(?:\n              00[1-9]|\n              [1-5]\n            )\n          "
+    pattern: ([458]\d{3})(\d{3,4})

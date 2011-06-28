@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[3567]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "224"
+mobile: 
+  nationalNumberPattern: "\n          55\\d{6}|\n          6(?:\n            0(?:\n              2\\d|\n              3[3467]|\n              5[2457-9]\n            )|\n            [24578]\\d{2}|\n            3(?:\n              [14]0|\n              35\n            )\n          )\\d{4}\n        "
+  exampleNumber: "60201234"
+fixedLine: 
+  nationalNumberPattern: "\n          30(?:\n            24|\n            3[12]|\n            4[1-35-7]|\n            5[13]|\n            6[189]|\n            [78]1|\n            9[1478]\n          )\\d{4}\n        "
+  exampleNumber: "30241234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})

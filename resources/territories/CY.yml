@@ -1,0 +1,31 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 700\d{5}
+  exampleNumber: "70012345"
+uan: 
+  nationalNumberPattern: "\n          (?:\n            50|\n            77\n          )\\d{6}\n        "
+  exampleNumber: "77123456"
+premiumRate: 
+  nationalNumberPattern: 90[09]\d{5}
+  exampleNumber: "90012345"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[257-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "357"
+mobile: 
+  nationalNumberPattern: 9[5-79]\d{6}
+  exampleNumber: "96123456"
+sharedCost: 
+  nationalNumberPattern: 80[1-9]\d{5}
+  exampleNumber: "80112345"
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  exampleNumber: "80001234"
+fixedLine: 
+  nationalNumberPattern: 2[2-6]\d{6}
+  exampleNumber: "22345678"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{2})(\d{6})

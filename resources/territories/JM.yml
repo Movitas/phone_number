@@ -1,0 +1,27 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: "\n          5(?:\n            00|\n            33|\n            44\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5002345678"
+leadingDigits: "876"
+premiumRate: 
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9002123456"
+internationalPrefix: "011"
+nationalPrefix: "1"
+generalDesc: 
+  nationalNumberPattern: "[589]\\d{9}"
+  possibleNumberPattern: \d{7}(?:\d{3})?
+countryCode: "1"
+mobile: 
+  nationalNumberPattern: "\n          876(?:\n            (?:\n              2[178]|\n              [348]\\d|\n            )\\d|\n            5(?:\n              27|\n              66|\n              [78]\\d\n            )|\n            7(?:\n              0[07]|\n              7\\d|\n              8[1-47-9]|\n              9[0-36-9]\n            )|\n            9(?:\n              [01]9|\n              9[0579]\n            )\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8762101234"
+tollFree: 
+  nationalNumberPattern: "\n          8(?:\n            00|\n            55|\n            66|\n            77|\n            88\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8002123456"
+fixedLine: 
+  nationalNumberPattern: "\n          876(?:\n            5(?:\n              0[12]|\n              1[0-468]|\n              2[35]|\n              63\n            )|\n            6(?:\n              0[1-3579]|\n              1[027]|\n              2[3-5]|\n              34|\n              [45]0|\n              63|\n              7[05]|\n              8[04]|\n              9[4-9]\n            )\n            7(?:\n              0[2-689]|\n              [1-6]\\d|\n              8[056]|\n              9[45]\n            )|\n            9(?:\n              0[1-8]|\n              1[02378]|\n              [2-8]\\d|\n              9[2-468]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "8765123456"

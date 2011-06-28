@@ -1,0 +1,19 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[23]\\d{8}"
+  possibleNumberPattern: \d{7,9}
+countryCode: "261"
+mobile: 
+  nationalNumberPattern: 3[02-4]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "301234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            0(?:\n              (?:\n                2\\d|\n                4[47]|\n                5[3467]|\n                6[279]|\n                8[268]|\n                9[245]\n              )\\d|\n              7(?:\n                2[29]|\n                [35]\\d\n              )\n            )|\n            210\\d\n          )\\d{4}\n        "
+  exampleNumber: "202123456"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([23]\d)(\d{2})(\d{3})(\d{2})

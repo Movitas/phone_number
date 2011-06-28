@@ -1,0 +1,31 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 90[0239]\d{5}
+  exampleNumber: "90012345"
+nationalPrefix: "8"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[3-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "370"
+mobile: 
+  nationalNumberPattern: 6\d{7}
+  exampleNumber: "61234567"
+nationalPrefixFormattingRule: $NP $FG
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3[1478]|\n            4[124-6]|\n            52\n          )\\d{6}\n        "
+  exampleNumber: "31234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "\n            37|\n            4(?:\n              1|\n              5[45]|\n              6[2-4]\n            )\n          "
+    pattern: ([34]\d)(\d{2})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "\n            3[148]|\n            4(?:\n              [24]|\n              6[09]\n            )|\n            5(?:\n              [0189]|\n              28\n            )|\n            [689]\n          "
+    pattern: ([3-689]\d{2})(\d{2})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: 52[0-79]
+    pattern: (5)(2[0-79]\d)(\d{4})

@@ -1,0 +1,35 @@
+--- 
+preferredInternationalPrefix: "00"
+nationalPrefix: "0"
+internationalPrefix: 00[12]?
+generalDesc: 
+  nationalNumberPattern: "\n          [2-79]\\d{5,9}|\n          1\\d{9}|\n          8[0-7]\\d{4,8}\n        "
+  possibleNumberPattern: \d{6,10}
+countryCode: "880"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            1[13-9]\\d|\n            (?:\n              3[78]|\n              44\n            )[02-9]|\n            6(?:\n              44|\n              6[02-9]\n            )\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1812345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 80[03]\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n               2(?:\n                 7\\d1|\n                 8(?:\n                   [026]1|\n                   [1379][1-5]|\n                   8[1-8]\n                 )|\n                 9(?:\n                   0[0-2]|\n                   1[1-4]|\n                   3[3-5]|\n                   5[56]|\n                   6[67]|\n                   71|\n                   8[078]\n                 )\n               )\\d{4}|\n               3(?:\n                 [6-8]1|\n                 (?:\n                   0[23]|\n                   [25][12]|\n                   82|\n                   416\n                 )\\d|\n                 (?:\n                   31|\n                   12?[5-7]\n                 )\\d{2}\n               )\\d{3}|\n               4(?:\n                 (?:\n                   02|\n                   [49]6|\n                   [68]1\n                 )|\n                 (?:\n                   0[13]|\n                   21\\d? |\n                   [23]2|\n                   [457][12]|\n                   6[28]\n                 )\\d|\n                 (?:\n                   23|\n                   [39]1\n                 )\\d{2}|\n                 1\\d{3}\n               )\\d{3}|\n               5(?:\n                 (?:\n                   [457-9]1|\n                   62\n                 )|\n                 (?:\n                   1\\d? |\n                   2[12]|\n                   3[1-3]|\n                   52\n                 )\\d|\n                 61{2}\n               )|\n               6(?:\n                 [45]1|\n                 (?:\n                   11|\n                   2[15]|\n                   [39]1\n                 )\\d|\n                 (?:\n                   [06-8]1|\n                   62\n                 )\\d{2}\n               )|\n               7(?:\n                 (?:\n                   32|\n                   91\n                 )|\n                 (?:\n                   02|\n                   31|\n                   [67][12]\n                 )\\d|\n                 [458]1\\d{2}|\n                 21\\d{3}\n               )\\d{3}|\n               8(?:\n                 (?:\n                   4[12]|\n                   [5-7]2|\n                   1\\d?\n                 )|\n                 (?:\n                   0|\n                   3[12]|\n                   [5-7]1|\n                   217\n                 )\\d\n               )\\d{4}|\n               9(?:\n                 [35]1|\n                 (?:\n                   [024]2|\n                   81\n                 )\\d|\n                 (?:\n                   1|\n                   [24]1\n                 )\\d{2}\n               )\\d{3}\n             "
+  possibleNumberPattern: \d{6,9}
+  exampleNumber: "27111234"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "2"
+    pattern: (2)(\d{7})
+  - format: $1 $2
+    leadingDigits: "[3-79]1"
+    pattern: (\d{2})(\d{4,6})
+  - format: $1 $2
+    leadingDigits: "\n            [3-79][2-9]|\n            8\n          "
+    pattern: (\d{3})(\d{3,7})
+  - format: $1 $2
+    leadingDigits: "1"
+    pattern: (\d{4})(\d{6})

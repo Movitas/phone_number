@@ -1,0 +1,26 @@
+--- 
+shortCode: 
+  nationalNumberPattern: 1\d{2}
+  possibleNumberPattern: \d{3}
+  exampleNumber: "177"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[12569]\\d{6,7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "965"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5(?:\n              0[0-2]|\n              5\\d\n            )|\n            6(?:\n              0[034679]|\n              5[015-9]|\n              6\\d|\n              7[067]|\n              99\n            )|\n            9(?:\n              0[09]|\n              4[049]|\n              66|\n              [79]\\d\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "50012345"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            18\\d|\n            2(?:\n              [23]\\d{2}|\n              4[1-35-9]\\d|\n              5(?:\n                0[034]|\n                [2-46]\\d|\n                5[1-3]|\n                7[1-7]\n              )\n            )\n          )\\d{4}\n        "
+  exampleNumber: "22345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[1269]"
+    pattern: (\d{4})(\d{3,4})
+  - format: $1 $2
+    leadingDigits: "5"
+    pattern: (5[05]\d)(\d{5})

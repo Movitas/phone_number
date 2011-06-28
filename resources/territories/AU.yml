@@ -1,0 +1,63 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 500\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "500123456"
+voip: 
+  nationalNumberPattern: 550\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "550123456"
+preferredInternationalPrefix: "0011"
+premiumRate: 
+  nationalNumberPattern: 190[0126]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1900123456"
+nationalPrefix: "0"
+internationalPrefix: (?:14(?:1[14]|34|4[17]|[56]6|7[47]|88))?001[14-689]
+generalDesc: 
+  nationalNumberPattern: "[1-578]\\d{5,9}"
+  possibleNumberPattern: \d{6,10}
+mainCountryForCode: "true"
+countryCode: "61"
+mobile: 
+  nationalNumberPattern: "\n          4(?:\n            [0-2]\\d|\n            3[0-57-9]|\n            4[47-9]|\n            5[0-37-9]|\n            6[6-9]|\n            7[07-9]|\n            8[7-9]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "412345678"
+tollFree: 
+  nationalNumberPattern: "\n          1(?:\n            80(?:\n              0\\d{2}\n            )? |\n            3(?:\n              00\\d{2}\n            )?\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{6,10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          [237]\\d{8}|\n          8(?:\n            [68]\\d{3}|\n            7[1-4]\\d{2}|\n            9(?:\n              [02-9]\\d{2}|\n              1(?:\n                [0-57-9]\\d|\n                6[0135-9]\n              )\n            )\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "212345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[2378]"
+    pattern: ([2378])(\d{4})(\d{4})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2 $3
+    leadingDigits: "4"
+    pattern: (4\d{2})(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: "5"
+    pattern: (5[05]0)(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: 
+    - "\n            1(?:\n              [38]0|\n              9\n            )\n          "
+    - "\n            1(?:\n              [38]00|\n              9\n            )\n          "
+    pattern: (1[389]\d{2})(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $FG
+  - format: $1 $2
+    leadingDigits: 
+    - "180"
+    - 180[1-9]
+    pattern: (180)(\d{4})
+    nationalPrefixFormattingRule: $FG
+  - format: $1 $2 $3
+    leadingDigits: 13[1-9]
+    pattern: (13)(\d{2})(\d{2})
+    nationalPrefixFormattingRule: $FG

@@ -1,0 +1,44 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 900[02]\d{5}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "900234567"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [2-79]\\d{7,8}|\n          800\\d{2,9}\n        "
+  possibleNumberPattern: \d{5,12}
+countryCode: "971"
+mobile: 
+  nationalNumberPattern: 5[056]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "501234567"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 700[05]\d{5}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "700012345"
+tollFree: 
+  nationalNumberPattern: "\n          400\\d{6}|\n          800\\d{2,9}\n        "
+  possibleNumberPattern: \d{5,12}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [2-4679][2-8]\\d|\n            600[25]\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "22345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[2-4679][2-8]"
+    pattern: ([2-4679])(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "5"
+    pattern: (5[056])(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[4679]0"
+    pattern: ([4679]00)(\d)(\d{5})
+    nationalPrefixFormattingRule: $FG
+  - format: $1 $2
+    leadingDigits: "8"
+    pattern: (800)(\d{2,9})
+    nationalPrefixFormattingRule: $FG

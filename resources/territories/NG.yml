@@ -1,0 +1,44 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 700\d{7,11}
+  possibleNumberPattern: \d{10,14}
+  exampleNumber: "7001234567"
+nationalPrefix: "0"
+internationalPrefix: 009
+generalDesc: 
+  nationalNumberPattern: "\n          [1-69]\\d{5,8}|\n          [78]\\d{5,13}\n        "
+  possibleNumberPattern: \d{5,14}
+countryCode: "234"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            70(?:\n              [3-9]\\d|\n              2[1-9]\n            )|\n            8(?:\n              0[2-9]|\n              1[23689]\n            )\\d\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8021234567"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{7,11}
+  possibleNumberPattern: \d{10,14}
+  exampleNumber: "80017591759"
+fixedLine: 
+  nationalNumberPattern: "\n          [12]\\d{6,7}|\n          9\\d{7}|\n          (?:\n            4[023568]|\n            5[02368]|\n            6[02-469]|\n            7[569]|\n            8[2-9]\n          )\\d{6}|\n          (?:\n            4[47]|\n            5[14579]|\n            6[1578]|\n            7[0-357]\n          )\\d{5,6}|\n          (?:\n            78|\n            41\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{5,9}
+  exampleNumber: "12345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[129]"
+    pattern: ([129])(\d{3})(\d{3,4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [3-6]|\n            7(?:\n              [1-79]|\n              0[1-9]\n            )|\n            8[2-9]\n          "
+    pattern: ([3-8]\d)(\d{3})(\d{2,3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            70|\n            8[01]\n          "
+    pattern: ([78]\d{2})(\d{3})(\d{3,4})
+  - format: $1 $2 $3
+    leadingDigits: "[78]00"
+    pattern: ([78]00)(\d{4})(\d{4,5})
+  - format: $1 $2 $3
+    leadingDigits: "[78]00"
+    pattern: ([78]00)(\d{5})(\d{5,6})
+  - format: $1 $2 $3
+    leadingDigits: "78"
+    pattern: (78)(\d{2})(\d{3})

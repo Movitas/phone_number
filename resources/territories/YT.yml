@@ -1,0 +1,18 @@
+--- 
+leadingDigits: 269|63
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[268]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "262"
+mobile: 
+  nationalNumberPattern: 639\d{6}
+  exampleNumber: "639123456"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 80\d{7}
+  exampleNumber: "801234567"
+fixedLine: 
+  nationalNumberPattern: 2696[0-4]\d{4}
+  exampleNumber: "269601234"

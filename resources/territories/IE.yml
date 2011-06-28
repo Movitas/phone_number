@@ -1,0 +1,74 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 700\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "700123456"
+uan: 
+  nationalNumberPattern: 818\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "818123456"
+voip: 
+  nationalNumberPattern: 76\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "761234567"
+premiumRate: 
+  nationalNumberPattern: "\n          15(?:\n            1[2-9]|\n            [2-8]0|\n            59|\n            9[089]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1520123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[124-9]\\d{6,9}"
+  possibleNumberPattern: \d{5,10}
+countryCode: "353"
+mobile: 
+  nationalNumberPattern: "\n          8(?:\n            22\\d{6}|\n            [35-9]\\d{7,8}\n          )\n        "
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "850123456"
+nationalPrefixFormattingRule: ($NP$FG)
+sharedCost: 
+  nationalNumberPattern: 18[59]0\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1850123456"
+tollFree: 
+  nationalNumberPattern: 1800\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          1\\d{7,8}|\n          2(?:\n            1\\d{6,7}|\n            [24-9]\\d{5}|\n            3\\d{5,7}\n          )|\n          4(?:\n            0[24]\\d{5}|\n            [1269]\\d{7}|\n            [34]\\d{5,7}|\n            5\\d{6}|\n            7\\d{5}|\n            8[0-46-9]\\d{7}\n          )|\n          5(?:\n            0[45]\\d{5}|\n            1\\d{6}|\n            2\\d{5,7}|\n            [3679]\\d{7}|\n            8\\d{5}\n          )|\n          6(?:\n            1\\d{6}|\n            4\\d{5,7}|\n            [237-9]\\d{5}|\n            [56]\\d{7}\n          )|\n          7[14]\\d{7}|\n          9(?:\n            1\\d{6}|\n            [04]\\d{7}|\n            [3-9]\\d{5}\n          )\n        "
+  possibleNumberPattern: \d{5,10}
+  exampleNumber: "2212345"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "1"
+    pattern: (1)(\d{3,4})(\d{4})
+  - format: $1 $2
+    leadingDigits: "\n            2[2-9]|\n            4[347]|\n            5[2-58]|\n            6[2-47-9]|\n            9[3-9]\n          "
+    pattern: (\d{2})(\d{5})
+  - format: $1 $2
+    leadingDigits: "\n            40[24]|\n            50[45]\n          "
+    pattern: (\d{3})(\d{5})
+  - format: $1 $2 $3
+    leadingDigits: "48"
+    pattern: (48)(\d{4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "81"
+    pattern: (818)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [24-69]|\n            7[14]\n          "
+    pattern: (\d{2})(\d{3})(\d{3,4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            76|\n            8[35-9]\n          "
+    pattern: ([78]\d)(\d{3,4})(\d{4})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: "70"
+    pattern: (700)(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: 
+    - "\n            1(?:\n              8[059]|\n              5\n            )\n          "
+    - "\n            1(?:\n              8[059]0|\n              5\n            )\n          "
+    pattern: (\d{4})(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $FG

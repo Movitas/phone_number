@@ -1,0 +1,27 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: "\n          5(?:\n            00|\n            33|\n            44\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5002345678"
+leadingDigits: "784"
+premiumRate: 
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9002345678"
+internationalPrefix: "011"
+nationalPrefix: "1"
+generalDesc: 
+  nationalNumberPattern: "[5789]\\d{9}"
+  possibleNumberPattern: \d{7}(?:\d{3})?
+countryCode: "1"
+mobile: 
+  nationalNumberPattern: "\n          784(?:\n            4(?:\n              3[0-4]|\n              5[45]|\n              9[2-5]\n            )|\n            5(?:\n              2[6-9]|\n              3[0-4]|\n              93\n            )\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7844301234"
+tollFree: 
+  nationalNumberPattern: "\n          8(?:\n            00|\n            55|\n            66|\n            77|\n            88\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8002345678"
+fixedLine: 
+  nationalNumberPattern: "\n          784(?:\n            266|\n            3(?:\n              6[6-9]|\n              7\\d|\n              8[0-24-6]\n            )|\n            4(?:\n              38|\n              5[0-36-8]|\n              8\\d|\n              9[01]\n            )|\n            555|\n            638|\n            784\n          )\\d{4}\n        "
+  exampleNumber: "7842661234"

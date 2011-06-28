@@ -1,0 +1,18 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-578]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "673"
+mobile: 
+  nationalNumberPattern: "[78]\\d{6}"
+  exampleNumber: "7123456"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "[2-5]\\d{6}"
+  exampleNumber: "2345678"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: ([2-578]\d{2})(\d{4})

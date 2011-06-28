@@ -1,0 +1,22 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: "\n          50(?:\n            0(?:\n              3[1679]|\n              4\\d\n            )|\n            [169]\\d{2}|\n            7[06]\\d\n          )\\d{3}\n        "
+  exampleNumber: "50031234"
+internationalPrefix: "00"
+pager: 
+  nationalNumberPattern: 7117\d{4}
+  exampleNumber: "71171234"
+generalDesc: 
+  nationalNumberPattern: "[2579]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "356"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            7(?:\n              210|\n              [79]\\d{2}|\n            )|\n            9(?:\n              2[13]\\d|\n              696|\n              8(?:\n                1[1-3]|\n                89|\n                97\n              )|\n              9\\d{2}\n            )\n          )\\d{4}\n        "
+  exampleNumber: "96961234"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            0(?:\n              1[0-6]|\n              [69]\\d\n            )|\n            [1-357]\\d{2}\n          )\\d{4}\n        "
+  exampleNumber: "21001234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{4})(\d{4})

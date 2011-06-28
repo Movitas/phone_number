@@ -1,0 +1,30 @@
+--- 
+leadingZeroPossible: "true"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[02-8]\\d{4,6}"
+  possibleNumberPattern: \d{5,7}
+countryCode: "676"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            7[578]|\n            8[7-9]\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "7715123"
+tollFree: 
+  nationalNumberPattern: 0800\d{3}
+  possibleNumberPattern: \d{7}
+  exampleNumber: 0800222
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2\\d|\n            3[1-8]|\n            4[1-4]|\n            [56]0|\n            7[0149]|\n            8[05]\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{5}
+  exampleNumber: "20123"
+availableFormats: 
+  numberFormat: 
+  - format: $1-$2
+    leadingDigits: "\n            [1-6]|\n            7[0-4]|\n            8[05]\n          "
+    pattern: (\d{2})(\d{3})
+  - format: $1 $2
+    leadingDigits: "\n            7[5-9]|\n            8[7-9]\n          "
+    pattern: (\d{3})(\d{4})
+  - format: $1 $2
+    leadingDigits: "0"
+    pattern: (\d{4})(\d{3})

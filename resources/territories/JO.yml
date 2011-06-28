@@ -1,0 +1,48 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "700123456"
+uan: 
+  nationalNumberPattern: "\n          8(?:\n            10|\n            [78]\\d\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "87101234"
+premiumRate: 
+  nationalNumberPattern: 900\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90012345"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[235-9]\\d{7,8}"
+  possibleNumberPattern: \d{7,9}
+countryCode: "962"
+mobile: 
+  nationalNumberPattern: "\n          7(?:\n            [1-8]\\d|\n            9[02-9]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "790123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 85\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "85012345"
+tollFree: 
+  nationalNumberPattern: 80\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "[2356][2-8]\\d{6}"
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "62001234"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            [2356]\n          "
+    pattern: (\d)(\d{3})(\d{4})
+    nationalPrefixFormattingRule: ($NP$FG)
+  - format: $1 $2 $3 $4 $5
+    leadingDigits: 7[457-9]
+    pattern: (7)(\d{2})(\d{2})(\d{2})(\d{2})
+  - format: $1 $2
+    leadingDigits: "\n            70|\n            [89]\n          "
+    pattern: (\d{3})(\d{5,6})

@@ -1,0 +1,33 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 900\d{4}(?:\d{4})?
+  possibleNumberPattern: \d{7}(?:\d{4})?
+  exampleNumber: "9001234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [27]\\d{7}|\n          [89]\\d{6}(?:\\d{4})?\n        "
+  possibleNumberPattern: "\n          \\d{7,8}|\n          \\d{11}\n        "
+countryCode: "503"
+mobile: 
+  nationalNumberPattern: 7\d{7}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "70123456"
+tollFree: 
+  nationalNumberPattern: 800\d{4}(?:\d{4})?
+  possibleNumberPattern: \d{7}(?:\d{4})?
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: 2[1-6]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "21234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[27]"
+    pattern: (\d{4})(\d{4})
+  - format: $1 $2
+    leadingDigits: "[89]"
+    pattern: (\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[89]"
+    pattern: (\d{3})(\d{4})(\d{4})

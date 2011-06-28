@@ -1,0 +1,39 @@
+--- 
+uan: 
+  nationalNumberPattern: "\n          10[1-9]\\d{3,7}|\n          2(?:\n            0(?:\n              [16-8]\\d{3,7}|\n              2[14-9]\\d{1,6}|\n              [3-5]\\d{2,7}|\n              9[0-7]\\d{1,6}\n            )|\n            9\\d{4,8}\n          )|\n          30[1-9]\\d{3,7}|\n          7(?:\n            1\\d{7}|\n            3\\d{8}|\n            5[03-9]\\d{2,7}\n          )\n        "
+  possibleNumberPattern: \d{5,10}
+  exampleNumber: "10112345"
+premiumRate: 
+  nationalNumberPattern: "[67]00\\d{5,6}"
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "600123456"
+nationalPrefix: "0"
+internationalPrefix: 00|99[049]
+generalDesc: 
+  nationalNumberPattern: "\n          1\\d{4,11}|\n          [2-9]\\d{4,10}\n        "
+  possibleNumberPattern: \d{5,12}
+mainCountryForCode: "true"
+countryCode: "358"
+mobile: 
+  nationalNumberPattern: "\n          4\\d{5,10}|\n          50\\d{4,8}\n        "
+  possibleNumberPattern: \d{6,11}
+  exampleNumber: "412345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{4,7}
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n          1(?:\n            [3569][1-8]\\d{3,9}|\n            [47]\\d{5,10}\n          )|\n          2[1-8]\\d{3,9}|\n          3(?:\n            [1-8]\\d{3,9}|\n            9\\d{4,8}\n          )|\n          [5689][1-8]\\d{3,9}\n        "
+  exampleNumber: "1312345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "\n            2[09]|\n            [14]|\n            50|\n            7[135]\n          "
+    pattern: (\d{2})(\d{4,10})
+  - format: $1 $2
+    leadingDigits: "\n            [25689][1-8]|\n            3\n          "
+    pattern: (\d)(\d{4,11})
+  - format: $1 $2
+    leadingDigits: "[6-8]0"
+    pattern: ([6-8]00)(\d{4,7})

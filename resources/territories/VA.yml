@@ -1,0 +1,17 @@
+--- 
+leadingZeroPossible: "true"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: 06\d{8}
+  possibleNumberPattern: \d{10}
+countryCode: "379"
+mobile: 
+  nationalNumberPattern: N/A
+  possibleNumberPattern: N/A
+fixedLine: 
+  nationalNumberPattern: 06698\d{5}
+  exampleNumber: 0669812345
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (06)(\d{4})(\d{4})

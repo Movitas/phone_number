@@ -1,0 +1,19 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[56]\\d{8}"
+  possibleNumberPattern: \d{9}
+mainCountryForCode: "true"
+countryCode: "590"
+mobile: 
+  nationalNumberPattern: "\n          690(?:\n            00|\n            1[1-9]|\n            2[013-5]|\n            [3-5]\\d|\n            6[0-57-9]|\n            7[1-6]|\n            8[0-6]|\n            9[09]\n          )\\d{4}\n        "
+  exampleNumber: "690301234"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          590(?:\n            1[12]|\n            2[0-68]|\n            3[28]|\n            4[126-8]|\n            5[067]|\n            6[018]|\n            [89]\\d\n          )\\d{4}\n        "
+  exampleNumber: "590201234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2-$3
+    pattern: ([56]90)(\d{2})(\d{4})

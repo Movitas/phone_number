@@ -1,0 +1,41 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 9200\d{7}
+  possibleNumberPattern: \d{11}
+  exampleNumber: "92001234567"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{7,10}"
+  possibleNumberPattern: \d{7,11}
+countryCode: "966"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5[013-69]\\d|\n            8111\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "512345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[24-7]|\n            2[24-8]|\n            3[35-8]|\n            4[34-68]|\n            6[2-5]|\n            7[235-7]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "12345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[1-467]"
+    pattern: ([1-467])(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "9"
+    pattern: (9200)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "5"
+    pattern: (5\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "80"
+    pattern: (800)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "81"
+    pattern: (8111)(\d{3})(\d{3})

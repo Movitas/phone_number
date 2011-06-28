@@ -1,0 +1,25 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            87|\n            9[014578]\n          )\\d{6}\n        "
+  exampleNumber: "90123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[136-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "973"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            3(?:\n              [369]\\d|\n              77|\n              8[38]\n            )|\n            6(?:\n              1[16]|\n              6[03469]|\n              9[69]\n            )|\n            77\\d\n          )\\d{5}\n        "
+  exampleNumber: "36001234"
+sharedCost: 
+  nationalNumberPattern: 84\d{6}
+  exampleNumber: "84123456"
+tollFree: 
+  nationalNumberPattern: 80\d{6}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1(?:\n              3[3-6]|\n              6[0156]|\n              7\\d\n            )|\n            6(?:\n              1[16]|\n              6[03469]|\n              9[69]\n            )|\n            77\\d\n          )\\d{5}\n        "
+  exampleNumber: "17001234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{4})(\d{4})

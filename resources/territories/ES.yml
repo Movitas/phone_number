@@ -1,0 +1,31 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70\d{7}
+  exampleNumber: "701234567"
+uan: 
+  nationalNumberPattern: 51\d{7}
+  exampleNumber: "511234567"
+premiumRate: 
+  nationalNumberPattern: 80[367]\d{6}
+  exampleNumber: "803123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[5-9]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "34"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            6\\d|\n            7[1-4]\n          )\\d{7}\n        "
+  exampleNumber: "612345678"
+sharedCost: 
+  nationalNumberPattern: 90[12]\d{6}
+  exampleNumber: "901123456"
+tollFree: 
+  nationalNumberPattern: "[89]00\\d{6}"
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            8(?:\n              [13]0|\n              [28][0-8]|\n              [47][1-9]|\n              5[01346-9]|\n              6[0457-9]\n            )|\n            9(?:\n              [1238][0-8]|\n              [47][1-9]|\n              [56]\\d\n            )\n          )\\d{6}\n        "
+  exampleNumber: "810123456"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([5-9]\d{2})(\d{2})(\d{2})(\d{2})

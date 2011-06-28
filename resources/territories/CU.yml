@@ -1,0 +1,27 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "119"
+generalDesc: 
+  nationalNumberPattern: "[2-57]\\d{5,7}"
+  possibleNumberPattern: \d{4,8}
+countryCode: "53"
+mobile: 
+  nationalNumberPattern: 5\d{7}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "51234567"
+nationalPrefixFormattingRule: ($NP$FG)
+fixedLine: 
+  nationalNumberPattern: "\n          2[1-4]\\d{5,6}|\n          3(?:\n            1\\d{6}|\n            [23]\\d{4,6})|\n          4(?:\n            [125]\\d{5,6}|\n            [36]\\d{6}|\n            [78]\\d{4,6})|\n          7\\d{6,7}\n        "
+  exampleNumber: "71234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "7"
+    pattern: (\d)(\d{6,7})
+  - format: $1 $2
+    leadingDigits: "[2-4]"
+    pattern: (\d{2})(\d{4,6})
+  - format: $1 $2
+    leadingDigits: "5"
+    pattern: (\d)(\d{7})
+    nationalPrefixFormattingRule: $NP$FG

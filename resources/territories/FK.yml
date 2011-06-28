@@ -1,0 +1,15 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1\\d{2}|\n          999\n        "
+  exampleNumber: "123"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-7]\\d{4}"
+  possibleNumberPattern: \d{5}
+countryCode: "500"
+mobile: 
+  nationalNumberPattern: "[56]\\d{4}"
+  exampleNumber: "51234"
+fixedLine: 
+  nationalNumberPattern: "[2-47]\\d{4}"
+  exampleNumber: "31234"

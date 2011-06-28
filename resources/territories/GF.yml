@@ -1,0 +1,18 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[56]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "594"
+mobile: 
+  nationalNumberPattern: "\n          694(?:\n            [04][0-7]|\n            1[0-5]|\n            2[0-46-9]|\n            38|\n            9\\d\n          )\\d{4}\n        "
+  exampleNumber: "694201234"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          594(?:\n            10|\n            2[012457-9]|\n            3[0-57-9]|\n            4[3-9]|\n            5[7-9]|\n            6[0-3]|\n            9[014]\n          )\\d{4}\n        "
+  exampleNumber: "594101234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{3})(\d{2})(\d{2})(\d{2})

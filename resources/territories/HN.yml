@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[237-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "504"
+mobile: 
+  nationalNumberPattern: "[37-9]\\d{7}"
+  exampleNumber: "91234567"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            2(?:\n              0[019]|\n              1[1-36]|\n              [23]\\d|\n              4[056]|\n              5[57]|\n              9[01]\n            )|\n            4(?:\n              2|3-59]|\n              3[13-689]|\n              4[0-68]|\n              5[1-35]\n            )|\n            5(?:\n              4[3-5]|\n              5\\d|\n              6[56]|\n              74\n            )|\n            6(?:\n              4[0-378]|\n              [56]\\d|\n              [78][0-8]|\n              9[01]\n            )|\n            7(?:\n              6[46-9]|\n              7[02-9]|\n              8[34]\n            )|\n            8(?:\n              79|\n              8[0-35789]|\n              9[1-57-9]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "22123456"
+availableFormats: 
+  numberFormat: 
+    format: $1-$2
+    pattern: (\d{4})(\d{4})

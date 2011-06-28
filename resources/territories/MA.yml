@@ -1,0 +1,38 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 89\d{7}
+  exampleNumber: "891234567"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[5689]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "212"
+mobile: 
+  nationalNumberPattern: "\n          6(?:\n            0[06]|\n            [14-7]\\d|\n            2[236]|\n            33|\n            99\n          )\\d{6}\n        "
+  exampleNumber: "650123456"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 80\d{7}
+  exampleNumber: "801234567"
+fixedLine: 
+  nationalNumberPattern: "\n          5(?:\n            2(?:\n              (?:\n                [015-7]\\d|\n                2[2-9]|\n                3[2-57]|\n                4[2-8]|\n                8[235-9]|\n              )\\d|\n              9(?:\n                0\\d|\n                [89]0\n              )\n            )|\n            3(?:\n              (?:\n                [0-4]\\d|\n                [57][2-9]|\n                6[235-8]|\n                9[3-9]\n              )\\d|\n              8(?:\n                0\\d|\n                [89]0\n              )\n            )\n          )\\d{4}\n        "
+  exampleNumber: "520123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1-$2
+    leadingDigits: "\n            5(?:\n              2[015-7]|\n              3[0-4]\n            )|\n            6\n          "
+    pattern: ([56]\d{2})(\d{6})
+  - format: $1-$2
+    leadingDigits: 
+    - "\n            5(?:\n              2[2-489]|\n              3[5-9]\n            )|\n            892\n          "
+    - "\n            5(?:\n              2(?:\n                [2-48]|\n                90\n              )|\n              3(?:\n                [5-79]|\n                80\n              )\n            )|\n            892\n          "
+    pattern: ([58]\d{3})(\d{5})
+  - format: $1-$2
+    leadingDigits: 
+    - "\n            5(?:\n              29|\n              38\n            )\n          "
+    - "\n            5(?:\n              29|\n              38\n            )[89]\n          "
+    pattern: (5\d{4})(\d{4})
+  - format: $1-$2
+    leadingDigits: "\n            8(?:\n              0|\n              9[013-9]\n            )\n          "
+    pattern: (8[09])(\d{7})

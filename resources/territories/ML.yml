@@ -1,0 +1,20 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[246-8]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "223"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            6(?:\n              [569]\\d\n            )|\n            7(?:\n              [08][1-9]|\n              [3579][0-4]|\n              4[014-7]|\n              6\\d\n            )\n          )\\d{5}\n        "
+  exampleNumber: "65012345"
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              0(?:\n                2[0-589]|\n                7[027-9]\n              )|\n              1(?:\n                2[5-7]|\n                [3-689]\\d\n              )\n            )|\n            442\\d\n          )\\d{4}\n        "
+  exampleNumber: "20212345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([246-8]\d)(\d{2})(\d{2})(\d{2})

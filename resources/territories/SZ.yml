@@ -1,0 +1,25 @@
+--- 
+leadingZeroPossible: "true"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[027]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "268"
+mobile: 
+  nationalNumberPattern: 7[6-8]\d{6}
+  exampleNumber: "76123456"
+tollFree: 
+  nationalNumberPattern: 0800\d{4}
+  exampleNumber: 08001234
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            2(?:\n              0[07]|\n              [13]7|\n              2[57]\n            )|\n            3(?:\n              0[34]|\n              [1278]3|\n              3[23]|\n              [46][34]\n            )|\n            (?:\n              40[4-69]|\n              67\n            )|\n            5(?:\n              0[5-7]|\n              1[6-9]|\n              [23][78]|\n              48|\n              5[01]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "22171234"
+noInternationalDialling: 
+  nationalNumberPattern: 0800\d{4}
+  possibleNumberPattern: \d{8}
+  exampleNumber: 08001234
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    leadingDigits: "[027]"
+    pattern: (\d{4})(\d{4})

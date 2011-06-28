@@ -1,0 +1,30 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 9\d{5}
+  possibleNumberPattern: \d{6}
+  exampleNumber: "912345"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          (?:\n            [346-9]|\n            180\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{6,8}
+countryCode: "376"
+mobile: 
+  nationalNumberPattern: "[346]\\d{5}"
+  possibleNumberPattern: \d{6}
+  exampleNumber: "312345"
+tollFree: 
+  nationalNumberPattern: 180[02]\d{4}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "18001234"
+fixedLine: 
+  nationalNumberPattern: "[78]\\d{5}"
+  possibleNumberPattern: \d{6}
+  exampleNumber: "712345"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[346-9]"
+    pattern: (\d{3})(\d{3})
+  - format: $1 $2
+    leadingDigits: "1"
+    pattern: (180[02])(\d{4})

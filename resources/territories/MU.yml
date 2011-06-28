@@ -1,0 +1,23 @@
+--- 
+preferredInternationalPrefix: "020"
+premiumRate: 
+  nationalNumberPattern: 30\d{5}
+  exampleNumber: "3012345"
+internationalPrefix: 0(?:[2-7]0|33)
+generalDesc: 
+  nationalNumberPattern: "[2-9]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "230"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            25\\d|\n            4(?:\n              2[12389]|\n              9\\d\n            )|\n            7\\d{2}|\n            87[15-7]|\n            9[1-8]\\d\n          )\\d{4}\n        "
+  exampleNumber: "2512345"
+tollFree: 
+  nationalNumberPattern: 80[012]\d{4}
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              [034789]\\d|\n              1[0-8]|\n              2[0-79]\n            )|\n            4(?:\n              [013-8]\\d|\n              2[4-7]\n            )|\n            [56]\\d{2}|\n            8(?:\n              14|\n              3[129]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "2012345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: ([2-9]\d{2})(\d{4})

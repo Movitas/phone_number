@@ -1,0 +1,20 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[235]\\d{6,8}"
+  possibleNumberPattern: \d{7,9}
+countryCode: "233"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            2[034678]|\n            5[47]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "231234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          3(?:\n            0[237]\\d|\n            [167](?:\n              2[0-6]|\n              7\\d\n            )|\n            2(?:\n              2[0-5]|\n              7\\d\n            )|\n            3(?:\n              2[0-37]|\n              7\\d\n            )|\n            4(?:\n              [27]\\d|\n              30\n            )|\n            5(?:\n              2[0-7]|\n              7\\d\n            )|\n            8(?:\n              2[0-2]|\n              7\\d\n            )|\n            9(?:\n              20|\n              7\\d\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "302345678"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d{2})(\d{3})(\d{4})

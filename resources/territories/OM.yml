@@ -1,0 +1,29 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          (?:\n            2[3-6]|\n            5|\n            9[2-9]\n          )\\d{6}|\n          800\\d{5,6}\n        "
+  possibleNumberPattern: \d{7,9}
+countryCode: "968"
+mobile: 
+  nationalNumberPattern: 9[2-9]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "92123456"
+tollFree: 
+  nationalNumberPattern: "\n          8007\\d{4,5}|\n          500\\d{4}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "80071234"
+fixedLine: 
+  nationalNumberPattern: 2[3-6]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "23123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "2"
+    pattern: (2\d)(\d{6})
+  - format: $1 $2
+    leadingDigits: "9"
+    pattern: (9\d{3})(\d{4})
+  - format: $1 $2
+    leadingDigits: "[58]"
+    pattern: ([58]00)(\d{4,6})

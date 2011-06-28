@@ -1,0 +1,19 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[25679]\\d{8}"
+  possibleNumberPattern: \d{7,9}
+countryCode: "218"
+mobile: 
+  nationalNumberPattern: 9[1-6]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "912345678"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[1345]|\n            5[1347]|\n            6[123479]|\n            71\n          )\\d{7}\n        "
+  exampleNumber: "212345678"
+availableFormats: 
+  numberFormat: 
+    format: $1-$2
+    pattern: ([25679]\d)(\d{7})

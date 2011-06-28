@@ -1,0 +1,48 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70\d{8}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7012345678"
+shortCode: 
+  nationalNumberPattern: "\n          1\\d{2}(?:\\d{3})?|\n          999\n        "
+  possibleNumberPattern: \d{3,6}
+  exampleNumber: "150"
+uan: 
+  nationalNumberPattern: "\n          3(?:\n            08162\\d|\n            3\\d{5}|\n            4(?:\n              40[49]06|\n              5624\\d\n            )|\n            7(?:\n              0624\\d|\n              2299\\d\n            )\n          )\\d{3}|\n          55\\d{8}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5512345678"
+voip: 
+  nationalNumberPattern: 56\d{8}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5612345678"
+preferredExtnPrefix: " x"
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            872299|\n            90[0167]624\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9016247890"
+areaCodeOptional: 
+  nationalNumberPattern: 1624[2-9]\d{5}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1624250123"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[135789]\\d{6,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "44"
+mobile: 
+  nationalNumberPattern: 7[569]24\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7924123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: "\n          8(?:\n            4(?:\n              40[49]06|\n              5624\\d\n            )|\n            70624\\d\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8456247890"
+tollFree: 
+  nationalNumberPattern: 808162\d{4}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8081624567"
+fixedLine: 
+  nationalNumberPattern: 1624\d{6}
+  exampleNumber: "1624456789"

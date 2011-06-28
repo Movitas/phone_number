@@ -1,0 +1,29 @@
+--- 
+nationalPrefixForParsing: (1\d{2})|0
+premiumRate: 
+  nationalNumberPattern: 900\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9001234567"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[24589]\\d{9}"
+  possibleNumberPattern: \d{7,10}
+countryCode: "58"
+mobile: 
+  nationalNumberPattern: "\n          4(?:\n            1[24-8]|\n            2[46]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "4121234567"
+nationalPrefixFormattingRule: $NP$FG
+carrierCodeFormattingRule: $CC $FG
+tollFree: 
+  nationalNumberPattern: 800\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              12|\n              3[457-9]|\n              [58][1-9]|\n              [467]\\d|\n              9[1-6]\n            )|\n            50[01]\n          )\\d{7}\n        "
+  exampleNumber: "2121234567"
+availableFormats: 
+  numberFormat: 
+    format: $1-$2
+    pattern: (\d{3})(\d{7})

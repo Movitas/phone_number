@@ -1,0 +1,42 @@
+--- 
+voip: 
+  nationalNumberPattern: 780\d{6,10}
+  possibleNumberPattern: \d{9,13}
+  exampleNumber: "780123456"
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            711|\n            9(?:\n              0[01]|\n              3[019]\n            )\n          )\\d{6,10}\n        "
+  possibleNumberPattern: \d{9,13}
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: \d{4,13}
+  possibleNumberPattern: \d{3,13}
+countryCode: "43"
+mobile: 
+  nationalNumberPattern: "\n          6(?:\n            44|\n            5[0-3579]|\n            6[013-9]|\n            [7-9]\\d\n          )\\d{4,10}\n        "
+  possibleNumberPattern: \d{7,13}
+  exampleNumber: "644123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: "\n          8(?:\n            10|\n            2[018]\n          )\\d{6,10}\n        "
+  possibleNumberPattern: \d{9,13}
+  exampleNumber: "810123456"
+tollFree: 
+  nationalNumberPattern: 80[02]\d{6,10}
+  possibleNumberPattern: \d{9,13}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          1\\d{3,12}|\n          (?:\n            2(?:\n              1[467]|\n              2[134-8]|\n              5[2357]|\n              6[1-46-8]|\n              7[1-8]|\n              8[124-7]|\n              8[1458]\n            )|\n            3(?:\n              1[1-8]|\n              3[23568]|\n              4[5-7]|\n              5[1378]|\n              6[1-38]|\n              8[3-68]\n            )|\n            4(?:\n              2[1-8]|\n              35|\n              63|\n              7[1368]|\n              8[2457]\n            )|\n            5(?:\n              1[27]|\n              2[1-8]|\n              3[357]|\n              4[147]|\n              5[12578]|\n              6[37]\n            )|\n            6(?:\n              13|\n              2[1-47]|\n              4[1-35-8]|\n              5[468]|\n              62\n            )|\n            7(?:\n              2[1-8]|\n              3[25]|\n              4[13478]|\n              5[68]|\n              6[16-8]|\n              7[1-6]|\n              9[45]\n            )\n          )\\d{3,10}|\n          5(?:\n            0[1-9]|\n            [79]\\d\n          )\\d{2,10}|\n          720\\d{6,10}\n        "
+  exampleNumber: "1234567890"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "\n            1|\n            5[079]\n          "
+    pattern: ([15])(\d{3,12})
+  - format: $1 $2
+    leadingDigits: "\n            316|\n            46|\n            51|\n            732|\n            6(?:\n              44|\n              5[0-3579]|\n              [6-9]\n            )|\n            7(?:\n              1|\n              [28]0\n            )|\n            [89]\n          "
+    pattern: (\d{3})(\d{3,10})
+  - format: $1 $2
+    leadingDigits: "\n            2|\n            3(?:\n              1[1-578]|\n              [3-8]\n            )|\n            4[2378]|\n            5[2-6]|\n            6(?:\n              [12]|\n              4[1-35-9]|\n              5[468]\n            )|\n            7(?:\n              2[1-8]|\n              35|\n              4[1-8]|\n              [57-9]\n            )\n          "
+    pattern: (\d{4})(\d{3,9})

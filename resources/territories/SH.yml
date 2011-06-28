@@ -1,0 +1,18 @@
+--- 
+shortCode: 
+  nationalNumberPattern: 1\d{2,3}
+  possibleNumberPattern: \d{3,4}
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            [59]\\d|\n            7[2-9]\n          )\\d{2}\n        "
+  exampleNumber: "5012"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-9]\\d{3}"
+  possibleNumberPattern: \d{4}
+countryCode: "290"
+mobile: 
+  nationalNumberPattern: NA
+  possibleNumberPattern: NA
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [2-468]\\d|\n            7[01]\n          )\\d{2}\n        "
+  exampleNumber: "2158"

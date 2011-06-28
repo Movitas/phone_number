@@ -1,0 +1,20 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "911"
+  possibleNumberPattern: \d{3}
+  exampleNumber: "911"
+internationalPrefix: 01[12]
+generalDesc: 
+  nationalNumberPattern: "[2-8]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "680"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            6[234689]0|\n            77[45789]\n          )\\d{4}\n        "
+  exampleNumber: "6201234"
+fixedLine: 
+  nationalNumberPattern: "\n          2552255|\n          (?:\n            277|\n            345|\n            488|\n            5(?:\n              35|\n              44|\n              87\n            )|\n            6(?:\n              22|\n              54|\n              79\n            )|\n            7(?:\n              33|\n              47\n            )|\n            8(?:\n              24|\n              55|\n              76\n            )\n          )\\d{4}\n        "
+  exampleNumber: "2771234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

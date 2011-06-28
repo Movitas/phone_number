@@ -1,0 +1,30 @@
+--- 
+leadingDigits: 262|6[49]|8
+premiumRate: 
+  nationalNumberPattern: 89[1-37-9]\d{6}
+  exampleNumber: "891123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[268]\\d{8}"
+  possibleNumberPattern: \d{9}
+mainCountryForCode: "true"
+countryCode: "262"
+mobile: 
+  nationalNumberPattern: "\n          6(?:\n            9[23]|\n            47\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "692123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: "\n          8(?:\n            1[019]|\n            2[0156]|\n            84|\n            90\n          )\\d{6}\n        "
+  exampleNumber: "810123456"
+tollFree: 
+  nationalNumberPattern: 80\d{7}
+  exampleNumber: "801234567"
+fixedLine: 
+  nationalNumberPattern: 262\d{6}
+  exampleNumber: "262161234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([268]\d{2})(\d{2})(\d{2})(\d{2})

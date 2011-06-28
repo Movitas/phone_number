@@ -1,0 +1,26 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 88\d{6}
+  exampleNumber: "88012345"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[237-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "237"
+mobile: 
+  nationalNumberPattern: "[79]\\d{7}"
+  exampleNumber: "71234567"
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            22|\n            33\n          )\\d{6}\n        "
+  exampleNumber: "22123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "\n            [2379]|\n            88\n          "
+    pattern: ([237-9]\d)(\d{2})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "80"
+    pattern: (800)(\d{2})(\d{3})

@@ -1,0 +1,34 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 878\d{6}
+  exampleNumber: "878123456"
+premiumRate: 
+  nationalNumberPattern: 90[016]\d{6}
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-9]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "41"
+mobile: 
+  nationalNumberPattern: 7[46-9]\d{7}
+  exampleNumber: "741234567"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 84[0248]\d{6}
+  exampleNumber: "840123456"
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[12467]|\n            3[1-4]|\n            4[134]|\n            5[12568]|\n            6[12]|\n            [7-9]1\n          )\\d{7}\n        "
+  exampleNumber: "212345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "\n            [2-7]|\n            [89]1\n          "
+    pattern: ([2-9]\d)(\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "\n            8[047]|\n            90\n          "
+    pattern: ([89]\d{2})(\d{3})(\d{3})

@@ -1,0 +1,32 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 9[01]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[13-9]\\d{6,7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "961"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            3\\d|\n            7(?:\n              [01]\\d|\n              6[67]\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "71123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 8[01]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [14-6]\\d{2}|\n            7(?:\n              [2-57-9]\\d|\n              62)|\n            [89][2-9]\\d\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "1123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            [13-6]|\n            7(?:\n              [2-57-9]|\n              62)|\n            [89][2-9]\n            "
+    pattern: (\d)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [89][01]|\n            7(?:\n              [01]|\n              6[67])\n          "
+    pattern: ([7-9]\d)(\d{3})(\d{3})

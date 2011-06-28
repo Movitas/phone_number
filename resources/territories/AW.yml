@@ -1,0 +1,25 @@
+--- 
+voip: 
+  nationalNumberPattern: "\n          28\\d{5}|\n          501\\d{4}\n        "
+  exampleNumber: "5011234"
+premiumRate: 
+  nationalNumberPattern: 900\d{4}
+  exampleNumber: "9001234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[25-9]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "297"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5(?:\n              6\\d|\n              9[2-478]\n            )|\n            6(?:\n              [039]0|\n              22|\n              [46][01]\n            )|\n            7[34]\\d|\n            9(?:\n              6[45]|\n              9[4-8]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "5601234"
+tollFree: 
+  nationalNumberPattern: 800\d{4}
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: "\n          5(?:\n            2\\d|\n            8[1-9]\n          )\\d{4}\n        "
+  exampleNumber: "5212345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

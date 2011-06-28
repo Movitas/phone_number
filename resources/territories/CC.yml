@@ -1,0 +1,32 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 500\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "500123456"
+voip: 
+  nationalNumberPattern: 550\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "550123456"
+preferredInternationalPrefix: "0011"
+premiumRate: 
+  nationalNumberPattern: 190[0126]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1900123456"
+nationalPrefix: "0"
+internationalPrefix: (?:14(?:1[14]|34|4[17]|[56]6|7[47]|88))?001[14-689]
+generalDesc: 
+  nationalNumberPattern: "[1458]\\d{5,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "61"
+mobile: 
+  nationalNumberPattern: "\n          4(?:\n            [0-2]\\d|\n            3[0-57-9]|\n            4[47-9]|\n            5[0-37-9]|\n            6[6-9]|\n            7[07-9]|\n            8[7-9]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "412345678"
+tollFree: 
+  nationalNumberPattern: "\n          1(?:\n            80(?:\n              0\\d{2}\n            )? |\n            3(?:\n              00\\d{2}\n            )?\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{6,10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: 89162\d{4}
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "891621234"

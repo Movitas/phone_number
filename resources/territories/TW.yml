@@ -1,0 +1,33 @@
+--- 
+preferredExtnPrefix: "#"
+premiumRate: 
+  nationalNumberPattern: 900\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: 0(?:0[25679]|19)
+generalDesc: 
+  nationalNumberPattern: "[2-9]\\d{7,8}"
+  possibleNumberPattern: \d{8,9}
+countryCode: "886"
+mobile: 
+  nationalNumberPattern: 9\d{8}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "912345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "[2-8]\\d{7,8}"
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "21234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            [2-7]|\n            8[1-9]\n          "
+    pattern: ([2-8])(\d{3,4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            80|\n            9\n          "
+    pattern: ([89]\d{2})(\d{3})(\d{3})

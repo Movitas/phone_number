@@ -1,0 +1,22 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[13-59]\\d{6,7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "252"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            9[01]|\n            15\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90792024"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            5[57-9]|\n            [134]\\d\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "5522010"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[13-5]"
+    pattern: ([13-5])(\d{6})
+  - format: $1 $2
+    leadingDigits: 15|9
+    pattern: ([19]\d)(\d{6})

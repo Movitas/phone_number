@@ -1,0 +1,35 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 9[01]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90123456"
+nationalPrefix: "06"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: \d{8,9}
+  possibleNumberPattern: \d{6,9}
+countryCode: "36"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            [27]0|\n            3[01]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "201234567"
+nationalPrefixFormattingRule: ($FG)
+sharedCost: 
+  nationalNumberPattern: 40\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "40123456"
+tollFree: 
+  nationalNumberPattern: 80\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1\\d|\n            2(?:\n              1\\d|\n              [2-9]\n            )|\n            3[2-7]|\n            4[24-9]|\n            5[2-79]|\n            6[23689]|\n            7(?:\n              1\\d|\n              [2-9]\n            )|\n            8[2-57-9]|\n            9[2-69]\n          )\\d{6}\n        "
+  exampleNumber: "12345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "1"
+    pattern: (1)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[2-9]"
+    pattern: (\d{2})(\d{3})(\d{3,4})

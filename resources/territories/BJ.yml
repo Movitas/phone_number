@@ -1,0 +1,26 @@
+--- 
+voip: 
+  nationalNumberPattern: 857[58]\d{4}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "85751234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [2689]\\d{7}|\n          7\\d{3}\n        "
+  possibleNumberPattern: \d{4,8}
+countryCode: "229"
+mobile: 
+  nationalNumberPattern: "\n          66\\d{6}|\n          9(?:\n            0[069]|\n            [35][0-2457-9]|\n            [6-8]\\d\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90011234"
+tollFree: 
+  nationalNumberPattern: 7[3-5]\d{2}
+  possibleNumberPattern: \d{4}
+  exampleNumber: "7312"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            02|\n            1[037]|\n            2[45]|\n            3[68]\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "20211234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})

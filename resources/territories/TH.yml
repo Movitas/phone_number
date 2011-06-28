@@ -1,0 +1,43 @@
+--- 
+voip: 
+  nationalNumberPattern: 60\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "601234567"
+premiumRate: 
+  nationalNumberPattern: 1900\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1900123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [2-8]\\d{7,8}|\n          1\\d{9}\n        "
+  possibleNumberPattern: \d{8,10}
+countryCode: "66"
+mobile: 
+  nationalNumberPattern: 8\d{8}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "812345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 1800\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[1-9]|\n            3[24-9]|\n            4[2-5]|\n            5[3-6]|\n            7[3-7]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "21234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "2"
+    pattern: (2)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[3-7]"
+    pattern: ([3-7]\d)(\d{3})(\d{3,4})
+  - format: $1 $2 $3
+    leadingDigits: "8"
+    pattern: (8)(\d{4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "1"
+    pattern: (1[89]00)(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $FG

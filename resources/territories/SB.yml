@@ -1,0 +1,26 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            0[02-79]|\n            1[12]|\n            2[0-26]|\n            4[189]|\n            68\n          )|\n          9(?:\n            [01]1|\n            22|\n            33|\n            55|\n            77|\n            88|\n            99\n          )\n        "
+  possibleNumberPattern: \d{3}
+  exampleNumber: "100"
+voip: 
+  nationalNumberPattern: 5[12]\d{3}
+  possibleNumberPattern: \d{5}
+  exampleNumber: "51123"
+internationalPrefix: 0[01]
+generalDesc: 
+  nationalNumberPattern: "[1-8]\\d{4,6}"
+  possibleNumberPattern: \d{5,7}
+countryCode: "677"
+mobile: 
+  nationalNumberPattern: "\n          7(?:\n            4\\d|\n            5[025-7]\n          )\\d{4}|\n          8[48]\\d{5}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "7421234"
+tollFree: 
+  nationalNumberPattern: 1[38]\d{3}
+  possibleNumberPattern: \d{5}
+  exampleNumber: "18123"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[4-79]|\n            [23]\\d|\n            4[01]|\n            5[03]|\n            6[0-37]\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{5}
+  exampleNumber: "40123"

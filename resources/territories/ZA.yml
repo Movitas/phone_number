@@ -1,0 +1,40 @@
+--- 
+voip: 
+  nationalNumberPattern: 87\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "871234567"
+premiumRate: 
+  nationalNumberPattern: 86[1-9]\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "861234567"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: \d{9}
+  possibleNumberPattern: \d{8,9}
+countryCode: "27"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            7[1-4689]|\n            8[1-5789]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "711234567"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 860\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "860123456"
+tollFree: 
+  nationalNumberPattern: 80\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "801234567"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[0-8]|\n            2[1-478]|\n            3[1-69]|\n            4\\d|\n            5[1346-8]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{8,9}
+  exampleNumber: "101234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "860"
+    pattern: (860)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            [1-57]|\n            8(?:\n              [0-57-9]|\n              6[1-9]\n            )\n          "
+    pattern: ([1-578]\d)(\d{3})(\d{4})

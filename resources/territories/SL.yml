@@ -1,0 +1,18 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-578]\\d{7}"
+  possibleNumberPattern: \d{6,8}
+countryCode: "232"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            25|\n            3[03]|\n            44|\n            5[056]|\n            7[6-8]|\n            88\n          )[1-9]\\d{5}\n        "
+  exampleNumber: "25123456"
+nationalPrefixFormattingRule: ($NP$FG)
+fixedLine: 
+  nationalNumberPattern: "[235]2[2-4][2-9]\\d{4}"
+  exampleNumber: "22221234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{2})(\d{6})

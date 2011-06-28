@@ -1,0 +1,29 @@
+--- 
+preferredExtnPrefix: " Anexo "
+nationalPrefix: "0"
+internationalPrefix: 19(?:1[124]|77|90)00
+generalDesc: 
+  nationalNumberPattern: "[14-9]\\d{7,8}"
+  possibleNumberPattern: \d{6,9}
+countryCode: "51"
+mobile: 
+  nationalNumberPattern: 9\d{8}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "912345678"
+nationalPrefixFormattingRule: ($FG)
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1\\d|\n            4[1-4]|\n            5[1-46]|\n            6[1-7]|\n            7[2-46]|\n            8[2-4]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{6,8}
+  exampleNumber: "11234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "1"
+    pattern: (1)(\d{7})
+  - format: $1 $2
+    leadingDigits: "[4-8]"
+    pattern: ([4-8]\d)(\d{6})
+  - format: $1 $2 $3
+    leadingDigits: "9"
+    pattern: (9\d{2})(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $FG

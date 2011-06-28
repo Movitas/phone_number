@@ -1,0 +1,20 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            0(?:\n              0[06]|\n              1[02-46]|\n              20|\n              3[0125]|\n              42|\n              5[058]|\n              77\n            )|\n            [5-8]\n          )\n        "
+  possibleNumberPattern: \d{2,4}
+  exampleNumber: "15"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-47-9]\\d{5}"
+  possibleNumberPattern: \d{6}
+countryCode: "687"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            7[4-9]|\n            8[0-79]|\n            9\\d\n          )\\d{4}\n        "
+  exampleNumber: "751234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[03-9]|\n            35|\n            4[1-7]|\n            88\n          )\\d{4}\n        "
+  exampleNumber: "201234"
+availableFormats: 
+  numberFormat: 
+    format: $1.$2.$3
+    pattern: (\d{2})(\d{2})(\d{2})

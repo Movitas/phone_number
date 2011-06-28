@@ -1,0 +1,17 @@
+--- 
+leadingZeroPossible: "true"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[02-9]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "228"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            0[1-9]|\n            7[56]|\n            8[1-7]|\n            9\\d\n          )\\d{5}\n        "
+  exampleNumber: "0112345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[2-7]|\n            3[23]|\n            44|\n            55|\n            66|\n            77\n          )\\d{5}\n        "
+  exampleNumber: "2212345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d{3})(\d{2})(\d{2})

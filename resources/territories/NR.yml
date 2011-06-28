@@ -1,0 +1,20 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            1[012]|\n            23|\n            92\n          )\n        "
+  possibleNumberPattern: \d{3}
+  exampleNumber: "110"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[458]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "674"
+mobile: 
+  nationalNumberPattern: 55[5-9]\d{4}
+  exampleNumber: "5551234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            444|\n            888\n          )\\d{4}\n        "
+  exampleNumber: "4441234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

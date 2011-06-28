@@ -1,0 +1,28 @@
+--- 
+shortCode: 
+  nationalNumberPattern: 1\d{2}
+  possibleNumberPattern: \d{3}
+  exampleNumber: "114"
+voip: 
+  nationalNumberPattern: 98[89]\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "98901234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-489]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "509"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            3[4-9]|\n            4\\d\n          )\\d{6}\n        "
+  exampleNumber: "34101234"
+tollFree: 
+  nationalNumberPattern: 8\d{7}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            [24]\\d|\n            5[1-5]|\n            94\n          )\\d{5}\n        "
+  exampleNumber: "22453300"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d{2})(\d{2})(\d{4})

@@ -1,0 +1,12 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-5]\\d{3}"
+  possibleNumberPattern: \d{4}
+countryCode: "683"
+mobile: 
+  nationalNumberPattern: "[125]\\d{3}"
+  exampleNumber: "1234"
+fixedLine: 
+  nationalNumberPattern: "[34]\\d{3}"
+  exampleNumber: "4002"

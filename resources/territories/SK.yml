@@ -1,0 +1,37 @@
+--- 
+voip: 
+  nationalNumberPattern: "\n          6(?:\n            5[0-4]|\n            9[0-6]\n          )\\d{6}\n        "
+  exampleNumber: "690123456"
+premiumRate: 
+  nationalNumberPattern: "\n          9(?:\n            [78]\\d{7}|\n            00\\d{6}\n          )\n        "
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-689]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "421"
+mobile: 
+  nationalNumberPattern: "\n          9(?:\n            0[1-8]|\n            1[0-24-9]|\n            4[0489]\n          )\\d{6}\n        "
+  exampleNumber: "912123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 8[5-9]\d{7}
+  exampleNumber: "850123456"
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "[2-5]\\d{8}"
+  exampleNumber: "212345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1/$2 $3 $4
+    leadingDigits: "2"
+    pattern: (2)(\d{3})(\d{3})(\d{2})
+  - format: $1/$2 $3 $4
+    leadingDigits: "[3-5]"
+    pattern: ([3-5]\d)(\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "[689]"
+    pattern: ([689]\d{2})(\d{3})(\d{3})

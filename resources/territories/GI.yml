@@ -1,0 +1,25 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            00|\n            1(?:\n              2|\n              6(?:\n                00[06]|\n                11[17]\n              )|\n              8\\d{2}\n            )|\n            23|\n            4(?:\n              1|\n              7[014]\n            )|\n            5[015]|\n            9[0349]\n          )|\n          8(?:\n            00|\n            4[0-2]|\n            8\\d\n          )\n        "
+  possibleNumberPattern: \d{3,6}
+  exampleNumber: "116123"
+premiumRate: 
+  nationalNumberPattern: 8[1-689]\d{6}
+  exampleNumber: "88123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2568]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "350"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5[4-8]|\n            60\n          )\\d{6}\n        "
+  exampleNumber: "57123456"
+sharedCost: 
+  nationalNumberPattern: 87\d{6}
+  exampleNumber: "87123456"
+tollFree: 
+  nationalNumberPattern: 80\d{6}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            00\\d|\n            16[0-7]|\n            22[2457]\n          )\\d{4}\n        "
+  exampleNumber: "20012345"

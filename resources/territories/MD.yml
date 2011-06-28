@@ -1,0 +1,42 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            1(?:\n              [279]|\n              6(?:\n                000|\n                1(?:\n                  11|\n                  23\n                )\n              )|\n              8\\d\n            )|\n            4\\d{3}|\n            5[0-3]\\d|\n            6[0-389]\\d|\n            8\\d{2}|\n            9[0-4]\\d\n          )\n        "
+  possibleNumberPattern: \d{3,6}
+  exampleNumber: "116000"
+uan: 
+  nationalNumberPattern: "\n          8(?:\n            03|\n            14\n          )\\d{5}\n        "
+  exampleNumber: "80312345"
+premiumRate: 
+  nationalNumberPattern: 90[056]\d{5}
+  exampleNumber: "90012345"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[256-9]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "373"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            6(?:\n              0[0-3]|\n              50|\n              7[12]|\n              [89]\\d\n            )|\n            7(?:\n              80|\n              9\\d\n            )\n          )\\d{5}\n        "
+  exampleNumber: "65012345"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 808\d{5}
+  exampleNumber: "80812345"
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              1[0569]|\n              2\\d|\n              3[015-7]|\n              4[1-46-9]|\n              5[0-24689]|\n              6[2-589]|\n              7[1-37]|\n              9[1347-9]\n            )|\n            5(?:\n              33|\n              5[257]\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{5,8}
+  exampleNumber: "22212345"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "22"
+    pattern: (22)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            2[13-79]|\n            [5-7]\n          "
+    pattern: ([25-7]\d{2})(\d{2})(\d{3})
+  - format: $1 $2
+    leadingDigits: "[89]"
+    pattern: ([89]\d{2})(\d{5})

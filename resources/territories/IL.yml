@@ -1,0 +1,69 @@
+--- 
+shortCode: 
+  nationalNumberPattern: 1\d{3}
+  possibleNumberPattern: \d{4}
+  exampleNumber: "1455"
+uan: 
+  nationalNumberPattern: "[2-689]\\d{3}"
+  possibleNumberPattern: \d{4}
+  exampleNumber: "2250"
+voip: 
+  nationalNumberPattern: 77\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "771234567"
+premiumRate: 
+  nationalNumberPattern: "\n          1(?:\n            212|\n            (?:\n              919|\n              200\n            )\\d{2}\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{8,10}
+  exampleNumber: "1919123456"
+nationalPrefix: "0"
+internationalPrefix: 0(?:0|1[2-48])
+generalDesc: 
+  nationalNumberPattern: "\n          [17]\\d{6,9}|\n          [2-589]\\d{3}(?:\\d{3,6})?|\n          6\\d{3}\n        "
+  possibleNumberPattern: \d{4,10}
+countryCode: "972"
+mobile: 
+  nationalNumberPattern: 5[024679]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "501234567"
+nationalPrefixFormattingRule: $FG
+sharedCost: 
+  nationalNumberPattern: "\n          1(?:\n            700|\n            809\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1700123456"
+tollFree: 
+  nationalNumberPattern: "\n          1(?:\n            80[01]\\d{3}|\n            255\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [2-489]|\n            7[2-46-8]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "21234567"
+noInternationalDialling: 
+  nationalNumberPattern: "\n          1700\\d{6}|\n          [2-689]\\d{3}\n        "
+  possibleNumberPattern: \d{4,10}
+  exampleNumber: "1700123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1-$2-$3
+    leadingDigits: "[2-489]"
+    pattern: ([2-489])(\d{3})(\d{4})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1-$2-$3
+    leadingDigits: "[57]"
+    pattern: ([57]\d)(\d{3})(\d{4})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1-$2-$3-$4
+    leadingDigits: 1[7-9]
+    pattern: (1)([7-9]\d{2})(\d{3})(\d{3})
+  - format: $1-$2
+    leadingDigits: "125"
+    pattern: (1255)(\d{3})
+  - format: $1-$2-$3
+    leadingDigits: "120"
+    pattern: (1200)(\d{3})(\d{3})
+  - format: $1-$2-$3
+    leadingDigits: "121"
+    pattern: (1212)(\d{2})(\d{2})
+  - format: "*$1"
+    leadingDigits: "[2-689]"
+    pattern: (\d{4})

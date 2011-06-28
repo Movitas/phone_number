@@ -1,0 +1,27 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [1-8]\\d{7}|\n          9(?:\n            [1-69]\\d{6}|\n            7[2-6]\\d{5,7}|\n            8\\d{8}\n          )\n        "
+  possibleNumberPattern: \d{6,10}
+countryCode: "977"
+mobile: 
+  nationalNumberPattern: "\n          9(?:\n            7[45]|\n            8[0145]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9841234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[0124-6]|\n            2[13-79]|\n            3[135-8]|\n            4[146-9]|\n            5[135-7]|\n            6[13-9]|\n            7[15-9]|\n            8[1-46-9]|\n            9[1-79]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{6,8}
+  exampleNumber: "14567890"
+availableFormats: 
+  numberFormat: 
+  - format: $1-$2
+    leadingDigits: 1[2-6]
+    pattern: (1)(\d{7})
+  - format: $1-$2
+    leadingDigits: "\n            1[01]|\n            [2-8]|\n            9(?:\n              [1-69]|\n              7[15-9]\n            )\n          "
+    pattern: (\d{2})(\d{6})
+  - format: $1-$2
+    leadingDigits: "\n            9(?:\n              7[45]|\n              8\n            )\n            "
+    pattern: (9\d{2})(\d{7})

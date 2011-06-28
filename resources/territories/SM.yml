@@ -1,0 +1,37 @@
+--- 
+nationalPrefixForParsing: (?:0549)?([89]\d{5})
+voip: 
+  nationalNumberPattern: 5[158]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "58001110"
+leadingZeroPossible: "true"
+premiumRate: 
+  nationalNumberPattern: 7[178]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "71123456"
+nationalPrefixTransformRule: 0549$1
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[05-7]\\d{7,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "378"
+mobile: 
+  nationalNumberPattern: 6[16]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "66661212"
+fixedLine: 
+  nationalNumberPattern: "\n          0549(?:\n            8[0157-9]|\n            9\\d\n          )\\d{4}\n        "
+  exampleNumber: 0549886377
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "[5-7]"
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+  - format: $1 $2
+    leadingDigits: "0"
+    pattern: (0549)(\d{6})
+    intlFormat: ($1) $2
+  - format: 0549 $1
+    leadingDigits: "[89]"
+    pattern: (\d{6})
+    intlFormat: (0549) $1

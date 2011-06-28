@@ -1,0 +1,28 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          (?:\n            [13-5]|\n            [27]\\d{2}|\n            [89](?:\n              \\d{2}\n            )?\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{7,9}
+countryCode: "265"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            [3-5]|\n            77|\n            8(?:\n              8\\d\n            )? |\n            9(?:\n              9\\d\n            )?\n          )\\d{6}\n        "
+  exampleNumber: "991234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[2-9]|\n            21\\d{2}\n          )\\d{5}\n        "
+  exampleNumber: "1234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[13-5]"
+    pattern: (\d)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "2"
+    pattern: (2\d{2})(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "7"
+    pattern: (\d)(\d{4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[89]"
+    pattern: (\d)(\d{3,4})(\d{3,4})

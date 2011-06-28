@@ -1,0 +1,51 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 1900\d{4,6}
+  possibleNumberPattern: \d{8,10}
+  exampleNumber: "1900123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          8\\d{5,8}|\n          [1-79]\\d{7,9}\n        "
+  possibleNumberPattern: \d{7,10}
+countryCode: "84"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            9\\d|\n            1(?:\n              2\\d|\n              6[3-9]|\n              88|\n              99\n            )\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9,10}
+  exampleNumber: "912345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 1800\d{4,6}
+  possibleNumberPattern: \d{8,10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              [025-79]|\n              1[0189]|\n              [348][01]\n            )|\n            3(?:\n              [0136-9]|\n              [25][01]\n            )|\n            [48]\\d|\n            5(?:\n              [01][01]|\n              [2-9]\n            )|\n            6(?:\n              [0-46-8]|\n              5[01]\n            )|\n            7(?:\n              [02-79]|\n              [18][01]\n            )\n          )\\d{7}|\n          69\\d{5,6}|\n          80\\d{5}\n        "
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "2101234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "[48]"
+    pattern: ([48])(\d{4})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            2[025-79]|\n            3[0136-9]|\n            5[2-9]|\n            6[0-46-9]|\n            7[02-79]\n          "
+    pattern: ([235-7]\d)(\d{4})(\d{3})
+  - format: $1 $2
+    leadingDigits: "80"
+    pattern: (80)(\d{5})
+  - format: $1 $2
+    leadingDigits: "69"
+    pattern: (69\d)(\d{4,5})
+  - format: $1 $2 $3
+    leadingDigits: "\n            2[1348]|\n            3[25]|\n            5[01]|\n            65|\n            7[18]\n          "
+    pattern: ([235-7]\d{2})(\d{4})(\d{3})
+  - format: $1 $2 $3 $4
+    leadingDigits: "9"
+    pattern: (9\d)(\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "\n            1(?:\n              [26]|\n              88|\n              99\n            )\n          "
+    pattern: (1[2689]\d)(\d{3})(\d{4})
+  - format: $1 $2
+    leadingDigits: 1[89]0
+    pattern: (1[89]00)(\d{4,6})
+    nationalPrefixFormattingRule: $FG

@@ -1,0 +1,26 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[28]\\d{7,8}"
+  possibleNumberPattern: \d{8,9}
+countryCode: "258"
+mobile: 
+  nationalNumberPattern: 8[24]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "821234567"
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          2(?:\n            [1346]\\d|\n            5[0-2]|\n            [78][12]|\n            93\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "21123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            2|\n            8[24]\n          "
+    pattern: ([28]\d)(\d{3})(\d{3,4})
+  - format: $1 $2 $3
+    leadingDigits: "80"
+    pattern: (80\d)(\d{3})(\d{3})

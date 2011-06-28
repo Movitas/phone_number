@@ -1,0 +1,22 @@
+--- 
+voip: 
+  nationalNumberPattern: 3[89]\d{4}
+  exampleNumber: "381234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-689]\\d{5}"
+  possibleNumberPattern: \d{6}
+countryCode: "299"
+mobile: 
+  nationalNumberPattern: "[245][2-9]\\d{4}"
+  exampleNumber: "221234"
+tollFree: 
+  nationalNumberPattern: 80\d{4}
+  exampleNumber: "801234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            19|\n            3[1-6]|\n            6[14689]|\n            8[14-79]|\n            9\\d\n          )\\d{4}\n        "
+  exampleNumber: "321000"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d{2})(\d{2})(\d{2})

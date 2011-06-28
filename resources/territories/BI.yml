@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[27]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "257"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            29\\d|\n            7(?:\n              1[1-3]|\n              [4-9]\\d\n            )\n          )\\d{5}\n        "
+  exampleNumber: "79561234"
+fixedLine: 
+  nationalNumberPattern: "\n          22(?:\n            2[0-7]|\n            [3-5]0\n          )\\d{4}\n        "
+  exampleNumber: "22201234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: ([27]\d)(\d{2})(\d{2})(\d{2})

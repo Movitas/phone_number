@@ -1,0 +1,25 @@
+--- 
+nationalPrefixForParsing: 0(1\d)?
+nationalPrefix: "0"
+internationalPrefix: 00(1\d)?
+generalDesc: 
+  nationalNumberPattern: "[23467]\\d{7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "591"
+mobile: 
+  nationalNumberPattern: "[67]\\d{7}"
+  possibleNumberPattern: \d{8}
+  exampleNumber: "71234567"
+carrierCodeFormattingRule: $NP$CC $FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              2\\d{2}|\n              5(?:11|[258]\\d|9[67])|\n              6(?:12|2\\d|9[34])|\n              8(?:2[34]|39|62)\n            )|\n            3(?:\n              3\\d{2}|\n              4(?:6\\d|8[24])|\n              8(?:25|42|5[257]|86|9[25])|\n              9(?:2\\d|3[234]|4[248]|5[24]|6[2-6]|7\\d)\n            )|\n            4(?:\n              4\\d{2}|\n              6(?:11|[24689]\\d|72)\n            )\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "22123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[234]"
+    pattern: ([234])(\d{7})
+  - format: $1
+    leadingDigits: "[67]"
+    pattern: ([67]\d{7})

@@ -1,0 +1,48 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            [0136]\\d{2}|\n            41\\d|\n            [89](?:\n              [1-9]\\d|\n              0[1-9]\n            )|\n            [57]\\d{2,3})|\n          99\\d\n        "
+  possibleNumberPattern: \d{3,5}
+  exampleNumber: "1312"
+uan: 
+  nationalNumberPattern: 7000\d{7}
+  possibleNumberPattern: \d{11}
+  exampleNumber: "70001234567"
+voip: 
+  nationalNumberPattern: 3[0-2]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "31234567"
+premiumRate: 
+  nationalNumberPattern: 1900\d{7}
+  possibleNumberPattern: \d{11}
+  exampleNumber: "19001234567"
+internationalPrefix: 0[0-3][0-9]
+generalDesc: 
+  nationalNumberPattern: "\n          [36]\\d{7}|\n          [17-9]\\d{7,10}\n        "
+  possibleNumberPattern: \d{8,11}
+countryCode: "65"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            8[1-5]|\n            9[0-8]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "81234567"
+tollFree: 
+  nationalNumberPattern: 1?800\d{7}
+  possibleNumberPattern: \d{10,11}
+  exampleNumber: "18001234567"
+fixedLine: 
+  nationalNumberPattern: 6[1-8]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "61234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "\n            [369]|\n            8[1-9]\n          "
+    pattern: ([3689]\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: 1[89]
+    pattern: (1[89]00)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "70"
+    pattern: (7000)(\d{4})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "80"
+    pattern: (800)(\d{3})(\d{4})

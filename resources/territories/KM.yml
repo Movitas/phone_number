@@ -1,0 +1,19 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            39[01]|\n            9[01]0\n          )\\d{4}\n        "
+  exampleNumber: "9001234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[379]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "269"
+mobile: 
+  nationalNumberPattern: 3[23]\d{5}
+  exampleNumber: "3212345"
+fixedLine: 
+  nationalNumberPattern: "\n          7(?:\n            6[0-37-9]|\n            7[0-57-9]\n          )\\d{4}\n        "
+  exampleNumber: "7712345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d)(\d{3})(\d{3})

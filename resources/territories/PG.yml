@@ -1,0 +1,30 @@
+--- 
+voip: 
+  nationalNumberPattern: 275\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "2751234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{6,7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "675"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            68|\n            7(?:\n              [126]\\d|\n              3[1-9]\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{7,8}
+  exampleNumber: "6812345"
+tollFree: 
+  nationalNumberPattern: 180\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "1801234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3\\d{2}|\n            4[257]\\d|\n            5[34]\\d|\n            6(?:\n              29|\n              4[1-9]\n            )|\n            85[02-46-9]|\n            9[78]\\d\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "3123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[1-689]"
+    pattern: (\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: 7[1-36]
+    pattern: (7[1-36]\d)(\d{2})(\d{3})

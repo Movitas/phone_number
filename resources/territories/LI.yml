@@ -1,0 +1,40 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 701\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "7011234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          (?:\n            66|\n            80|\n            90\n          )\\d{7}|\n          [237-9]\\d{6}\n        "
+  possibleNumberPattern: \d{7,9}
+countryCode: "423"
+mobile: 
+  nationalNumberPattern: "\n          66(?:\n            [0178][0-4]|\n            2[025-9]|\n            [36]\\d|\n            4[129]|\n            5[45]|\n            9[019]\n          )\\d{5}|\n          7(?:\n            4[2-59]|\n            56|\n            [6-9]\\d\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "661234567"
+sharedCost: 
+  nationalNumberPattern: "\n          90(?:\n            0(?:\n              2[278]|\n              79|\n              \\d{4}\n            )|\n            1(?:\n              23|\n              \\d{4}\n            )|\n            6(?:\n              66|\n              \\d{4}\n            )\n          )\\d{2}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "9002222"
+tollFree: 
+  nationalNumberPattern: "\n          80(?:\n            0(?:\n              07|\n              2[238]|\n              79|\n              \\d{4}\n            )|\n            9\\d{2}\n          )\\d{2}\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "8002222"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              17|\n              3\\d|\n              6[02-58]|\n              96\n            )|\n            3(?:\n              02|\n              7[01357]|\n              8[048]|\n              9[0269]\n            )|\n            870\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "2345678"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            [23]|\n            7[4-9]|\n            87\n          "
+    pattern: (\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "6"
+    pattern: (6\d)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "[7-9]0"
+    pattern: ([7-9]0\d)(\d{2})(\d{2})
+  - format: 0$1 $2 $3 $4
+    leadingDigits: "[89]0"
+    pattern: ([89]0\d)(\d{2})(\d{2})(\d{2})

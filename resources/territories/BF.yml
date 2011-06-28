@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2457]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "226"
+mobile: 
+  nationalNumberPattern: "\n          7(?:\n            [024-6]\\d|\n            1[0-4689]|\n            3[0-6]|\n            7[01]|\n            8[013-9]|\n            9[0-4]\n          )\\d{5}\n        "
+  exampleNumber: "70123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            20(?:\n              49|\n              5[23]|\n              9[016-9]\n            )|\n            40(?:\n              4[569]|\n              55|\n              7[0179]\n            )|\n            50[34]\\d\n          )\\d{4}\n        "
+  exampleNumber: "20491234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})

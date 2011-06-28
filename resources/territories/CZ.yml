@@ -1,0 +1,31 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70[01]\d{6}
+  exampleNumber: "700123456"
+voip: 
+  nationalNumberPattern: 9[17]0\d{6}
+  exampleNumber: "910123456"
+premiumRate: 
+  nationalNumberPattern: "\n          9(?:\n            0[05689]|\n            76\n          )\\d{6}\n        "
+  exampleNumber: "900123456"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-9]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "420"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            60[1-8]|\n            7(?:\n              0[25]|\n              [2379]\\d\n            )\n          )\\d{6}\n        "
+  exampleNumber: "601123456"
+sharedCost: 
+  nationalNumberPattern: 8[134]\d{7}
+  exampleNumber: "811234567"
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          2\\d{8}|\n          (?:\n            3[1257-9]|\n            4[16-9]|\n            5[13-9]\n          )\\d{7}\n        "
+  exampleNumber: "212345678"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: ([2-9]\d{2})(\d{3})(\d{3})

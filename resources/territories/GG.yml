@@ -1,0 +1,52 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70\d{8}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7012345678"
+shortCode: 
+  nationalNumberPattern: "\n          1\\d{2}(?:\\d{3})?|\n          999\n        "
+  possibleNumberPattern: \d{3,6}
+  exampleNumber: "150"
+uan: 
+  nationalNumberPattern: "\n          (?:\n            3[0347]|\n            55\n          )\\d{8}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5512345678"
+voip: 
+  nationalNumberPattern: 56\d{8}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5612345678"
+preferredExtnPrefix: " x"
+premiumRate: 
+  nationalNumberPattern: "\n          (?:\n            87[123]|\n            9(?:\n              [01]\\d|\n              8[0-3]\n            )\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9012345678"
+areaCodeOptional: 
+  nationalNumberPattern: 1481[2-9]\d{5}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1481250123"
+nationalPrefix: "0"
+internationalPrefix: "00"
+pager: 
+  nationalNumberPattern: "\n          76(?:\n            0[012]|\n            2[356]|\n            4[0134]|\n            5[49]|\n            6[0-369]|\n            77|\n            81|\n            9[39]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7640123456"
+generalDesc: 
+  nationalNumberPattern: "[135789]\\d{6,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "44"
+mobile: 
+  nationalNumberPattern: "\n          7(?:\n            781|\n            839|\n            911\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7781123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: "\n          8(?:\n            4(?:\n              5464\\d|\n              [2-5]\\d{7}\n            )|\n            70\\d{7}\n          )\n        "
+  possibleNumberPattern: \d{7}(?:\d{3})?
+  exampleNumber: "8431234567"
+tollFree: 
+  nationalNumberPattern: "\n          80(?:\n            0(?:\n              1111|\n              \\d{6,7}\n            )|\n            8\\d{7}\n          )|\n          500\\d{6}\n        "
+  possibleNumberPattern: \d{7}(?:\d{2,3})?
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: 1481\d{6}
+  exampleNumber: "1481456789"

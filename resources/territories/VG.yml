@@ -1,0 +1,27 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: "\n          5(?:\n            00|\n            33|\n            44\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "5002345678"
+leadingDigits: "284"
+premiumRate: 
+  nationalNumberPattern: 900[2-9]\d{6}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "9002345678"
+internationalPrefix: "011"
+nationalPrefix: "1"
+generalDesc: 
+  nationalNumberPattern: "[2589]\\d{9}"
+  possibleNumberPattern: \d{7}(?:\d{3})?
+countryCode: "1"
+mobile: 
+  nationalNumberPattern: "\n          284(?:\n            (?:\n              30[0-3]|\n              4(?:\n                4[0-5]|\n                68|\n                99\n              )|\n              54[0-4]\n            )\\d{4}|\n            496[6-9]\\d{3}\n          )\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "2843001234"
+tollFree: 
+  nationalNumberPattern: "\n          8(?:\n            00|\n            55|\n            66|\n            77|\n            88\n          )[2-9]\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "8002345678"
+fixedLine: 
+  nationalNumberPattern: "\n          284(?:\n            (?:\n              229|\n              4(?:\n                46|\n                9[45]\n              )|\n              8(?:\n                52|\n                6[459]\n              )\n            )\\d{4}|\n            496[0-5]\\d{3}\n          )\n        "
+  exampleNumber: "2842291234"

@@ -1,0 +1,33 @@
+--- 
+voip: 
+  nationalNumberPattern: 49[013-79]\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "4931234"
+premiumRate: 
+  nationalNumberPattern: 90\d{5}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "9011234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          [4-9]\\d{6}|\n          38\\d{7}\n        "
+  possibleNumberPattern: \d{7,9}
+countryCode: "354"
+mobile: 
+  nationalNumberPattern: "\n          38[59]\\d{6}|\n          (?:\n            6(?:\n              1[014-8]|\n              2[0-8]|\n              3[0-27-9]|\n              4[0-29]|\n              5[029]|\n              [67][0-69]|\n              [89]\\d\n            )|\n            7(?:\n              5[057]|\n              7[0-7]\n            )|\n            8(?:\n              2[0-5]|\n              [469]\\d|\n              5[1-9]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "6101234"
+tollFree: 
+  nationalNumberPattern: 800\d{4}
+  possibleNumberPattern: \d{7}
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            4(?:\n              1[0-245]|\n              2[0-7]|\n              [37][0-8]|\n              4[0245]|\n              5[0-356]|\n              6\\d|\n              8[0-46-8]|\n              9[013-79]\n            )|\n            5(?:\n              05|\n              [156]\\d|\n              2[02578]|\n              3[013-6]|\n              4[03-6]|\n              7[0-2578]|\n              8[0-25-9]|\n              9[013-689]\n            )|\n            87[23]\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "4101234"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "[4-9]"
+    pattern: (\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "3"
+    pattern: (3\d{2})(\d{3})(\d{3})

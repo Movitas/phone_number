@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[5-7]\\d{5}"
+  possibleNumberPattern: \d{6}
+countryCode: "681"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            50|\n            68|\n            72\n          )\\d{4}\n        "
+  exampleNumber: "501234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            50|\n            68|\n            72\n          )\\d{4}\n        "
+  exampleNumber: "501234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: (\d{2})(\d{2})(\d{2})

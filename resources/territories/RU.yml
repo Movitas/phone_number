@@ -1,0 +1,29 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 80[39]\d{7}
+  exampleNumber: "8091234567"
+nationalPrefix: "8"
+internationalPrefix: 8~10
+generalDesc: 
+  nationalNumberPattern: "[3489]\\d{9}"
+  possibleNumberPattern: \d{10}
+mainCountryForCode: "true"
+countryCode: "7"
+mobile: 
+  nationalNumberPattern: 9\d{9}
+  exampleNumber: "9123456789"
+nationalPrefixFormattingRule: $NP ($FG)
+tollFree: 
+  nationalNumberPattern: 80[04]\d{7}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3(?:\n              0[12]|\n              4[1-35-79]|\n              5[1-3]|\n              8[1-58]|\n              9[0145]\n            )|\n            4(?:\n              01|\n              1[1356]|\n              2[13467]|\n              7[1-5]|\n              8[1-7]|\n              9[1-689]\n            )|\n            8(?:\n              1[1-8]|\n              2[01]|\n              3[13-6]|\n              4[0-8]|\n              5[15]|\n              6[1-35-7]|\n              7[1-37-9]\n            )\n          )\\d{7}\n        "
+  exampleNumber: "3011234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2-$3-$4
+    leadingDigits: "[34689]"
+    pattern: ([3489]\d{2})(\d{3})(\d{2})(\d{2})
+  - format: $1 $2 $3
+    leadingDigits: "7"
+    pattern: (7\d{2})(\d{3})(\d{4})

@@ -1,0 +1,19 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 8776\d{4}
+  exampleNumber: "87761234"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[278]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "236"
+mobile: 
+  nationalNumberPattern: 7[0257]\d{6}
+  exampleNumber: "70012345"
+fixedLine: 
+  nationalNumberPattern: 2[12]\d{6}
+  exampleNumber: "21612345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3 $4
+    pattern: (\d{2})(\d{2})(\d{2})(\d{2})

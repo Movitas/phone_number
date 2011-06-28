@@ -1,0 +1,41 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          1(?:\n            0111|\n            \\d{3}\n          )|\n          9(?:\n            3111|\n            \\d{2}\n          )\n        "
+  possibleNumberPattern: \d{3,5}
+  exampleNumber: "93111"
+voip: 
+  nationalNumberPattern: 886\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "88612345"
+premiumRate: 
+  nationalNumberPattern: 8701\d{5}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "870123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[68]\\d{7,8}"
+  possibleNumberPattern: \d{8,9}
+countryCode: "264"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            60|\n            8[125]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "811234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          6(?:\n            1(?:\n              17|\n              2(?:\n                [0189]\\d|\n                [23-6]|\n                7\\d?\n              )|\n              3(?:\n                2\\d|\n                3[378]\n              )|\n              4[01]|\n              69|\n              7[014]\n            )|\n            2(?:\n              17|\n              25|\n              5(?:\n                [0-36-8]|\n                4\\d?\n              )|\n              69|\n              70\n            )|\n            3(?:\n              17|\n              2(?:\n                [0237]\\d?|\n                [14-689]\n              )|\n              34|\n              6[29]|\n              7[01]|\n              81\n            )|\n            4(?:\n              17|\n              2(?:\n                [012]|\n                7?\n              )|\n              4(?:\n                [06]|\n                1\\d\n              )|\n              5(?:\n                [01357]|\n                [25]\\d?\n              )|\n              69|\n              7[01]\n            )|\n            5(?:\n              17|\n              2(?:\n                [0459]|\n                [23678]\\d?\n              )|\n              69|\n              7[01]\n            )|\n            6(?:\n              17|\n              2(?:\n                5|\n                6\\d?\n              )|\n              38|\n              42|\n              69|\n              7[01]\n            )|\n            7(?:\n              17|\n              2(?:\n                [569]|\n                [234]\\d?\n              )|\n              3(?:\n                0\\d?|\n                [13]\n              )|\n              69|\n              7[01]\n            )\n          )\\d{4}\n        "
+  exampleNumber: "612012345"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: 8[125]
+    pattern: (8\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "6"
+    pattern: (6\d)(\d{2,3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "88"
+    pattern: (88)(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "870"
+    pattern: (870)(\d{3})(\d{3})

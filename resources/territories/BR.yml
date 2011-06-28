@@ -1,0 +1,41 @@
+--- 
+nationalPrefixForParsing: 0(?:(1[245]|2[135]|[34]1)(\d{10}))?
+premiumRate: 
+  nationalNumberPattern: "[359]00\\d{6,7}"
+  exampleNumber: "300123456"
+nationalPrefixTransformRule: $2
+nationalPrefix: "0"
+internationalPrefix: 00(?:1[45]|2[135]|[34]1|43)
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{7,9}"
+  possibleNumberPattern: \d{8,10}
+countryCode: "55"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            [14689][1-9]|\n            2[12478]|\n            3[1-578]|\n            5[13-5]|\n            7[13-579]\n          )[6-9]\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1161234567"
+sharedCost: 
+  nationalNumberPattern: "\n          (?:\n            400\\d|\n            3003\n          )\\d{4}\n        "
+  exampleNumber: "40041234"
+tollFree: 
+  nationalNumberPattern: 800\d{6,7}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [14689][1-9]|\n            2[12478]|\n            3[1-578]|\n            5[13-5]|\n            7[13-579]\n          )[2-5]\\d{7}\n        "
+  exampleNumber: "1123456789"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2-$3
+    leadingDigits: "[1-9][1-9]"
+    pattern: (\d{2})(\d{4})(\d{4})
+    nationalPrefixFormattingRule: ($FG)
+    carrierCodeFormattingRule: $NP $CC ($FG)
+  - format: $1-$2
+    leadingDigits: 
+    - "[34]00"
+    - "\n            400|\n            3003\n          "
+    pattern: ([34]00\d)(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "[3589]00"
+    pattern: ([3589]00)(\d{2,3})(\d{4})
+    nationalPrefixFormattingRule: $NP$FG

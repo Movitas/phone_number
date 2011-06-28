@@ -1,0 +1,27 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[356-8]\\d{8}"
+  possibleNumberPattern: \d{5,9}
+countryCode: "996"
+mobile: 
+  nationalNumberPattern: "\n          5[124-7]\\d{7}|\n          7(?:\n            0[05]|\n            7\\d\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "700123456"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            3(?:\n              1(?:\n                2\\d|\n                3[1-9]|\n                52|\n                6[1-8]\n              )|\n              2(?:\n                22|\n                3[0-479]|\n                6[0-7]\n              )|\n              4(?:\n                22|\n                5[6-9]|\n                6[0-4]\n              )|\n              5(?:\n                22|\n                3[4-7]|\n                59|\n                6[0-5]\n              )|\n              6(?:\n                22|\n                5[35-7]|\n                6[0-3]\n              )|\n              7(?:\n                22|\n                3[468]|\n                4[1-8]|\n                59|\n                6\\d|\n                7[5-7]\n              )|\n              9(?:\n                22|\n                4[1-7]|\n                6[0-8]\n              )\n            )|\n            6(?:\n              09|\n              12|\n              2[2-4]\n            )\\d\n          )\\d{5}\n        "
+  exampleNumber: "312123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            31[25]|\n            [5-8]\n          "
+    pattern: (\d{3})(\d{3})(\d{3})
+  - format: $1 $2
+    leadingDigits: "\n            3(?:\n              1[36]|\n              [2-9]\n            )\n          "
+    pattern: (\d{4})(\d{5})

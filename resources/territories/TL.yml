@@ -1,0 +1,25 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 70\d{5}
+  exampleNumber: "7012345"
+premiumRate: 
+  nationalNumberPattern: 90\d{5}
+  exampleNumber: "9012345"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-47-9]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "670"
+mobile: 
+  nationalNumberPattern: 7[2-4]\d{5}
+  exampleNumber: "7212345"
+tollFree: 
+  nationalNumberPattern: 80\d{5}
+  exampleNumber: "8012345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[1-5]|\n            3[1-9]|\n            4[1-4]\n          )\\d{5}\n        "
+  exampleNumber: "2112345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

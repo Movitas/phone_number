@@ -1,0 +1,26 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          0(?:\n            02|\n            171|\n            444|\n            7[67]7|\n            801|\n            9(?:\n              0[78]|\n              [2-47]\n            )\n          )\n       "
+  possibleNumberPattern: \d{3,4}
+  exampleNumber: 0801
+premiumRate: 
+  nationalNumberPattern: 9008\d{3}
+  exampleNumber: "9008123"
+internationalPrefix: "001"
+generalDesc: 
+  nationalNumberPattern: "[2-4679]\\d{6}"
+  possibleNumberPattern: \d{7}
+countryCode: "592"
+mobile: 
+  nationalNumberPattern: 6\d{6}
+  exampleNumber: "6091234"
+tollFree: 
+  nationalNumberPattern: "\n          (?:\n            289|\n            862\n          )\\d{4}\n        "
+  exampleNumber: "2891234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2(?:\n              1[6-9]|\n              2[0-35-9]|\n              3[1-4]|\n              5[3-9]|\n              6\\d|\n              7[0-24-79]\n            )|\n            3(?:\n              2[25-9]|\n              3\\d\n            )|\n            4(?:\n              4[0-24]|\n              5[56]\n            )|\n            77[1-57]\n          )\\d{4}\n        "
+  exampleNumber: "2201234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

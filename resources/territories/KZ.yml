@@ -1,0 +1,27 @@
+--- 
+voip: 
+  nationalNumberPattern: 751\d{7}
+  exampleNumber: "7511234567"
+premiumRate: 
+  nationalNumberPattern: 809\d{7}
+  exampleNumber: "8091234567"
+nationalPrefix: "8"
+internationalPrefix: 8~10
+generalDesc: 
+  nationalNumberPattern: "\n          (?:\n            7\\d{2}|\n            80[09]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{10}
+countryCode: "7"
+mobile: 
+  nationalNumberPattern: "\n          7(?:\n            0[01257]|\n            6[02-4]|\n            7[157]\n          )\\d{7}\n        "
+  exampleNumber: "7710009998"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{7}
+  exampleNumber: "8001234567"
+fixedLine: 
+  nationalNumberPattern: "\n          7(?:\n            1(?:\n              0(?:\n                [23]\\d|\n                4[023]|\n                59|\n                63\n              )|\n              1(?:\n                [23]\\d|\n                4[0-79]|\n                59\n              )|\n              2(?:\n                [23]\\d|\n                59\n              )|\n              3(?:\n                2\\d|\n                3[1-79]|\n                4[0-35-9]|\n                59\n              )|\n              4(?:\n                2\\d|\n                3[013-79]|\n                4[0-8]|\n                5[1-79]\n              )|\n              5(?:\n                2\\d|\n                3[1-8]|\n                4[1-7]|\n                59\n              )|\n              6(?:\n                2\\d|\n                [34]\\d|\n                5[19]|\n                61\n              )|\n              72\\d|\n              8(?:\n                [27]\\d|\n                3[1-46-9]|\n                4[0-5]|\n              )\n            )|\n            2(?:\n              1(?:\n                [23]\\d|\n                4[46-9]|\n                5[3469]\n              )|\n              2(?:\n                2\\d|\n                3[0679]|\n                46|\n                5[12679]|\n              )|\n              3(?:\n                [234]\\d|\n                5[139]|\n              )|\n              4(?:\n                2\\d|\n                3[1235-9]|\n                59\n              )|\n              5(?:\n                [23]\\d|\n                4[01246-8]|\n                59|\n                61\n              )|\n              6(?:\n                2\\d|\n                3[1-9]|\n                4[0-4]|\n                59\n              )|\n              7(?:\n                [23]\\d|\n                40|\n                5[279]|\n                7\\d\n              )|\n              8(?:\n                [23]\\d|\n                4[0-3]|\n                59\n              )|\n              9(?:\n                2\\d|\n                3[124578]|\n                59\n              )\n            )|\n            3622\n          )\\d{5}\n        "
+  exampleNumber: "7123456789"
+noInternationalDialling: 
+  nationalNumberPattern: 751\d{7}
+  possibleNumberPattern: \d{10}
+  exampleNumber: "7511234567"

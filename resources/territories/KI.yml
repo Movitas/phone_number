@@ -1,0 +1,22 @@
+--- 
+shortCode: 
+  nationalNumberPattern: "\n          10(?:\n            [0-8]|\n            5[01259]\n          )|\n          99[234]\n        "
+  possibleNumberPattern: \d{3,4}
+  exampleNumber: "992"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-689]\\d{4}"
+  possibleNumberPattern: \d{5}
+countryCode: "686"
+mobile: 
+  nationalNumberPattern: "[69]\\d{4}"
+  exampleNumber: "61234"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [234]\\d|\n            50|\n            8[1-5]\n          )\\d{3}\n        "
+  exampleNumber: "31234"
+availableFormats: 
+  numberFormat: 
+    format: $1
+    pattern: (\d{5})

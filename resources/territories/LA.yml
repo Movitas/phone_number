@@ -1,0 +1,24 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-57]\\d{7,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "856"
+mobile: 
+  nationalNumberPattern: "\n          20(?:\n            2[23]|\n            5[4-6]|\n            77|\n            9[89]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "2023123456"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [2-57]1|\n            54\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{6,8}
+  exampleNumber: "21212862"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3 $4
+    leadingDigits: "20"
+    pattern: (20)(\d{2})(\d{3})(\d{3})
+  - format: $1 $2 $3
+    leadingDigits: "\n            21|\n            [3-57]\n          "
+    pattern: ([2-57]\d)(\d{3})(\d{3})

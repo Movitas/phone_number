@@ -1,0 +1,19 @@
+--- 
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-59]\\d{8}"
+  possibleNumberPattern: \d{7,9}
+countryCode: "251"
+mobile: 
+  nationalNumberPattern: 9[12]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "911234567"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            11(?:\n              1(?:\n                1[124]|\n                2[2-57]|\n                3[1-5]|\n                5[5-8]|\n                8[6-8]\n              )|\n              2(?:\n                13|\n                3[6-8]|\n                5[89]|\n                7[05-9]|\n                8[2-6]\n              )|\n              3(?:\n                2[01]|\n                3[0-289]|\n                4[1289]|\n                7[1-4]|\n                87\n              )|\n              4(?:\n                1[69]|\n                3[2-49]|\n                4[0-23]|\n                6[5-8]\n              )|\n              5(?:\n                1[57]|\n                44|\n                5[0-4]\n              )|\n              6(?:\n                18|\n                2[69]|\n                4[5-7]|\n                5[1-5]|\n                6[0-59]|\n                8[015-8]\n              )\n            )|\n            2(?:\n              2(?:\n                11[1-9]|\n                22[0-7]|\n                33\\d|\n                44[1467]|\n                66[1-68]\n              )|\n              5(?:\n                11[124-6]|\n                33[2-8]|\n                44[1467]|\n                55[14]|\n                66[1-3679]|\n                77[124-79]|\n                880\n              )\n            )|\n            3(?:\n              3(?:\n                11[0-46-8]|\n                22[0-6]|\n                33[0134689]|\n                44[04]|\n                55[0-6]|\n                66[01467]\n              )|\n              4(?:\n                44[0-8]|\n                55[0-69]|\n                66[0-3]|\n                77[1-5]\n              )\n            )|\n            4(?:\n              6(?:\n                22[0-24-7]|\n                33[1-5]|\n                44[13-69]|\n                55[14-689]|\n                660|\n                88[1-4]\n              )|\n              7(?:\n                11[1-9]|\n                22[1-9]|\n                33[13-7]|\n                44[13-6]|\n                55[1-689]\n              )\n            )|\n            5(?:\n              7(?:\n                227|\n                55[05]|\n                (?:\n                  66|\n                  77\n                )[14-8]\n              )|\n              8(?:\n                11[149]|\n                22[013-79]|\n                33[0-68]|\n                44[013-8]|\n                550|\n                66[1-5]|\n                77\\d\n              )\n            )\n          )\\d{4}\n        "
+  exampleNumber: "111112345"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: ([1-59]\d)(\d{3})(\d{4})

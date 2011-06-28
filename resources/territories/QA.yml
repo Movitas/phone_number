@@ -1,0 +1,23 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[3-8]\\d{6,7}"
+  possibleNumberPattern: \d{7,8}
+countryCode: "974"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            33|\n            55|\n            66|\n            77\n          )\\d{6}\n        "
+  exampleNumber: "33123456"
+tollFree: 
+  nationalNumberPattern: 800\d{4}
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: 44\d{6}
+  exampleNumber: "44123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2
+    leadingDigits: "8"
+    pattern: (8\d{2})(\d{4})
+  - format: $1 $2
+    leadingDigits: "[3-7]"
+    pattern: ([3-7]\d{3})(\d{4})

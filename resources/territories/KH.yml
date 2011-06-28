@@ -1,0 +1,32 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: "\n          1900(?:\n            1\\d|\n            2[09]\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1900123456"
+nationalPrefix: "0"
+internationalPrefix: 00[178]
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{7,9}"
+  possibleNumberPattern: \d{6,10}
+countryCode: "855"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            (?:\n              1[0-35-9]|\n              9[1-49]\n            )[1-9]|\n            8(?:\n              0[89]|\n              5[2-689]\n            )\n          )\\d{5}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "91234567"
+tollFree: 
+  nationalNumberPattern: "\n          1800(?:\n            1\\d|\n            2[09]\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{10}
+  exampleNumber: "1800123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[3-6]|\n            3[2-6]|\n            4[2-4]|\n            [5-7][2-5]\n          )[2-47-9]\\d{5}\n        "
+  possibleNumberPattern: \d{6,8}
+  exampleNumber: "23456789"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            1\\d[1-9]|\n            [2-9]\n          "
+    pattern: (\d{2})(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $NP$FG
+  - format: $1 $2 $3
+    leadingDigits: 1[89]0
+    pattern: (1[89]00)(\d{3})(\d{3})

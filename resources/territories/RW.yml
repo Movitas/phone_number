@@ -1,0 +1,29 @@
+--- 
+premiumRate: 
+  nationalNumberPattern: 900\d{6}
+  exampleNumber: "900123456"
+nationalPrefix: "0"
+internationalPrefix: "000"
+generalDesc: 
+  nationalNumberPattern: "[27-9]\\d{8}"
+  possibleNumberPattern: \d{9}
+countryCode: "250"
+mobile: 
+  nationalNumberPattern: 7[258]\d{7}
+  exampleNumber: "720123456"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{6}
+  exampleNumber: "800123456"
+fixedLine: 
+  nationalNumberPattern: 25\d{7}
+  exampleNumber: "250123456"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "2"
+    pattern: (25\d)(\d{3})(\d{3})
+    nationalPrefixFormattingRule: $FG
+  - format: $1 $2 $3
+    leadingDigits: "[7-9]"
+    pattern: ([7-9]\d{2})(\d{3})(\d{3})

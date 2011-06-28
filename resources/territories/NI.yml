@@ -1,0 +1,19 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[128]\\d{7}"
+  possibleNumberPattern: \d{8}
+countryCode: "505"
+mobile: 
+  nationalNumberPattern: 8\d{7}
+  exampleNumber: "81234567"
+tollFree: 
+  nationalNumberPattern: 1800\d{4}
+  exampleNumber: "18001234"
+fixedLine: 
+  nationalNumberPattern: 2\d{7}
+  exampleNumber: "21234567"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{4})(\d{4})

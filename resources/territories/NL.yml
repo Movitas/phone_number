@@ -1,0 +1,41 @@
+--- 
+voip: 
+  nationalNumberPattern: 85\d{7}
+  possibleNumberPattern: \d{9}
+premiumRate: 
+  nationalNumberPattern: 90[069]\d{4,7}
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "9001234"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[1-9]\\d{6,9}"
+  possibleNumberPattern: \d{7,10}
+countryCode: "31"
+mobile: 
+  nationalNumberPattern: 6[1-58]\d{7}
+  possibleNumberPattern: \d{9}
+  exampleNumber: "612345678"
+nationalPrefixFormattingRule: $NP$FG
+tollFree: 
+  nationalNumberPattern: 800\d{4,7}
+  possibleNumberPattern: \d{7,10}
+  exampleNumber: "8001234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            1[0135-8]|\n            2[02-69]|\n            3[0-68]|\n            4[0135-9]|\n            [57]\\d|\n            8[478]\n          )\\d{7}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "101234567"
+availableFormats: 
+  numberFormat: 
+  - format: $1 $2 $3
+    leadingDigits: "\n            1[035]|\n            2[0346]|\n            3[03568]|\n            4[0356]|\n            5[0358]|\n            7|\n            8[458]\n          "
+    pattern: ([1-578]\d)(\d{3})(\d{4})
+  - format: $1 $2 $3
+    leadingDigits: "\n            1[16-8]|\n            2[259]|\n            3[124]|\n            4[17-9]|\n            5[124679]\n          "
+    pattern: ([1-5]\d{2})(\d{3})(\d{3})
+  - format: $1 $2
+    leadingDigits: "6"
+    pattern: (6)(\d{8})
+  - format: $1 $2
+    leadingDigits: "\n            80|\n            9\n          "
+    pattern: ([89]0\d)(\d{4,7})

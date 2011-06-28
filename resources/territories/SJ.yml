@@ -1,0 +1,34 @@
+--- 
+personalNumber: 
+  nationalNumberPattern: 880\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "88012345"
+uan: 
+  nationalNumberPattern: "\n          0\\d{4}|\n          81(?:\n            0(?:\n              0[7-9]|\n              1\\d\n            )|\n            5\\d{2}\n          )\\d{3}\n        "
+  exampleNumber: "01234"
+leadingZeroPossible: "true"
+premiumRate: 
+  nationalNumberPattern: 82[09]\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "82012345"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "\n          0\\d{4}|\n          [4789]\\d{7}\n        "
+  possibleNumberPattern: \d{5}(?:\d{3})?
+countryCode: "47"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            4[015-8]|\n            9\\d\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "41234567"
+sharedCost: 
+  nationalNumberPattern: "\n          810(?:\n            0[0-6]|\n            [2-8]\\d\n          )\\d{3}\n        "
+  possibleNumberPattern: \d{8}
+  exampleNumber: "81021234"
+tollFree: 
+  nationalNumberPattern: 80[01]\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80012345"
+fixedLine: 
+  nationalNumberPattern: 79\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "79123456"

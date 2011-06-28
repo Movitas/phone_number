@@ -1,0 +1,16 @@
+--- 
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: 3\d{6}
+  possibleNumberPattern: \d{7}
+countryCode: "246"
+mobile: 
+  nationalNumberPattern: 38\d{5}
+  exampleNumber: "3801234"
+fixedLine: 
+  nationalNumberPattern: 37\d{5}
+  exampleNumber: "3709100"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    pattern: (\d{3})(\d{4})

@@ -1,0 +1,23 @@
+--- 
+uan: 
+  nationalNumberPattern: "\n          30\\d{3}|\n          900\\d{4}\n        "
+  possibleNumberPattern: \d{5,7}
+  exampleNumber: "30123"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[2-57-9]\\d{4,6}"
+  possibleNumberPattern: \d{5,7}
+countryCode: "678"
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            5(?:\n              7[2-5]|\n              [3-69]\\d\n            )|\n            7[013-7]\\d\n          )\\d{4}\n        "
+  possibleNumberPattern: \d{7}
+  exampleNumber: "5912345"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            2[2-9]\\d|\n            3(?:\n              [67]\\d|\n              8[0-8]\n            )|\n            48[4-9]|\n            88\\d\n          )\\d{2}\n        "
+  possibleNumberPattern: \d{5}
+  exampleNumber: "22123"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2
+    leadingDigits: "[579]"
+    pattern: (\d{3})(\d{4})

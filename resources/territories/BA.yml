@@ -1,0 +1,35 @@
+--- 
+uan: 
+  nationalNumberPattern: 81\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "81123456"
+premiumRate: 
+  nationalNumberPattern: 9[0246]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "90123456"
+nationalPrefix: "0"
+internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[3-689]\\d{7}"
+  possibleNumberPattern: \d{6,8}
+countryCode: "387"
+mobile: 
+  nationalNumberPattern: 6[1-356]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "61123456"
+nationalPrefixFormattingRule: $NP$FG
+sharedCost: 
+  nationalNumberPattern: 82\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "82123456"
+tollFree: 
+  nationalNumberPattern: 8[08]\d{6}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80123456"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            [35]\\d|\n            49\n          )\\d{6}\n        "
+  exampleNumber: "30123456"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2-$3
+    pattern: ([3-689]\d)(\d{3})(\d{3})
