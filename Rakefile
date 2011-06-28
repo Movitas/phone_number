@@ -1,5 +1,5 @@
 require 'rake'
-require 'lib/phonenumber'
+require 'lib/phone_number'
 
 desc "Downloads and parses country metadata from Google's libphonenumber project"
 task :update do
