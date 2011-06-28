@@ -1,4 +1,5 @@
 require 'rake'
+require 'lib/phonenumber'
 
 desc "Downloads and parses country metadata from Google's libphonenumber project"
 task :update do
@@ -13,6 +14,6 @@ namespace :update do
   
   desc "Parses XML into YAML files"
   task :parse do
-    puts "Parse placeholder"
+    PhoneNumber::Parser.parse
   end
 end
