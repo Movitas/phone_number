@@ -1,1 +1,1 @@
-require 'lib/phonenumber/parser'
+require 'lib/phonenumber/metadata'

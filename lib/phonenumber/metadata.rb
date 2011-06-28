@@ -4,7 +4,7 @@ require 'yaml'
 
 module PhoneNumber
   
-  class Parser
+  class Metadata
     
     LOCAL_XML_FILE        = File.dirname(__FILE__) + "/../../resources/PhoneNumberMetaData.xml"
     TERRITORIES_DIRECTORY = File.dirname(LOCAL_XML_FILE) + "/territories"

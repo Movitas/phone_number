@@ -3,18 +3,18 @@ require 'lib/phonenumber'
 
 desc "Downloads and parses country metadata from Google's libphonenumber project"
 task :update do
-  PhoneNumber::Parser.download
-  PhoneNumber::Parser.parse
+  PhoneNumber::Metadata.download
+  PhoneNumber::Metadata.parse
 end
 
 namespace :update do
   desc "Downloads XML file from Google"
   task :download do
-    PhoneNumber::Parser.download
+    PhoneNumber::Metadata.download
   end
   
   desc "Parses XML into YAML files"
   task :parse do
-    PhoneNumber::Parser.parse
+    PhoneNumber::Metadata.parse
   end
 end
