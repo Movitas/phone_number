@@ -29,9 +29,4 @@ class NumberTest < Test::Unit::TestCase
     assert !@invalid_number_too_short.is_viable?
   end
   
-  test "is_viable class method" do
-    assert  PhoneNumber::Number.is_viable?("12155551212")
-    assert !PhoneNumber::Number.is_viable?("12")
-  end
-  
 end

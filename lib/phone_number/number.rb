@@ -171,10 +171,6 @@ module PhoneNumber
       VALID_PHONE_NUMBER_PATTERN.match @number
     end
     
-    def self.is_viable?(number)
-      self.new(number).is_viable?
-    end
-    
   end
   
 end
