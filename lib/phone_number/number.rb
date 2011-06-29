@@ -141,7 +141,13 @@ module PhoneNumber
     FG_PATTERN = Regexp.compile("\\$FG")
     CC_PATTERN = Regexp.compile("\\$CC")
     
-    def initialize(args)
+    attr_accessor :dialed
+    
+    def initialize(dialed)
+      @dialed = dialed
+    end
+    
+    def to_s
       
     end
     
