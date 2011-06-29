@@ -1,11 +1,11 @@
 --- 
 nationalPrefixForParsing: (1900)
 shortCode: 
-  nationalNumberPattern: "\n          1(?:\n            02[2-469]|\n            1(?:\n              1[0235-9]|\n              2|\n              37|\n              46|\n              75|\n              8[79]|\n              9[0-379]\n            )|\n            212)\n        "
+  nationalNumberPattern: "\n          1(?:\n            02[2-4679]|\n            1(?:\n              1[0-35-9]|\n              2|\n              37|\n              46|\n              75|\n              8[79]|\n              9[0-379]\n            )|\n            212|\n            400|\n            902\n          )|\n          911\n        "
   possibleNumberPattern: \d{3,4}
   exampleNumber: "1022"
 voip: 
-  nationalNumberPattern: 4000\d{4}
+  nationalNumberPattern: 40[02]0\d{4}
   possibleNumberPattern: \d{8}
   exampleNumber: "40001234"
 premiumRate: 

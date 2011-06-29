@@ -11,6 +11,7 @@ voip:
   nationalNumberPattern: 50\d{8}
   possibleNumberPattern: \d{10}
   exampleNumber: "5012345678"
+leadingZeroPossible: "true"
 premiumRate: 
   nationalNumberPattern: 990\d{6}
   possibleNumberPattern: \d{9}
@@ -22,8 +23,8 @@ pager:
   possibleNumberPattern: \d{10}
   exampleNumber: "2012345678"
 generalDesc: 
-  nationalNumberPattern: \d{9,10}
-  possibleNumberPattern: \d{9,10}
+  nationalNumberPattern: "\n          [1-9]\\d{8,9}|\n          0(?:\n            7\\d{5,6}|\n            8\\d{7}\n          )\n        "
+  possibleNumberPattern: \d{7,10}
 countryCode: "81"
 mobile: 
   nationalNumberPattern: "\n          (?:\n            [79]0\\d|\n            80[1-9]\n          )\\d{7}\n        "
@@ -31,13 +32,17 @@ mobile:
   exampleNumber: "7012345678"
 nationalPrefixFormattingRule: $NP$FG
 tollFree: 
-  nationalNumberPattern: "\n          120\\d{6}|\n          800\\d{7}\n        "
-  possibleNumberPattern: \d{9,10}
+  nationalNumberPattern: "\n          120\\d{6}|\n          800\\d{7}|\n          0(?:\n            777(?:\n              [01]\\d{2}|\n              5\\d{3}\n            )|\n            882[1245]\\d{4}\n          )\n        "
+  possibleNumberPattern: \d{7,10}
   exampleNumber: "120123456"
 fixedLine: 
-  nationalNumberPattern: "\n          (?:\n            1(?:\n              1[236-8]|\n              2[3-6]|\n              3[3-9]|\n              4[2-6]|\n              [58][2-8]|\n              6[2-7]|\n              7[2-9]|\n              9[1-8]\n            )|\n            2[2-9]\\d|\n            [36][1-9]\\d|\n            4(?:\n              6[0235-8]|\n              [2-578]\\d|\n              9[2-59]\n            )|\n            5(?:\n              6[1-9]|\n              7[2-8]|\n              [2-589]\\d\n            )|\n            7(?:\n              3[4-9]|\n              4[02-9]|\n              [25-9]\\d\n            )|\n            8(?:\n              3[2-9]|\n              4[5-9]|\n              5[1-9]|\n              8[03-9]|\n              [2679]\\d\n            )|\n            9(?:\n              [679][1-9]|\n              [2-58]\\d\n            )\n          )\\d{6}\n        "
+  nationalNumberPattern: "\n          (?:\n            1(?:\n              1[235-8]|\n              2[3-6]|\n              3[3-9]|\n              4[2-6]|\n              [58][2-8]|\n              6[2-7]|\n              7[2-9]|\n              9[1-9]\n            )|\n            2[2-9]\\d|\n            [36][1-9]\\d|\n            4(?:\n              6[02-8]|\n              [2-578]\\d|\n              9[2-59]\n            )|\n            5(?:\n              6[1-9]|\n              7[2-8]|\n              [2-589]\\d\n            )|\n            7(?:\n              3[4-9]|\n              4[02-9]|\n              [25-9]\\d\n            )|\n            8(?:\n              3[2-9]|\n              4[5-9]|\n              5[1-9]|\n              8[03-9]|\n              [2679]\\d\n            )|\n            9(?:\n              [679][1-9]|\n              [2-58]\\d\n            )\n          )\\d{6}\n        "
   possibleNumberPattern: \d{9}
   exampleNumber: "312345678"
+noInternationalDialling: 
+  nationalNumberPattern: "\n          0(?:\n            777(?:\n              [01]\\d{2}|\n              5\\d{3}\n            )|\n            882[1245]\\d{4}\n          )\n        "
+  possibleNumberPattern: \d{7,9}
+  exampleNumber: "0777012"
 availableFormats: 
   numberFormat: 
   - format: $1-$2-$3
@@ -46,6 +51,12 @@ availableFormats:
   - format: $1-$2-$3
     leadingDigits: "800"
     pattern: (\d{3})(\d{3})(\d{4})
+  - format: $1-$2
+    leadingDigits: "077"
+    pattern: (\d{3})(\d{4,5})
+  - format: $1-$2-$3
+    leadingDigits: 088
+    pattern: (\d{3})(\d{2})(\d{4})
   - format: $1-$2-$3
     leadingDigits: "\n            [2579]0|\n            80[1-9]\n          "
     pattern: (\d{2})(\d{4})(\d{4})

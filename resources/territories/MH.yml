@@ -1,5 +1,20 @@
 --- 
+voip: 
+  nationalNumberPattern: 635\d{4}
+  exampleNumber: "6351234"
 nationalPrefix: "1"
 internationalPrefix: "011"
+generalDesc: 
+  nationalNumberPattern: "[2-6]\\d{6}"
+  possibleNumberPattern: \d{7}
 countryCode: "692"
-content: "\n    "
+mobile: 
+  nationalNumberPattern: "\n          (?:\n            235|\n            329|\n            45[56]|\n            545\n          )\\d{4}\n        "
+  exampleNumber: "2351234"
+fixedLine: 
+  nationalNumberPattern: "\n          (?:\n            247|\n            528|\n            625\n          )\\d{4}\n        "
+  exampleNumber: "2471234"
+availableFormats: 
+  numberFormat: 
+    format: $1-$2
+    pattern: (\d{3})(\d{4})

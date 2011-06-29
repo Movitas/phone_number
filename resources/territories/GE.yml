@@ -2,27 +2,28 @@
 nationalPrefix: "8"
 internationalPrefix: 8~10
 generalDesc: 
-  nationalNumberPattern: "\n          [13-79]\\d{7}|\n          8\\d{8}\n        "
-  possibleNumberPattern: \d{5,9}
+  nationalNumberPattern: "[3458]\\d{8}"
+  possibleNumberPattern: \d{6,9}
 countryCode: "995"
 mobile: 
-  nationalNumberPattern: "\n          (?:\n            14|\n            5[01578]|\n            6[28]|\n            7[0147-9]|\n            9[0-35-9]\n          )\\d{6}\n        "
-  possibleNumberPattern: \d{8}
-  exampleNumber: "55123456"
-nationalPrefixFormattingRule: $NP $FG
+  nationalNumberPattern: "\n          5(?:\n            14|\n            5[01578]|\n            68|\n            7[0147-9]|\n            9[0-35-9]\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{9}
+  exampleNumber: "555123456"
 tollFree: 
   nationalNumberPattern: 800\d{6}
   possibleNumberPattern: \d{9}
   exampleNumber: "800123456"
 fixedLine: 
-  nationalNumberPattern: "\n          (?:\n            3(?:\n              [256]\\d|\n              4[124-9]|\n              7[0-4]\n            )|\n            4(?:\n              1\\d|\n              2[2-7]|\n              3[1-79]|\n              4[2-8]|\n              7[239]|\n              9[1-7]\n            )\n          )\\d{5}\n        "
-  possibleNumberPattern: \d{5,8}
-  exampleNumber: "32123456"
+  nationalNumberPattern: "\n          (?:\n            3(?:\n              [256]\\d|\n              4[124-9]|\n              7[0-4]\n            )|\n            4(?:\n              1\\d|\n              2[2-7]|\n              3[1-79]|\n              4[2-8]|\n              7[239]|\n              9[1-7]\n            )\n          )\\d{6}\n        "
+  possibleNumberPattern: \d{6,9}
+  exampleNumber: "322123456"
 availableFormats: 
   numberFormat: 
   - format: $1 $2 $3 $4
-    leadingDigits: "[13-79]"
-    pattern: (\d{2})(\d{2})(\d{2})(\d{2})
+    leadingDigits: "[348]"
+    pattern: (\d{3})(\d{2})(\d{2})(\d{2})
+    nationalPrefixFormattingRule: $NP $FG
   - format: $1 $2 $3 $4
-    leadingDigits: "8"
-    pattern: (800)(\d{2})(\d{2})(\d{2})
+    leadingDigits: "5"
+    pattern: (\d{3})(\d{2})(\d{2})(\d{2})
+    nationalPrefixFormattingRule: $FG

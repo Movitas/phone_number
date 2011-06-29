@@ -15,12 +15,12 @@ generalDesc:
   possibleNumberPattern: \d{7}(?:\d{3})?
 countryCode: "1"
 mobile: 
-  nationalNumberPattern: "\n          670(?:\n            2(?:\n              3[3-5]|\n              88|\n              56\n            )|\n            32[23]|\n            4[38]3|\n            532|\n            6(?:\n              64|\n              70|\n              8\\d\n            )\n          )\\d{4}\n        "
+  nationalNumberPattern: "\n          670(?:\n            2(?:\n              3[3-7]|\n              56|\n              8[5-8]\n            )|\n            32[1238]|\n            4(?:\n              33|\n              8[348]\n            )|\n            5(?:\n              32|\n              55|\n              88\n            )|\n            6(?:\n              64|\n              70|\n              82\n            )|\n            78[589]|\n            8[3-9]8|\n            989\n          )\\d{4}\n        "
   exampleNumber: "6702345678"
 tollFree: 
   nationalNumberPattern: "\n          8(?:\n            00|\n            55|\n            66|\n            77|\n            88\n          )[2-9]\\d{6}\n        "
   possibleNumberPattern: \d{10}
   exampleNumber: "8002123456"
 fixedLine: 
-  nationalNumberPattern: "\n          670(?:\n            2(?:\n              3[3-5]|\n              88|\n              56\n            )|\n            32[23]|\n            4[38]3|\n            532|\n            6(?:\n              64|\n              70|\n              8\\d\n            )\n          )\\d{4}\n        "
+  nationalNumberPattern: "\n          670(?:\n            2(?:\n              3[3-7]|\n              56|\n              8[5-8]\n            )|\n            32[1238]|\n            4(?:\n              33|\n              8[348]\n            )|\n            5(?:\n              32|\n              55|\n              88\n            )|\n            6(?:\n              64|\n              70|\n              82\n            )|\n            78[589]|\n            8[3-9]8|\n            989\n          )\\d{4}\n        "
   exampleNumber: "6702345678"

@@ -1,5 +1,13 @@
 --- 
+personalNumber: 
+  nationalNumberPattern: 80[24]\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80212345"
 preferredExtnPrefix: " Anexo "
+premiumRate: 
+  nationalNumberPattern: 805\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80512345"
 nationalPrefix: "0"
 internationalPrefix: 19(?:1[124]|77|90)00
 generalDesc: 
@@ -10,7 +18,15 @@ mobile:
   nationalNumberPattern: 9\d{8}
   possibleNumberPattern: \d{9}
   exampleNumber: "912345678"
-nationalPrefixFormattingRule: ($FG)
+nationalPrefixFormattingRule: ($NP$FG)
+sharedCost: 
+  nationalNumberPattern: 801\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80112345"
+tollFree: 
+  nationalNumberPattern: 800\d{5}
+  possibleNumberPattern: \d{8}
+  exampleNumber: "80012345"
 fixedLine: 
   nationalNumberPattern: "\n          (?:\n            1\\d|\n            4[1-4]|\n            5[1-46]|\n            6[1-7]|\n            7[2-46]|\n            8[2-4]\n          )\\d{6}\n        "
   possibleNumberPattern: \d{6,8}
@@ -21,8 +37,11 @@ availableFormats:
     leadingDigits: "1"
     pattern: (1)(\d{7})
   - format: $1 $2
-    leadingDigits: "[4-8]"
+    leadingDigits: "\n            [4-7]|\n            8[2-4]\n          "
     pattern: ([4-8]\d)(\d{6})
+  - format: $1 $2
+    leadingDigits: "80"
+    pattern: (\d{3})(\d{5})
   - format: $1 $2 $3
     leadingDigits: "9"
     pattern: (9\d{2})(\d{3})(\d{3})

@@ -19,7 +19,7 @@ availableFormats:
     leadingDigits: "\n            [34]7|\n            91[78]\n          "
     pattern: ([349]\d{2})(\d{2})(\d{4})
   - format: $1 $2 $3
-    leadingDigits: "\n            4[48]|\n            5|\n            9(?:\n              19|\n              [0235-9]\n            )\n          "
+    leadingDigits: "\n            4[48]|\n            5|\n            9(?:\n              1[59]|\n              [0235-9]\n            )\n          "
     pattern: ([459]\d)(\d{3})(\d{4})
   - format: $1 $2 $3
     leadingDigits: 

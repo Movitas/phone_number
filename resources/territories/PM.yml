@@ -1,5 +1,18 @@
 --- 
 nationalPrefix: "0"
 internationalPrefix: "00"
+generalDesc: 
+  nationalNumberPattern: "[45]\\d{5}"
+  possibleNumberPattern: \d{6}
 countryCode: "508"
-content: "\n    "
+mobile: 
+  nationalNumberPattern: "55\\d{4} "
+  exampleNumber: "551234"
+nationalPrefixFormattingRule: $NP$FG
+fixedLine: 
+  nationalNumberPattern: "41\\d{4} "
+  exampleNumber: "411234"
+availableFormats: 
+  numberFormat: 
+    format: $1 $2 $3
+    pattern: ([45]\d)(\d{2})(\d{2})
