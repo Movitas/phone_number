@@ -65,7 +65,7 @@ module PhoneNumber
       'P' => '7', 'Q' => '7', 'R' => '7', 'S' => '7',
       'T' => '8', 'U' => '8', 'V' => '8',
       'W' => '9', 'X' => '9', 'Y' => '9', 'Z' => '9'
-    }.freeze!
+    }.freeze
     
     # A list of all country codes where national significant numbers (excluding any national prefix)
     # exist that start with a leading zero.
@@ -77,7 +77,7 @@ module PhoneNumber
       228,  # Togo
       241,  # Gabon
       37    # Vatican City
-    ].freeze!
+    ].freeze
     
     # Pattern that makes it easy to distinguish whether a country has a unique international dialing
     # prefix or not. If a country has a unique international prefix (e.g. 011 in USA), it will be
