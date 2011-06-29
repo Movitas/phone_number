@@ -96,11 +96,15 @@ module PhoneNumber
       "\u00A0\u200B\u2060\u3000()\uFF08\uFF09\uFF3B\uFF3D.\\[\\]/~\u2053\u223C\uFF5E"
     
     # Digits accepted in phone numbers
-    #VALID_DIGITS=...
-    # We accept alpha characters in phone numbers, ASCII only, upper and lower case.
-    #VALID_ALPHA =
+    VALID_DIGITS = "0-9\uFF10-\uFF19\u0660-\u0669\u06F0-\u06F9"
     
+    # We accept alpha characters in phone numbers, ASCII only, upper and lower case.
+    VALID_ALPHA = "A-Za-z"
+    
+    # Valid plus characters
     PLUS_CHARS = "+\uFF0B"
+    
+    # Capturing digit pattern
     CAPTURING_DIGIT_PATTERN = Regexp.compile("([" + VALID_DIGITS + "])")
     
     # We use this pattern to check if the phone number has at least three letters in it - if so, then
