@@ -1,0 +1,9 @@
+# rcov generated
+coverage
+
+# bundler
+Gemfile.lock
+.bundle
+
+# jeweler generated
+pkg
