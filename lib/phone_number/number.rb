@@ -147,12 +147,10 @@ module PhoneNumber
     
     attr_accessor :dialed
     
+    alias_method :to_s, :dialed
+    
     def initialize(dialed)
       @dialed = dialed
-    end
-    
-    def to_s
-      
     end
     
   end
