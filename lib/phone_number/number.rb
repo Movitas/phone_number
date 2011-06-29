@@ -139,6 +139,14 @@ module PhoneNumber
       "[:\\.\uFF0E]?[ \u00A0\\t,-]*([" + VALID_DIGITS + "]{1,7})#?|[- ]+([" + VALID_DIGITS +
       "]{1,5})#"
     
+    # Regexp of all known extension prefixes used by different regions followed by
+    # 1 or more valid digits, for use when parsing.
+    EXTN_PATTERN = Regexp.compile('(?:' + KNOWN_EXTN_PATTERNS + ')$', 'i')
+    
+    # We append optionally the extension pattern to the end here, as a valid phone
+    # number may have an extension prefix appended, followed by 1 or more digits.
+    VALID_PHONE_NUMBER_PATTERN = Regexp.compile('^' + VALID_PHONE_NUMBER + '(?:' + KNOWN_EXTN_PATTERNS + ')?' + '$', 'i')
+    
     NON_DIGITS_PATTERN = Regexp.compile("(\\D+)")
     FIRST_GROUP_PATTERN = Regexp.compile("(\\$1)")
     NP_PATTERN = Regexp.compile("\\$NP")
