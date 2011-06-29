@@ -153,13 +153,28 @@ module PhoneNumber
     FG_PATTERN = Regexp.compile("\\$FG")
     CC_PATTERN = Regexp.compile("\\$CC")
     
-    attr_accessor :dialed
+    attr_accessor :number
     
-    alias_method :to_s, :dialed
+    alias_method :to_s, :number
     
-    def initialize(dialed)
-      @dialed = dialed
+    def initialize(number)
+      @number = number
+    end
+    
+    # Checks to see if the string of characters could possibly be a phone number at all. At the
+    # moment, checks to see that the string begins with at least 3 digits, ignoring any punctuation
+    # commonly found in phone numbers.
+    # This method does not require the number to be normalized in advance - but does assume that
+    # leading non-number symbols have been removed, such as by the method extractPossibleNumber.
+    def is_viable?
+      return false unless (MIN_LENGTH_FOR_NSN..MAX_LENGTH_FOR_NSN).include? @number.length
+      VALID_PHONE_NUMBER_PATTERN.match @number
+    end
+    
+    def self.is_viable?(number)
+      self.new(number).is_viable?
     end
     
   end
+  
 end
