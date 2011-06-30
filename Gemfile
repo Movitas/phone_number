@@ -4,7 +4,6 @@ group :development, :test do
   gem 'xml-simple'
   
   gem 'test-unit'
-  gem 'shoulda'
   gem 'guard-test'
   
   gem 'rcov'
