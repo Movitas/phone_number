@@ -67,6 +67,9 @@ module PhoneNumber
       'W' => '9', 'X' => '9', 'Y' => '9', 'Z' => '9'
     }.freeze
     
+    # For performance reasons, amalgamate both into one map
+    ALL_NORMALIZATION_MAPPINGS = DIGIT_MAPPINGS.merge ALPHA_MAPPINGS
+    
     # A list of all country codes where national significant numbers (excluding any national prefix)
     # exist that start with a leading zero.
     LEADING_ZERO_COUNTRIES = [
@@ -168,7 +171,51 @@ module PhoneNumber
     # leading non-number symbols have been removed, such as by the method extractPossibleNumber.
     def is_viable?
       return false unless (MIN_LENGTH_FOR_NSN..MAX_LENGTH_FOR_NSN).include? @number.length
-      VALID_PHONE_NUMBER_PATTERN.match @number
+      VALID_PHONE_NUMBER_PATTERN.match(@number) ? true : false
+    end
+    
+    # Normalizes a string of characters representing a phone number. This performs
+    # the following conversions:
+    #  - Wide-ascii digits are converted to normal ASCII (European) digits.
+    #  - Letters are converted to their numeric representation on a telephone
+    # keypad. The keypad used here is the one defined in ITU Recommendation E.161.
+    # This is only done if there are 3 or more letters in the number, to lessen the
+    # risk that such letters are typos - otherwise alpha characters are stripped.
+    #  - Punctuation is stripped.
+    #  - Arabic-Indic numerals are converted to European numerals.
+    def normalize
+      if matches_entirely(VALID_ALPHA_PHONE_PATTERN, number)
+        normalize_helper(number, ALL_NORMALIZATION_MAPPINGS, true)
+      else
+        normalize_helper(number, DIGIT_MAPPINGS, true)
+      end
+    end
+    
+    # Normalizes a string of characters representing a phone number by replacing
+    # all characters found in the accompanying map with the values therein, and
+    # stripping all other characters if removeNonMatches is true.
+    def normalize_helper(number, normalization_replacements, remove_non_matches)
+      normalized_number = ""
+      
+      number.each_char do |character|
+        new_digit = ALL_NORMALIZATION_MAPPINGS[character.upcase]
+        
+        if new_digit
+          normalized_number << new_digit
+        else
+          normalized_number << character unless remove_non_matches
+        end
+        # If neither of the above are true, we remove this character.
+      end
+      normalized_number
+    end
+    
+    # Check whether the entire input sequence can be matched against the regular
+    # expression.
+    def matches_entirely(regex, str)
+      matched_groups = (regex.class == String) ? str.match('^(?:' + regex + ')$') : str.match(regex);
+      matched_length = matched_groups[0].length == str.length
+      (matched_groups && matched_length) ? true : false
     end
     
   end

@@ -29,4 +29,14 @@ class NumberTest < Test::Unit::TestCase
     assert !@invalid_number_too_short.is_viable?
   end
   
+  test "should normalize dialed number" do
+    dialed_number = "1800ABCDEFG"
+    normalized    = "18002223334"
+    number = PhoneNumber::Number.new dialed_number
+    assert_equal normalized, number.normalize
+    # assert_not_equal dialed_number, number.to_s
+    # assert_equal normalized, number.normalize!
+    # assert_equal dialed_number, number.to_s
+  end
+  
 end
