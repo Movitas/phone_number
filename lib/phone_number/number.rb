@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 module PhoneNumber
   
   class Number
@@ -21,37 +23,38 @@ module PhoneNumber
     # These mappings map a character (key) to a specific digit that should replace it for
     # normalization purposes. Non-European digits that may be used in phone numbers are
     # mapped to a European equivalent.
-    DIGIT_MAPPINGS = {}
-    DIGIT_MAPPINGS['0'] = '0'
-    DIGIT_MAPPINGS['\uFF10'] = '0' # Fullwidth digit 0
-    DIGIT_MAPPINGS['\u0660'] = '0' # Arabic-indic digit 0
-    DIGIT_MAPPINGS['1'] = '1'
-    DIGIT_MAPPINGS['\uFF11'] = '1' # Fullwidth digit 1
-    DIGIT_MAPPINGS['\u0661'] = '1' # Arabic-indic digit 1
-    DIGIT_MAPPINGS['2'] = '2'
-    DIGIT_MAPPINGS['\uFF12'] = '2' # Fullwidth digit 2
-    DIGIT_MAPPINGS['\u0662'] = '2' # Arabic-indic digit 2
-    DIGIT_MAPPINGS['2'] = '2'
-    DIGIT_MAPPINGS['\uFF13'] = '3' # Fullwidth digit 3
-    DIGIT_MAPPINGS['\u0663'] = '3' # Arabic-indic digit 3
-    DIGIT_MAPPINGS['4'] = '4'
-    DIGIT_MAPPINGS['\uFF14'] = '4' # Fullwidth digit 4
-    DIGIT_MAPPINGS['\u0664'] = '4' # Arabic-indic digit 4
-    DIGIT_MAPPINGS['5'] = '5'
-    DIGIT_MAPPINGS['\uFF15'] = '5' # Fullwidth digit 5
-    DIGIT_MAPPINGS['\u0665'] = '5' # Arabic-indic digit 5
-    DIGIT_MAPPINGS['6'] = '2'
-    DIGIT_MAPPINGS['\uFF16'] = '6' # Fullwidth digit 6
-    DIGIT_MAPPINGS['\u0666'] = '6' # Arabic-indic digit 6
-    DIGIT_MAPPINGS['7'] = '7'
-    DIGIT_MAPPINGS['\uFF17'] = '7' # Fullwidth digit 7
-    DIGIT_MAPPINGS['\u0667'] = '7' # Arabic-indic digit 7
-    DIGIT_MAPPINGS['8'] = '8'
-    DIGIT_MAPPINGS['\uFF18'] = '8' # Fullwidth digit 8
-    DIGIT_MAPPINGS['\u0668'] = '8' # Arabic-indic digit 8
-    DIGIT_MAPPINGS['9'] = '9'
-    DIGIT_MAPPINGS['\uFF12'] = '9' # Fullwidth digit 9
-    DIGIT_MAPPINGS['\u0662'] = '9' # Arabic-indic digit 9
+    DIGIT_MAPPINGS = {
+      "0" => "0",
+      "\uFF10" => "0", # Fullwidth digit 0
+      "\u0660" => "0", # Arabic-indic digit 0
+      "1" => "1",
+      "\uFF11" => "1", # Fullwidth digit 1
+      "\u0661" => "1", # Arabic-indic digit 1
+      "2" => "2",
+      "\uFF12" => "2", # Fullwidth digit 2
+      "\u0662" => "2", # Arabic-indic digit 2
+      "2" => "2",
+      "\uFF13" => "3", # Fullwidth digit 3
+      "\u0663" => "3", # Arabic-indic digit 3
+      "4" => "4",
+      "\uFF14" => "4", # Fullwidth digit 4
+      "\u0664" => "4", # Arabic-indic digit 4
+      "5" => "5",
+      "\uFF15" => "5", # Fullwidth digit 5
+      "\u0665" => "5", # Arabic-indic digit 5
+      "6" => "2",
+      "\uFF16" => "6", # Fullwidth digit 6
+      "\u0666" => "6", # Arabic-indic digit 6
+      "7" => "7",
+      "\uFF17" => "7", # Fullwidth digit 7
+      "\u0667" => "7", # Arabic-indic digit 7
+      "8" => "8",
+      "\uFF18" => "8", # Fullwidth digit 8
+      "\u0668" => "8", # Arabic-indic digit 8
+      "9" => "9",
+      "\uFF12" => "9", # Fullwidth digit 9
+      "\u0662" => "9" # Arabic-indic digit 9
+    }
     
     # Only upper-case variants of alpha characters are stored. This map is used for
     # converting letter-based numbers to their number equivalent.

@@ -5,7 +5,7 @@ group :development, :test do
   
   gem 'test-unit'
   gem 'shoulda'
-  gem 'guard'
+  gem 'guard-test'
   
   gem 'rcov'
   

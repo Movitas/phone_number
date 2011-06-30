@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Justin Campbell}]
-  s.date = %q{2011-06-29}
+  s.authors = ["Justin Campbell"]
+  s.date = %q{2011-06-30}
   s.description = %q{A Ruby port of Google's libphonenumber}
   s.email = %q{jcampbell@movitas.com}
   s.extra_rdoc_files = [
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
   s.files = [
+    ".rvmrc",
     "Gemfile",
     "Guardfile",
     "LICENSE",
@@ -25,6 +26,7 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/phone_number.rb",
     "lib/phone_number/metadata.rb",
+    "lib/phone_number/number.rb",
     "phone_number.gemspec",
     "resources/PhoneNumberMetaData.xml",
     "resources/territories/.gitkeep",
@@ -270,40 +272,47 @@ Gem::Specification.new do |s|
     "resources/territories/ZW.yml",
     "tasks/phone_number.rake",
     "test/phone_number/metadata_test.rb",
+    "test/phone_number/number_test.rb",
     "test/phone_number_test.rb",
     "test/test_helper.rb"
   ]
   s.homepage = %q{http://github.com/Movitas/phone_number}
-  s.licenses = [%q{Apache}]
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.5}
+  s.licenses = ["Apache"]
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{A Ruby port of Google's libphonenumber}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rb-fsevent>, [">= 0"])
+      s.add_runtime_dependency(%q<growl>, [">= 0"])
       s.add_development_dependency(%q<xml-simple>, [">= 0"])
       s.add_development_dependency(%q<test-unit>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<guard>, [">= 0"])
+      s.add_development_dependency(%q<guard-test>, [">= 0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
       s.add_development_dependency(%q<bundler>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
+      s.add_dependency(%q<rb-fsevent>, [">= 0"])
+      s.add_dependency(%q<growl>, [">= 0"])
       s.add_dependency(%q<xml-simple>, [">= 0"])
       s.add_dependency(%q<test-unit>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<guard>, [">= 0"])
+      s.add_dependency(%q<guard-test>, [">= 0"])
       s.add_dependency(%q<rcov>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
+    s.add_dependency(%q<rb-fsevent>, [">= 0"])
+    s.add_dependency(%q<growl>, [">= 0"])
     s.add_dependency(%q<xml-simple>, [">= 0"])
     s.add_dependency(%q<test-unit>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<guard>, [">= 0"])
+    s.add_dependency(%q<guard-test>, [">= 0"])
     s.add_dependency(%q<rcov>, [">= 0"])
     s.add_dependency(%q<bundler>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
