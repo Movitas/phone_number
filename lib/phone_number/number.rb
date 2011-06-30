@@ -113,6 +113,28 @@ module PhoneNumber
     # Capturing digit pattern
     CAPTURING_DIGIT_PATTERN = Regexp.compile("([" + VALID_DIGITS + "])")
     
+    # Regular expression of acceptable characters that may start a phone number for
+    # the purposes of parsing. This allows us to strip away meaningless prefixes to
+    # phone numbers that may be mistakenly given to us. This consists of digits,
+    # the plus symbol and arabic-indic digits. This does not contain alpha
+    # characters, although they may be used later in the number. It also does not
+    # include other punctuation, as this will be stripped later during parsing and
+    # is of no information value when parsing a number.
+    VALID_START_CHAR_PATTERN = Regexp.compile('[' + PLUS_CHARS + VALID_DIGITS + ']')
+    
+    # Regular expression of characters typically used to start a second phone
+    # number for the purposes of parsing. This allows us to strip off parts of the
+    # number that are actually the start of another number, such as for:
+    # (530) 583-6985 x302/x2303 -> the second extension here makes this actually
+    # two phone numbers, (530) 583-6985 x302 and (530) 583-6985 x2303. We remove
+    # the second extension so that the first number is parsed correctly.
+    SECOND_NUMBER_START_PATTERN = /[\\\/] *x/
+    
+    # Regular expression of trailing characters that we want to remove. We remove
+    # all characters that are not alpha or numerical characters. The hash character
+    # is retained here, as it may signify the previous block was an extension.
+    UNWANTED_END_CHAR_PATTERN = Regexp.compile('[^' + VALID_DIGITS + VALID_ALPHA + '#]+$')
+    
     # We use this pattern to check if the phone number has at least three letters in it - if so, then
     # we treat it as a number where some phone-number digits are represented by letters.
     VALID_ALPHA_PHONE_PATTERN = Regexp.compile("(?:.*?[A-Za-z]){3}.*")
@@ -167,11 +189,43 @@ module PhoneNumber
       @number = number
     end
     
+    # Attempts to extract a possible number from the string passed in. This
+    # currently strips all leading characters that cannot be used to start a phone
+    # number. Characters that can be used to start a phone number are defined in
+    # the VALID_START_CHAR_PATTERN. If none of these characters are found in the
+    # number passed in, an empty string is returned. This function also attempts to
+    # strip off any alternative extensions or endings if two or more are present,
+    # such as in the case of: (530) 583-6985 x302/x2303. The second extension here
+    # makes this actually two phone numbers, (530) 583-6985 x302 and (530) 583-6985
+    # x2303. We remove the second extension so that the first number is parsed
+    # correctly
+    def extract_possible_number
+      start = @number.index VALID_START_CHAR_PATTERN
+      
+      if start
+        possible_number = @number[start..-1]
+        # Remove trailing non-alpha non-numerical characters.
+        
+        possible_number = possible_number.sub UNWANTED_END_CHAR_PATTERN, ""
+        
+        # Check for extra numbers at the end.
+        second_number_start = possible_number.index SECOND_NUMBER_START_PATTERN
+        if second_number_start
+          possible_number = possible_number[0..second_number_start]
+        end
+      else
+        possible_number = "";
+      end
+      
+      possible_number
+      
+    end
+    
     # Checks to see if the string of characters could possibly be a phone number at all. At the
     # moment, checks to see that the string begins with at least 3 digits, ignoring any punctuation
     # commonly found in phone numbers.
     # This method does not require the number to be normalized in advance - but does assume that
-    # leading non-number symbols have been removed, such as by the method extractPossibleNumber.
+    # leading non-number symbols have been removed, such as by the method extractpossible_number.
     def is_viable?
       return false unless (MIN_LENGTH_FOR_NSN..MAX_LENGTH_FOR_NSN).include? @number.length
       VALID_PHONE_NUMBER_PATTERN.match(@number) ? true : false

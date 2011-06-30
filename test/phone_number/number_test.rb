@@ -41,4 +41,33 @@ class NumberTest < Test::Unit::TestCase
     # assert_equal dialed_number, number.to_s
   end
   
+  test "extract possible number" do
+    assertions = {
+      # Removes preceding funky punctuation and letters but leaves the rest
+      # untouched.
+      "0800-345-600" => "Tel:0800-345-600",
+      "0800 FOR PIZZA" => "Tel:0800 FOR PIZZA",
+      # Should not remove plus sign
+      "+800-345-600" => "Tel:+800-345-600",
+      # Should recognise wide digits as possible start values.
+      "\uFF10\uFF12\uFF13" => "\uFF10\uFF12\uFF13",
+      # Dashes are not possible start values and should be removed.
+      "\uFF11\uFF12\uFF13" => "Num-\uFF11\uFF12\uFF13",
+      # If not possible number present, return empty string.
+      "" => "Num-....",
+      # Leading brackets are stripped - these are not used when parsing.
+      "650) 253-0000" => "(650) 253-0000",
+      
+      # Trailing non-alpha-numeric characters should be removed.
+      "650) 253-0000" => "(650) 253-0000..- ..",
+      "650) 253-0000" => "(650) 253-0000.",
+      # This case has a trailing RTL char.
+      "650) 253-0000" => "(650) 253-0000\u200F"
+    }
+    
+    assertions.each do |expected, input|
+      assert_equal expected, PhoneNumber::Number.new(input).extract_possible_number, "<#{input}> input"
+    end
+  end
+  
 end
