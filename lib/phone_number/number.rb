@@ -184,17 +184,17 @@ module PhoneNumber
     #  - Punctuation is stripped.
     #  - Arabic-Indic numerals are converted to European numerals.
     def normalize
-      if matches_entirely(VALID_ALPHA_PHONE_PATTERN, number)
-        normalize_helper(number, ALL_NORMALIZATION_MAPPINGS, true)
+      if matches_entirely(VALID_ALPHA_PHONE_PATTERN, @number)
+        normalize_helper(@number, ALL_NORMALIZATION_MAPPINGS)
       else
-        normalize_helper(number, DIGIT_MAPPINGS, true)
+        normalize_helper(@number, DIGIT_MAPPINGS)
       end
     end
     
     # Normalizes a string of characters representing a phone number by replacing
     # all characters found in the accompanying map with the values therein, and
     # stripping all other characters if removeNonMatches is true.
-    def normalize_helper(number, normalization_replacements, remove_non_matches)
+    def normalize_helper(number, normalization_replacements, remove_non_matches=true)
       normalized_number = ""
       
       number.each_char do |character|
@@ -207,6 +207,7 @@ module PhoneNumber
         end
         # If neither of the above are true, we remove this character.
       end
+      
       normalized_number
     end
     
