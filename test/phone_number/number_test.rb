@@ -31,14 +31,21 @@ class NumberTest < Test::Unit::TestCase
     assert !@invalid_number_too_short.is_viable?
   end
   
-  test "should normalize dialed number" do
-    dialed_number = "1800ABCDEFG"
-    normalized    = "18002223334"
-    number = PhoneNumber::Number.new dialed_number
-    assert_equal normalized, number.normalize
-    # assert_not_equal dialed_number, number.to_s
-    # assert_equal normalized, number.normalize!
-    # assert_equal dialed_number, number.to_s
+  test "normalize remove punctuation" do
+    assert_equal "03456234", PhoneNumber::Number.new("034-56&+#234").normalize
+  end
+  
+  test "normalize replace alpha characters" do
+    assert_equal "034426486479", PhoneNumber::Number.new("034-I-am-HUNGRY").normalize
+  end
+  
+  test "normalize non-latin digits" do
+    assert_equal "255", PhoneNumber::Number.new("\uFF125\u0665").normalize
+    assert_equal "520", PhoneNumber::Number.new("\u06F52\u06F0").normalize
+  end
+  
+  test "normalize strip alpha characters" do
+    assert_equal "03456234", PhoneNumber::Number.new("034-56&+a#234").normalize_digits_only
   end
   
   test "extract possible number" do
@@ -57,7 +64,6 @@ class NumberTest < Test::Unit::TestCase
       "" => "Num-....",
       # Leading brackets are stripped - these are not used when parsing.
       "650) 253-0000" => "(650) 253-0000",
-      
       # Trailing non-alpha-numeric characters should be removed.
       "650) 253-0000" => "(650) 253-0000..- ..",
       "650) 253-0000" => "(650) 253-0000.",

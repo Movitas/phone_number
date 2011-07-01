@@ -25,35 +25,48 @@ module PhoneNumber
     # mapped to a European equivalent.
     DIGIT_MAPPINGS = {
       "0" => "0",
-      "\uFF10" => "0", # Fullwidth digit 0
-      "\u0660" => "0", # Arabic-indic digit 0
       "1" => "1",
-      "\uFF11" => "1", # Fullwidth digit 1
-      "\u0661" => "1", # Arabic-indic digit 1
       "2" => "2",
-      "\uFF12" => "2", # Fullwidth digit 2
-      "\u0662" => "2", # Arabic-indic digit 2
-      "2" => "2",
-      "\uFF13" => "3", # Fullwidth digit 3
-      "\u0663" => "3", # Arabic-indic digit 3
+      "3" => "3",
       "4" => "4",
-      "\uFF14" => "4", # Fullwidth digit 4
-      "\u0664" => "4", # Arabic-indic digit 4
       "5" => "5",
-      "\uFF15" => "5", # Fullwidth digit 5
-      "\u0665" => "5", # Arabic-indic digit 5
-      "6" => "2",
-      "\uFF16" => "6", # Fullwidth digit 6
-      "\u0666" => "6", # Arabic-indic digit 6
+      "6" => "6",
       "7" => "7",
-      "\uFF17" => "7", # Fullwidth digit 7
-      "\u0667" => "7", # Arabic-indic digit 7
       "8" => "8",
-      "\uFF18" => "8", # Fullwidth digit 8
-      "\u0668" => "8", # Arabic-indic digit 8
       "9" => "9",
-      "\uFF12" => "9", # Fullwidth digit 9
-      "\u0662" => "9" # Arabic-indic digit 9
+      # Full width
+      "\uFF10" => "0",
+      "\uFF11" => "1",
+      "\uFF12" => "2",
+      "\uFF13" => "3",
+      "\uFF14" => "4",
+      "\uFF15" => "5",
+      "\uFF16" => "6",
+      "\uFF17" => "7",
+      "\uFF18" => "8",
+      "\uFF19" => "9",
+      # Arabic-Indic
+      "\u0660" => "0",
+      "\u0661" => "1",
+      "\u0662" => "2",
+      "\u0663" => "3",
+      "\u0664" => "4",
+      "\u0665" => "5",
+      "\u0666" => "6",
+      "\u0667" => "7",
+      "\u0668" => "8",
+      "\u0669" => "9",
+      # Extended Arabic-Indic
+      "\u06F0" => "0",
+      "\u06F1" => "1",
+      "\u06F2" => "2",
+      "\u06F3" => "3",
+      "\u06F4" => "4",
+      "\u06F5" => "5",
+      "\u06F6" => "6",
+      "\u06F7" => "7",
+      "\u06F8" => "8",
+      "\u06F9" => "9"
     }
     
     # Only upper-case variants of alpha characters are stored. This map is used for
@@ -70,7 +83,7 @@ module PhoneNumber
       'W' => '9', 'X' => '9', 'Y' => '9', 'Z' => '9'
     }.freeze
     
-    # For performance reasons, amalgamate both into one map
+    # For performance reasons, amalgamate all into one map
     ALL_NORMALIZATION_MAPPINGS = DIGIT_MAPPINGS.merge ALPHA_MAPPINGS
     
     # A list of all country codes where national significant numbers (excluding any national prefix)
@@ -248,6 +261,10 @@ module PhoneNumber
       end
     end
     
+    def normalize_digits_only
+      normalize_helper(@number, DIGIT_MAPPINGS)
+    end
+    
     # Normalizes a string of characters representing a phone number by replacing
     # all characters found in the accompanying map with the values therein, and
     # stripping all other characters if removeNonMatches is true.
@@ -255,7 +272,7 @@ module PhoneNumber
       normalized_number = ""
       
       number.each_char do |character|
-        new_digit = ALL_NORMALIZATION_MAPPINGS[character.upcase]
+        new_digit = normalization_replacements[character.upcase]
         
         if new_digit
           normalized_number << new_digit
@@ -272,7 +289,7 @@ module PhoneNumber
     # expression.
     def matches_entirely(regex, str)
       matched_groups = (regex.class == String) ? str.match('^(?:' + regex + ')$') : str.match(regex);
-      matched_length = matched_groups[0].length == str.length
+      matched_length = matched_groups && matched_groups[0].length == str.length
       (matched_groups && matched_length) ? true : false
     end
     
