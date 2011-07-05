@@ -374,12 +374,16 @@ module PhoneNumber
       :TOO_LONG             => 3
     }.freeze
     
-    attr_accessor :number
+    attr_accessor :number, :country_code
     
     alias_method :to_s, :number
     
-    def initialize(number)
+    def initialize(number, options=nil)
       @number = number
+      
+      if options
+        @country_code = options[:country_code]
+      end
     end
     
     # Attempts to extract a possible number from the string passed in. This

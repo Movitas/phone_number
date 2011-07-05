@@ -4,31 +4,31 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 class NumberTest < Test::Unit::TestCase
   
-  def setup
-    @valid_number              = PhoneNumber::Number.new "+12155551212"
-    @valid_number_with_plus    = PhoneNumber::Number.new "+12155551212"
-    @valid_number_without_plus = PhoneNumber::Number.new "12155551212"
-    @invalid_number_too_short  = PhoneNumber::Number.new "12"
-    @invalid_number_too_long   = PhoneNumber::Number.new "12345678901234567890"
-  end
-  
   test "should require an argument" do
     assert_raise(ArgumentError) { PhoneNumber::Number.new }
   end
   
   test "should instantiate with a valid phone number" do
-    assert @valid_number
+    assert PhoneNumber::Number.new "+12155551212"
+  end
+  
+  test "should instantiate with a country_code option" do
+    pn = PhoneNumber::Number.new "2155551212", :country_code => "1"
+    assert pn
+    assert_equal "2155551212", pn.number
+    assert_equal "1", pn.country_code
+    # assert_equal "+12155551212", number.to_s
   end
   
   test "should return dialed number when to_s is called" do
-    assert_equal "+12155551212", @valid_number.to_s
+    assert_equal "+12155551212", PhoneNumber::Number.new("+12155551212").to_s
   end
   
   test "should determine if a number is viable by length and regex" do
-    assert @valid_number_with_plus   .is_viable?
-    assert @valid_number_without_plus.is_viable?
-    assert !@invalid_number_too_long .is_viable?
-    assert !@invalid_number_too_short.is_viable?
+    assert PhoneNumber::Number.new("+12155551212").is_viable?
+    assert PhoneNumber::Number.new("12155551212").is_viable?
+    assert !PhoneNumber::Number.new("12345678901234567890").is_viable?
+    assert !PhoneNumber::Number.new("12").is_viable?
   end
   
   test "normalize remove punctuation" do
