@@ -5,11 +5,14 @@ require 'yaml'
 module PhoneNumber
   
   class Metadata
-    
     LOCAL_XML_FILE        = File.dirname(__FILE__) + "/../../resources/PhoneNumberMetaData.xml"
     TERRITORIES_DIRECTORY = File.dirname(LOCAL_XML_FILE) + "/territories"
     
     UPSTREAM_URL = "http://libphonenumber.googlecode.com/svn/trunk/resources/PhoneNumberMetaData.xml"
+    
+    def self.for_region(region)
+      YAML::load_file "#{TERRITORIES_DIRECTORY}/#{region}.yml" 
+    end
     
     def self.download
       file = File.new LOCAL_XML_FILE, "w"
