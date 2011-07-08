@@ -2,7 +2,7 @@
 
 module PhoneNumber
   
-  class Number
+  class NumberUtil
     META_DATA_FILE_PREFIX = "lib/data/PhoneNumberMetadataProto"
     
     # The minimum length of the national significant number.
@@ -396,11 +396,11 @@ module PhoneNumber
     # makes this actually two phone numbers, (530) 583-6985 x302 and (530) 583-6985
     # x2303. We remove the second extension so that the first number is parsed
     # correctly
-    def extract_possible_number
-      start = @number.index VALID_START_CHAR_PATTERN
+    def self.extract_possible_number(number)
+      start = number.index VALID_START_CHAR_PATTERN
       
       if start
-        possible_number = @number[start..-1]
+        possible_number = number[start..-1]
         # Remove trailing non-alpha non-numerical characters.
         
         possible_number = possible_number.sub UNWANTED_END_CHAR_PATTERN, ""
@@ -423,9 +423,9 @@ module PhoneNumber
     # commonly found in phone numbers.
     # This method does not require the number to be normalized in advance - but does assume that
     # leading non-number symbols have been removed, such as by the method extractpossible_number.
-    def is_viable?
-      return false unless (MIN_LENGTH_FOR_NSN..MAX_LENGTH_FOR_NSN).include? @number.length
-      VALID_PHONE_NUMBER_PATTERN.match(@number) ? true : false
+    def self.is_viable_phone_number(number)
+      return false unless (MIN_LENGTH_FOR_NSN..MAX_LENGTH_FOR_NSN).include? number.length
+      VALID_PHONE_NUMBER_PATTERN.match(number) ? true : false
     end
     
     # Normalizes a string of characters representing a phone number. This performs
@@ -437,22 +437,22 @@ module PhoneNumber
     # risk that such letters are typos - otherwise alpha characters are stripped.
     #  - Punctuation is stripped.
     #  - Arabic-Indic numerals are converted to European numerals.
-    def normalize
-      if matches_entirely(VALID_ALPHA_PHONE_PATTERN, @number)
-        normalize_helper(@number, ALL_NORMALIZATION_MAPPINGS)
+    def self.normalize(number)
+      if matches_entirely(VALID_ALPHA_PHONE_PATTERN, number)
+        normalize_helper(number, ALL_NORMALIZATION_MAPPINGS)
       else
-        normalize_helper(@number, DIGIT_MAPPINGS)
+        normalize_helper(number, DIGIT_MAPPINGS)
       end
     end
     
-    def normalize_digits_only
-      normalize_helper(@number, DIGIT_MAPPINGS)
+    def self.normalize_digits_only(number)
+      normalize_helper(number, DIGIT_MAPPINGS)
     end
     
     # Normalizes a string of characters representing a phone number by replacing
     # all characters found in the accompanying map with the values therein, and
     # stripping all other characters if removeNonMatches is true.
-    def normalize_helper(number, normalization_replacements, remove_non_matches=true)
+    def self.normalize_helper(number, normalization_replacements, remove_non_matches=true)
       normalized_number = ""
       
       number.each_char do |character|
