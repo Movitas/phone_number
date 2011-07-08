@@ -1,0 +1,462 @@
+digraph Dependencies {
+  
+  node [style=filled]
+  
+  /* Constants */
+  node [fillcolor=yellow]
+  MIN_LENGTH_FOR_NSN
+  MAX_LENGTH_FOR_NSN
+  MAX_LENGTH_COUNTRY_CODE
+  UNKNOWN_REGION
+  NANPA_COUNTRY_CODE
+  PLUS_SIGN
+  RFC3966_EXTN_PREFIX
+  DIGIT_MAPPINGS
+  ALPHA_MAPPINGS
+  ALL_NORMALIZATION_MAPPINGS
+  ALL_PLUS_NUMBER_GROUPING_SYMBOLS
+  UNIQUE_INTERNATIONAL_PREFIX
+  VALID_PUNCTUATION
+  VALID_DIGITS
+  VALID_ALPHA
+  PLUS_CHARS
+  LEADING_PLUS_CHARS_PATTERN
+  SEPARATOR_PATTERN
+  CAPTURING_DIGIT_PATTERN
+  VALID_START_CHAR_PATTERN
+  SECOND_NUMBER_START_PATTERN
+  UNWANTED_END_CHAR_PATTERN
+  VALID_ALPHA_PHONE_PATTERN
+  VALID_PHONE_NUMBER
+  DEFAULT_EXTN_PREFIX
+  CAPTURING_EXTN_DIGITS
+  KNOWN_EXTN_PATTERNS
+  EXTN_PATTERN
+  VALID_PHONE_NUMBER_PATTERN
+  NON_DIGITS_PATTERN
+  FIRST_GROUP_PATTERN
+  LEADING_ZERO_COUNTRIES
+  NP_PATTERN
+  FG_PATTERN
+  CC_PATTERN
+  PHONE_NUMBER_FORMAT
+  PHONE_NUMBER_TYPE
+  MATCH_TYPE
+  VALIDATION_RESULT
+  
+  /* Implemented */
+  node [fillcolor=green]
+  is_viable_phone_number
+  normalize
+  normalize_digits_only
+  normalize_helper
+  extract_possible_number
+  matches_entirely
+  
+  /* Not yet implemented */
+  node [fillcolor=salmon]
+  
+  extract_possible_number -> VALID_START_CHAR_PATTERN
+  extract_possible_number -> UNWANTED_END_CHAR_PATTERN
+  extract_possible_number -> SECOND_NUMBER_START_PATTERN
+  
+  is_viable_phone_number -> MIN_LENGTH_FOR_NSN
+  is_viable_phone_number -> matches_entirely
+  is_viable_phone_number -> VALID_PHONE_NUMBER_PATTERN
+  
+  normalize -> matches_entirely
+  normalize -> VALID_ALPHA_PHONE_PATTERN
+  normalize -> normalize_helper
+  normalize -> ALL_NORMALIZATION_MAPPINGS
+  normalize -> normalize_digits_only
+  
+  normalizeSB -> normalize
+  
+  normalize_digits_only -> normalize_helper
+  normalize_digits_only -> DIGIT_MAPPINGS
+  
+  convertAlphaCharactersInNumber -> normalize_helper
+  convertAlphaCharactersInNumber -> ALL_NORMALIZATION_MAPPINGS
+  
+  getLengthOfGeographicalAreaCode -> getRegionCodeForNumber
+  getLengthOfGeographicalAreaCode -> isValidRegionCode
+  getLengthOfGeographicalAreaCode -> getMetadataForRegion
+  getLengthOfGeographicalAreaCode -> hasNationalPrefix
+  getLengthOfGeographicalAreaCode -> getNumberTypeHelper
+  getLengthOfGeographicalAreaCode -> getNationalSignificantNumber
+  getLengthOfGeographicalAreaCode -> PHONE_NUMBER_TYPE
+  getLengthOfGeographicalAreaCode -> getLengthOfNationalDestinationCode
+  
+  getLengthOfNationalDestinationCode -> hasExtension
+  getLengthOfNationalDestinationCode -> clearExtension
+  getLengthOfNationalDestinationCode -> INTERNATIONAL
+  getLengthOfNationalDestinationCode -> NON_DIGITS_PATTERN
+  getLengthOfNationalDestinationCode -> getRegionCodeForNumber
+  getLengthOfNationalDestinationCode -> getNumberType
+  getLengthOfNationalDestinationCode -> PHONE_NUMBER_TYPE
+  
+  normalize_helper
+  
+  isValidRegionCode
+  
+  format -> getCountryCodeOrDefault
+  format -> getNationalSignificantNumber
+  format -> PHONE_NUMBER_FORMAT
+  format -> formatNumberByFormat
+  format -> getRegionCodeForCountryCode
+  format -> isValidRegionCode
+  format -> maybeGetFormattedExtension
+  format -> formatNationalNumber
+  
+  formatByPattern -> getCountryCodeOrDefault
+  formatByPattern -> getNationalSignificantNumber
+  formatByPattern -> getRegionCodeForCountryCode
+  formatByPattern -> isValidRegionCode
+  formatByPattern -> getNationalPrefixFormattingRuleOrDefault
+  formatByPattern -> getMetadataForRegion
+  formatByPattern -> getNationalPrefixOrDefault
+  formatByPattern -> NP_PATTERN
+  formatByPattern -> FG_PATTERN
+  formatByPattern -> setNationalPrefixFormattingRule
+  formatByPattern -> clearNationalPrefixFormattingRule
+  formatByPattern -> maybeGetFormattedExtension
+  formatByPattern -> formatAccordingToFormats
+  formatByPattern -> formatNumberByFormat
+  
+  formatNationalNumberWithCarrierCode -> getCountryCodeOrDefault
+  formatNationalNumberWithCarrierCode -> getNationalSignificantNumber
+  formatNationalNumberWithCarrierCode -> getRegionCodeForCountryCode
+  formatNationalNumberWithCarrierCode -> isValidRegionCode
+  formatNationalNumberWithCarrierCode -> maybeGetFormattedExtension
+  formatNationalNumberWithCarrierCode -> PHONE_NUMBER_FORMAT
+  formatNationalNumberWithCarrierCode -> formatNationalNumber
+  formatNationalNumberWithCarrierCode -> formatNumberByFormat
+  
+  formatNationalNumberWithPreferredCarrierCode -> formatNationalNumberWithCarrierCode
+  formatNationalNumberWithPreferredCarrierCode -> hasPreferredDomesticCarrierCode
+  formatNationalNumberWithPreferredCarrierCode -> getPreferredDomesticCarrierCodeOrDefault
+  
+  formatOutOfCountryCallingNumber -> isValidRegionCode
+  formatOutOfCountryCallingNumber -> format
+  formatOutOfCountryCallingNumber -> PHONE_NUMBER_FORMAT
+  formatOutOfCountryCallingNumber -> getCountryCodeOrDefault
+  formatOutOfCountryCallingNumber -> getRegionCodeForCountryCode
+  formatOutOfCountryCallingNumber -> getNationalSignificantNumber
+  formatOutOfCountryCallingNumber -> isValidRegionCode
+  formatOutOfCountryCallingNumber -> NANPA_COUNTRY_CODE
+  formatOutOfCountryCallingNumber -> isNANPACountry
+  formatOutOfCountryCallingNumber -> format
+  formatOutOfCountryCallingNumber -> getCountryCodeForRegion
+  formatOutOfCountryCallingNumber -> formatNationalNumber
+  formatOutOfCountryCallingNumber -> getMetadataForRegion
+  formatOutOfCountryCallingNumber -> getInternationalPrefixOrDefault
+  formatOutOfCountryCallingNumber -> maybeGetFormattedExtension
+  formatOutOfCountryCallingNumber -> matches_entirely
+  formatOutOfCountryCallingNumber -> UNIQUE_INTERNATIONAL_PREFIX
+  formatOutOfCountryCallingNumber -> hasPreferredInternationalPrefix
+  formatOutOfCountryCallingNumber -> getPreferredInternationalPrefixOrDefault
+  formatOutOfCountryCallingNumber -> formatNumberByFormat
+  
+  formatInOriginalFormat -> hasCountryCodeSource
+  formatInOriginalFormat -> format
+  formatInOriginalFormat -> PHONE_NUMBER_FORMAT
+  formatInOriginalFormat -> getCountryCodeSource
+  
+  formatOutOfCountryKeepingAlphaChars -> getRawInputOrDefault
+  formatOutOfCountryKeepingAlphaChars -> formatOutOfCountryCallingNumber
+  formatOutOfCountryKeepingAlphaChars -> getCountryCodeOrDefault
+  formatOutOfCountryKeepingAlphaChars -> getRegionCodeForCountryCode
+  formatOutOfCountryKeepingAlphaChars -> isValidRegionCode
+  formatOutOfCountryKeepingAlphaChars -> normalize_helper
+  formatOutOfCountryKeepingAlphaChars -> ALL_PLUS_NUMBER_GROUPING_SYMBOLS
+  formatOutOfCountryKeepingAlphaChars -> getNationalSignificantNumber
+  formatOutOfCountryKeepingAlphaChars -> getMetadataForRegion
+  formatOutOfCountryKeepingAlphaChars -> NANPA_COUNTRY_CODE
+  formatOutOfCountryKeepingAlphaChars -> isNANPACountry
+  formatOutOfCountryKeepingAlphaChars -> getCountryCodeForRegion
+  formatOutOfCountryKeepingAlphaChars -> numberFormatArray
+  formatOutOfCountryKeepingAlphaChars -> setPattern
+  formatOutOfCountryKeepingAlphaChars -> setFormat
+  formatOutOfCountryKeepingAlphaChars -> formatAccordingToFormats
+  formatOutOfCountryKeepingAlphaChars -> PHONE_NUMBER_FORMAT
+  formatOutOfCountryKeepingAlphaChars -> getInternationalPrefixOrDefault
+  formatOutOfCountryKeepingAlphaChars -> matches_entirely
+  formatOutOfCountryKeepingAlphaChars -> UNIQUE_INTERNATIONAL_PREFIX
+  formatOutOfCountryKeepingAlphaChars -> getPreferredInternationalPrefixOrDefault
+  formatOutOfCountryKeepingAlphaChars -> maybeGetFormattedExtension
+  formatOutOfCountryKeepingAlphaChars -> formatNumberByFormat
+  
+  getNationalSignificantNumber -> getNationalNumber
+  getNationalSignificantNumber -> hasItalianLeadingZero
+  getNationalSignificantNumber -> getItalianLeadingZero
+  getNationalSignificantNumber -> isLeadingZeroPossible
+  getNationalSignificantNumber -> getCountryCodeOrDefault
+  
+  formatNumberByFormat -> PHONE_NUMBER_FORMAT
+  
+  formatNationalNumber -> getMetadataForRegion
+  formatNationalNumber -> intlNumberFormatArray
+  formatNationalNumber -> PHONE_NUMBER_FORMAT
+  formatNationalNumber -> numberFormatArray
+  formatNationalNumber -> formatAccordingToFormats
+  formatNationalNumber -> SEPARATOR_PATTERN
+  
+  formatAccordingToFormats -> leadingDigitsPatternCount
+  formatAccordingToFormats -> getLeadingDigitsPattern
+  formatAccordingToFormats -> getPattern
+  formatAccordingToFormats -> matches_entirely
+  formatAccordingToFormats -> getFormatOrDefault
+  formatAccordingToFormats -> getDomesticCarrierCodeFormattingRuleOrDefault
+  formatAccordingToFormats -> PHONE_NUMBER_FORMAT
+  formatAccordingToFormats -> CC_PATTERN
+  formatAccordingToFormats -> FIRST_GROUP_PATTERN
+  formatAccordingToFormats -> getNationalPrefixFormattingRuleOrDefault
+  
+  getExampleNumber -> getExampleNumberForType
+  getExampleNumber -> PHONE_NUMBER_TYPE
+  
+  getExampleNumberForType -> isValidRegionCode
+  getExampleNumberForType -> getNumberDescByType
+  getExampleNumberForType -> getMetadataForRegion
+  getExampleNumberForType -> hasExampleNumber
+  getExampleNumberForType -> getExampleNumberOrDefault
+  
+  maybeGetFormattedExtension -> hasExtension
+  maybeGetFormattedExtension -> getExtension
+  maybeGetFormattedExtension -> PHONE_NUMBER_FORMAT
+  maybeGetFormattedExtension -> RFC3966_EXTN_PREFIX
+  maybeGetFormattedExtension -> getExtension
+  maybeGetFormattedExtension -> formatExtension
+  maybeGetFormattedExtension -> getExtensionOrDefault
+  
+  formatExtension -> getMetadataForRegion
+  formatExtension -> hasPreferredExtnPrefix
+  formatExtension -> getPreferredExtnPrefix
+  formatExtension -> DEFAULT_EXTN_PREFIX
+  
+  getNumberDescByType -> PHONE_NUMBER_TYPE
+  getNumberDescByType -> getPremiumRate
+  getNumberDescByType -> getTollFree
+  getNumberDescByType -> getMobile
+  getNumberDescByType -> getFixedLine
+  getNumberDescByType -> getSharedCost
+  getNumberDescByType -> getVoip
+  getNumberDescByType -> getPersonalNumber
+  getNumberDescByType -> getPager
+  getNumberDescByType -> getUan
+  getNumberDescByType -> getGeneralDesc
+  
+  getNumberType -> getRegionCodeForNumber
+  getNumberType -> isValidRegionCode
+  getNumberType -> PHONE_NUMBER_TYPE
+  getNumberType -> getNationalSignificantNumber
+  getNumberType -> getNumberTypeHelper
+  getNumberType -> getMetadataForRegion
+  
+  getNumberTypeHelper -> getGeneralDesc
+  getNumberTypeHelper -> hasNationalNumberPattern
+  getNumberTypeHelper -> isNumberMatchingDesc
+  getNumberTypeHelper -> PHONE_NUMBER_TYPE
+  getNumberTypeHelper -> getPremiumRate
+  getNumberTypeHelper -> getTollFree
+  getNumberTypeHelper -> getSharedCost
+  getNumberTypeHelper -> getVoip
+  getNumberTypeHelper -> getPersonalNumber
+  getNumberTypeHelper -> getPager
+  getNumberTypeHelper -> getUan
+  getNumberTypeHelper -> isNumberMatchingDesc
+  getNumberTypeHelper -> getFixedLine
+  getNumberTypeHelper -> getSameMobileAndFixedLinePattern
+  getNumberTypeHelper -> getMobile
+  getNumberTypeHelper -> getSameMobileAndFixedLinePattern
+  getNumberTypeHelper -> isNumberMatchingDesc
+  getNumberTypeHelper -> getMobile
+  
+  getMetadataForRegion -> regionToMetadataMap
+  getMetadataForRegion -> countryToMetadata
+  getMetadataForRegion -> getDescriptor
+  getMetadataForRegion -> metadataSerialized
+  
+  isNumberMatchingDesc -> matches_entirely
+  isNumberMatchingDesc -> getPossibleNumberPatternOrDefault
+  isNumberMatchingDesc -> getNationalNumberPatternOrDefault
+  
+  isValidNumber -> getRegionCodeForNumber
+  isValidNumber -> isValidRegionCode
+  isValidNumber -> isValidNumberForRegion
+  
+  isValidNumberForRegion -> getCountryCodeOrDefault
+  isValidNumberForRegion -> getCountryCodeForRegion
+  isValidNumberForRegion -> getMetadataForRegion
+  isValidNumberForRegion -> getGeneralDesc
+  isValidNumberForRegion -> getNationalSignificantNumber
+  isValidNumberForRegion -> hasNationalNumberPattern
+  isValidNumberForRegion -> MIN_LENGTH_FOR_NSN
+  isValidNumberForRegion -> MAX_LENGTH_FOR_NSN
+  isValidNumberForRegion -> getNumberTypeHelper
+  isValidNumberForRegion -> PHONE_NUMBER_TYPE
+  
+  getRegionCodeForNumber -> getCountryCodeOrDefault
+  getRegionCodeForNumber -> countryCodeToRegionCodeMap
+  getRegionCodeForNumber -> getRegionCodeForNumberFromRegionList
+  
+  getRegionCodeForNumberFromRegionList -> getNationalSignificantNumber
+  getRegionCodeForNumberFromRegionList -> getMetadataForRegion
+  getRegionCodeForNumberFromRegionList -> hasLeadingDigits
+  getRegionCodeForNumberFromRegionList -> getLeadingDigits
+  getRegionCodeForNumberFromRegionList -> getNumberTypeHelper
+  getRegionCodeForNumberFromRegionList -> PHONE_NUMBER_TYPE
+  
+  getRegionCodeForCountryCode -> countryCodeToRegionCodeMap
+  getRegionCodeForCountryCode -> UNKNOWN_REGION
+  
+  getCountryCodeForRegion -> isValidRegionCode
+  getCountryCodeForRegion -> getMetadataForRegion
+  getCountryCodeForRegion -> getCountryCodeOrDefault
+  
+  getNddPrefixForRegion -> isValidRegionCode
+  getNddPrefixForRegion -> getMetadataForRegion
+  getNddPrefixForRegion -> getNationalPrefixOrDefault
+  
+  isNANPACountry -> countryCodeToRegionCodeMap
+  isNANPACountry -> NANPA_COUNTRY_CODE
+  
+  isLeadingZeroPossible -> getMetadataForRegion
+  isLeadingZeroPossible -> getRegionCodeForCountryCode
+  isLeadingZeroPossible -> getLeadingZeroPossibleOrDefault
+  
+  isAlphaNumber -> is_viable_phone_number
+  isAlphaNumber -> maybeStripExtension
+  isAlphaNumber -> matches_entirely
+  isAlphaNumber -> VALID_ALPHA_PHONE_PATTERN
+  
+  isPossibleNumber -> isPossibleNumberWithReason
+  isPossibleNumber -> VALIDATION_RESULT
+  
+  testNumberLengthAgainstPattern -> matches_entirely
+  testNumberLengthAgainstPattern -> VALIDATION_RESULT
+  
+  isPossibleNumberWithReason -> getNationalSignificantNumber
+  isPossibleNumberWithReason -> getCountryCodeOrDefault
+  isPossibleNumberWithReason -> getRegionCodeForCountryCode
+  isPossibleNumberWithReason -> isValidRegionCode
+  isPossibleNumberWithReason -> VALIDATION_RESULT
+  isPossibleNumberWithReason -> getMetadataForRegion
+  isPossibleNumberWithReason -> getGeneralDesc
+  isPossibleNumberWithReason -> hasNationalNumberPattern
+  isPossibleNumberWithReason -> MIN_LENGTH_FOR_NSN
+  isPossibleNumberWithReason -> MAX_LENGTH_FOR_NSN
+  isPossibleNumberWithReason -> getPossibleNumberPatternOrDefault
+  isPossibleNumberWithReason -> testNumberLengthAgainstPattern
+  
+  isPossibleNumberString -> isPossibleNumber
+  
+  truncateTooLongNumber -> isValidNumber
+  truncateTooLongNumber -> getNationalNumberOrDefault
+  truncateTooLongNumber -> setNationalNumber
+  truncateTooLongNumber -> isPossibleNumberWithReason
+  truncateTooLongNumber -> VALIDATION_RESULT
+  truncateTooLongNumber -> isValidNumber
+  truncateTooLongNumber -> setNationalNumber
+  
+  extractCountryCode -> MAX_LENGTH_COUNTRY_CODE
+  extractCountryCode -> countryCodeToRegionCodeMap
+  
+  maybeExtractCountryCode -> getInternationalPrefix
+  maybeExtractCountryCode -> maybeStripInternationalPrefixAndNormalize
+  maybeExtractCountryCode -> setCountryCodeSource
+  maybeExtractCountryCode -> CountryCodeSource
+  maybeExtractCountryCode -> MIN_LENGTH_FOR_NSN
+  maybeExtractCountryCode -> ERROR
+  maybeExtractCountryCode -> extractCountryCode
+  maybeExtractCountryCode -> setCountryCode
+  maybeExtractCountryCode -> getCountryCodeOrDefault
+  maybeExtractCountryCode -> getGeneralDesc
+  maybeExtractCountryCode -> getNationalNumberPatternOrDefault
+  maybeExtractCountryCode -> maybeStripNationalPrefixAndCarrierCode
+  maybeExtractCountryCode -> getPossibleNumberPatternOrDefault
+  maybeExtractCountryCode -> matches_entirely
+  maybeExtractCountryCode -> testNumberLengthAgainstPattern
+  maybeExtractCountryCode -> VALIDATION_RESULT
+  maybeExtractCountryCode -> setCountryCodeSource
+  
+  parsePrefixAsIdd -> CAPTURING_DIGIT_PATTERN
+  parsePrefixAsIdd -> normalize_digits_only
+  
+  maybeStripInternationalPrefixAndNormalize -> CountryCodeSource
+  maybeStripInternationalPrefixAndNormalize -> LEADING_PLUS_CHARS_PATTERN
+  maybeStripInternationalPrefixAndNormalize -> normalize
+  maybeStripInternationalPrefixAndNormalize -> parsePrefixAsIdd
+  maybeStripInternationalPrefixAndNormalize -> normalizeSB
+  
+  maybeStripNationalPrefixAndCarrierCode -> getNationalPrefixForParsing
+  maybeStripNationalPrefixAndCarrierCode -> getGeneralDesc
+  maybeStripNationalPrefixAndCarrierCode -> getNationalPrefixTransformRule
+  maybeStripNationalPrefixAndCarrierCode -> matches_entirely
+  
+  maybeStripExtension -> EXTN_PATTERN
+  maybeStripExtension -> is_viable_phone_number
+  
+  checkRegionForParsing -> isValidRegionCode
+  checkRegionForParsing -> LEADING_PLUS_CHARS_PATTERN
+  
+  parse -> parseHelper
+  
+  parseAndKeepRawInput -> isValidRegionCode
+  parseAndKeepRawInput -> PLUS_SIGN
+  parseAndKeepRawInput -> ERROR
+  parseAndKeepRawInput -> parseHelper
+  
+  parseHelper -> ERROR
+  parseHelper -> extract_possible_number
+  parseHelper -> is_viable_phone_number
+  parseHelper -> checkRegionForParsing
+  parseHelper -> setRawInput
+  parseHelper -> maybeStripExtension
+  parseHelper -> setExtension
+  parseHelper -> getMetadataForRegion
+  parseHelper -> maybeExtractCountryCode
+  parseHelper -> getRegionCodeForCountryCode
+  parseHelper -> getMetadataForRegion
+  parseHelper -> normalizeSB
+  parseHelper -> getCountryCodeOrDefault
+  parseHelper -> setCountryCode
+  parseHelper -> clearCountryCodeSource
+  parseHelper -> MIN_LENGTH_FOR_NSN
+  parseHelper -> maybeStripNationalPrefixAndCarrierCode
+  parseHelper -> setPreferredDomesticCarrierCode
+  parseHelper -> MAX_LENGTH_FOR_NSN
+  parseHelper -> getLeadingZeroPossibleOrDefault
+  parseHelper -> setItalianLeadingZero
+  parseHelper -> setNationalNumber
+  
+  isNumberMatch -> UNKNOWN_REGION
+  isNumberMatch -> ERROR
+  isNumberMatch -> MATCH_TYPE
+  isNumberMatch -> getRegionCodeForCountryCode
+  isNumberMatch -> getCountryCodeOrDefault
+  isNumberMatch -> parse
+  isNumberMatch -> parseHelper
+  isNumberMatch -> isNumberMatch
+  isNumberMatch -> clearRawInput
+  isNumberMatch -> clearCountryCodeSource
+  isNumberMatch -> clearPreferredDomesticCarrierCode
+  isNumberMatch -> hasExtension
+  isNumberMatch -> getExtension
+  isNumberMatch -> clearExtension
+  isNumberMatch -> getCountryCodeOrDefault
+  isNumberMatch -> isNationalNumberSuffixOfTheOther
+  isNumberMatch -> setCountryCode
+  
+  isNationalNumberSuffixOfTheOther -> getNationalNumber
+  
+  canBeInternationallyDialled -> getRegionCodeForNumber
+  canBeInternationallyDialled -> getNationalSignificantNumber
+  canBeInternationallyDialled -> isValidRegionCode
+  canBeInternationallyDialled -> getMetadataForRegion
+  canBeInternationallyDialled -> isNumberMatchingDesc
+  canBeInternationallyDialled -> getNoInternationalDialling
+  
+  matches_entirely
+  
+}
