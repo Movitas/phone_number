@@ -131,4 +131,11 @@ class NumberUtilTest < Test::Unit::TestCase
     end
   end
   
+  test "is alpha number" do
+    assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags"), "<\"1800 six-flags\"> input"
+    assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags ext. 1234"), "\"<1800 six-flags ext. 1234\"> input"
+    assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234"), "<\"1800 123-1234\"> input"
+    assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234 extension: 1234"), "<\"1800 123-1234 extension: 1234\"> input"
+  end
+  
 end

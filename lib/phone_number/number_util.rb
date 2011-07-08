@@ -469,12 +469,132 @@ module PhoneNumber
       normalized_number
     end
     
+    # Gets the length of the geographical area code in the {@code national_number}
+    # field of the PhoneNumber object passed in, so that clients could use it to
+    # split a national significant number into geographical area code and
+    # subscriber number. It works in such a way that the resultant subscriber
+    # number should be diallable, at least on some devices. An example of how this
+    # could be used:
+    #
+    # <pre>
+    # var phoneUtil = i18n.phonenumbers.PhoneNumberUtil.getInstance();
+    # var number = phoneUtil.parse('16502530000', 'US');
+    # var nationalSignificantNumber =
+    #     phoneUtil.getNationalSignificantNumber(number);
+    # var areaCode;
+    # var subscriberNumber;
+    #
+    # var areaCodeLength = phoneUtil.getLengthOfGeographicalAreaCode(number);
+    # if (areaCodeLength > 0) {
+    #   areaCode = nationalSignificantNumber.substring(0, areaCodeLength);
+    #   subscriberNumber = nationalSignificantNumber.substring(areaCodeLength);
+    # } else {
+    #   areaCode = '';
+    #   subscriberNumber = nationalSignificantNumber;
+    # }
+    # </pre>
+    #
+    # N.B.: area code is a very ambiguous concept, so the I18N team generally
+    # recommends against using it for most purposes, but recommends using the more
+    # general {@code national_number} instead. Read the following carefully before
+    # deciding to use this method:
+    # <ul>
+    #  <li> geographical area codes change over time, and this method honors those
+    #    changes; therefore, it doesn't guarantee the stability of the result it
+    #    produces.
+    #  <li> subscriber numbers may not be diallable from all devices (notably
+    #    mobile devices, which typically requires the full national_number to be
+    #    dialled in most regions).
+    #  <li> most non-geographical numbers have no area codes.
+    #  <li> some geographical numbers have no area codes.
+    # </ul>
+    
+    # def self.get_length_of_geographical_area_code
+    #     region_code = this.get_region_code_for_number(@number)
+    #     return 0 unless this.is_valid_region_code(region_code)
+    #     
+    #     metadata = Metadata.for_region(region_code)
+    #     return 0 unless metadata.has_national_prefix
+    #     
+    #     type = this.get_number_type_helper(this.get_national_significant_number(@number), metadata);
+    #     
+    #     # Most numbers other than the two types below have to be dialled in full.
+    #     if type == PHONE_NUMBER_TYPE[:FIXED_LINE] or PHONE_NUMBER_TYPE[:FIXED_LINE_OR_MOBILE]
+    #       this.get_length_of_national_destination_code
+    #     else
+    #       0
+    #     end
+    # 
+    # end
+    
     # Check whether the entire input sequence can be matched against the regular
     # expression.
-    def matches_entirely(regex, str)
+    def self.matches_entirely(regex, str)
       matched_groups = (regex.class == String) ? str.match('^(?:' + regex + ')$') : str.match(regex);
       matched_length = matched_groups && matched_groups[0].length == str.length
       (matched_groups && matched_length) ? true : false
+    end
+    
+    # Returns the region where a phone number is from. This could be used for
+    # geocoding at the region level.
+    # @param {i18n.phonenumbers.PhoneNumber} number the phone number whose origin
+    #     we want to know.
+    # @return {?string} the region where the phone number is from, or null
+    #     if no region matches this calling code.
+    
+    # def self.get_region_code_for_number(number)
+    #   country_code = Metadata.get_country_code_or_default number
+    #   
+    #   regions = Metadata.country_code_to_region_code_map[country_code]
+    #   return nil unless regions
+    #   
+    #   if regions.size == 1
+    #     regions.first
+    #   else
+    #     this.get_region_code_for_number_from_region_list(number, regions)
+    #   end
+    # end
+    
+    # Strips any extension (as in, the part of the number dialled after the call is
+    # connected, usually indicated with extn, ext, x or similar) from the end of
+    # the number, and returns it.
+    def self.maybe_strip_extension(number)
+      number_string = number.to_s
+      match_start = number_string.index EXTN_PATTERN
+      # If we find a potential extension, and the number preceding this is a viable
+      # number, we assume it is an extension.
+      
+      if (match_start && match_start >= 0 && is_viable_phone_number(number_string.substring(0, match_start)))
+        # The numbers are captured into groups in the regular expression.
+        matched_groups = number_string.match EXTN_PATTERN
+        matched_groups_length = matched_groups.length
+        matched_groups.each do |group|
+          if (group != nil && group.length > 0)
+            # We go through the capturing groups until we find one that captured
+            # some digits. If none did, then we will return the empty string.
+            number.clear
+            number.append(number_string.substring(0, match_start))
+            return group
+          end
+        end
+      end
+      
+      ""
+    end
+    
+    
+    # Checks if the number is a valid vanity (alpha) number such as 800 MICROSOFT.
+    # A valid vanity number will start with at least 3 digits and will have three
+    # or more alpha characters. This does not do region-specific checks - to work
+    # out if this number is actually valid for a region, it should be parsed and
+    # methods such as {@link #isPossibleNumberWithReason} and
+    # {@link #isValidNumber} should be used.
+    def self.is_alpha_number(number)
+      # Number is too short, or doesn't match the basic phone number pattern.
+      return false unless self.is_viable_phone_number(number)
+      
+      stripped_number = self.maybe_strip_extension(number)
+      matches_entirely VALID_ALPHA_PHONE_PATTERN, stripped_number
     end
     
   end
