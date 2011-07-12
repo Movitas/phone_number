@@ -311,51 +311,6 @@ module PhoneNumber
     FG_PATTERN = Regexp.compile("\\$FG")
     CC_PATTERN = Regexp.compile("\\$CC")
     
-    # INTERNATIONAL and NATIONAL formats are consistent with the definition in
-    # ITU-T Recommendation E. 123. For example, the number of the Google Zurich
-    # office will be written as '+41 44 668 1800' in INTERNATIONAL format, and as
-    # '044 668 1800' in NATIONAL format. E164 format is as per INTERNATIONAL format
-    # but with no formatting applied, e.g. +41446681800. RFC3966 is as per
-    # INTERNATIONAL format, but with all spaces and other separating symbols
-    # replaced with a hyphen, and with any phone number extension appended with
-    # ';ext='.
-    PHONE_NUMBER_FORMAT = {
-      :E164          => 0,
-      :INTERNATIONAL => 1,
-      :NATIONAL      => 2,
-      :RFC3966       => 3
-    }.freeze
-    
-    # Type of phone numbers.
-    PHONE_NUMBER_TYPE = {
-      :FIXED_LINE => 0,
-      :MOBILE => 1,
-      # In some regions (e.g. the USA), it is impossible to distinguish between
-      # fixed-line and mobile numbers by looking at the phone number itself.
-      :FIXED_LINE_OR_MOBILE => 2,
-      # Freephone lines
-      :TOLL_FREE => 3,
-      :PREMIUM_RATE => 4,
-      # The cost of this call is shared between the caller and the recipient, and
-      # is hence typically less than PREMIUM_RATE calls. See
-      # http://en.wikipedia.org/wiki/Shared_Cost_Service for more information.
-      :SHARED_COST => 5,
-      # Voice over IP numbers. This includes TSoIP (Telephony Service over IP).
-      :VOIP => 6,
-      # A personal number is associated with a particular person, and may be routed
-      # to either a MOBILE or FIXED_LINE number. Some more information can be found
-      # here: http://en.wikipedia.org/wiki/Personal_Numbers
-      :PERSONAL_NUMBER => 7,
-      :PAGER => 8,
-      # Used for 'Universal Access Numbers' or 'Company Numbers'. They may be
-      # further routed to specific offices, but allow one number to be used for a
-      # company.
-      :UAN => 9,
-      # A phone number is of type UNKNOWN when it does not fit any of the known
-      # patterns for a specific region.
-      :UNKNOWN => 10
-    }.freeze
-    
     # Types of phone number matches. See detailed description beside the
     # isNumberMatch() method.
     MATCH_TYPE = {
@@ -373,18 +328,6 @@ module PhoneNumber
       :TOO_SHORT            => 2,
       :TOO_LONG             => 3
     }.freeze
-    
-    attr_accessor :number, :country_code
-    
-    alias_method :to_s, :number
-    
-    def initialize(number, options=nil)
-      @number = number
-      
-      if options
-        @country_code = options[:country_code]
-      end
-    end
     
     # Attempts to extract a possible number from the string passed in. This
     # currently strips all leading characters that cannot be used to start a phone
@@ -595,6 +538,178 @@ module PhoneNumber
       
       stripped_number = self.maybe_strip_extension(number)
       matches_entirely VALID_ALPHA_PHONE_PATTERN, stripped_number
+    end
+    
+    # Formats a phone number for out-of-country dialing purposes. If no
+    # regionCallingFrom is supplied, we format the number in its INTERNATIONAL
+    # format. If the country calling code is the same as that of the region where
+    # the number is from, then NATIONAL formatting will be applied.
+    #
+    # <p>If the number itself has a country calling code of zero or an otherwise
+    # invalid country calling code, then we return the number with no formatting
+    # applied.
+    #
+    # <p>Note this function takes care of the case for calling inside of NANPA and
+    # between Russia and Kazakhstan (who share the same country calling code). In
+    # those cases, no international prefix is used. For regions which have multiple
+    # international prefixes, the number in its INTERNATIONAL format will be
+    # returned instead.
+    def self.format_out_of_country_calling_number(number, region_calling_from)
+      if self.is_valid_region_code(region_calling_from)
+        return self.format_number(number, PHONE_NUMBER_FORMAT[:INTERNATIONAL])
+      end
+      
+      country_calling_code = number.get_country_code_or_default
+      region_code = self.get_region_code_for_country_code(country_calling_code)
+      national_significant_number = self.get_national_significant_number(number)
+      
+      if self.is_valid_region_code(region_code)
+        return national_significant_number
+      end
+      
+      if country_calling_code == NANPA_COUNTRY_CODE
+        if self.is_nanpa_country(region_calling_from)
+          # For NANPA regions, return the national format for these regions but
+          # prefix it with the country calling code.
+          return country_calling_code + " " + self.format_number(number, PHONE_NUMBER_FORMAT[:NATIONAL])
+        end
+      elsif country_calling_code == self.get_country_code_for_region(region_calling_from)
+        # For regions that share a country calling code, the country calling code
+        # need not be dialled. This also applies when dialling within a region, so
+        # this if clause covers both these cases. Technically this is the case for
+        # dialling from La Reunion to other overseas departments of France (French
+        # Guiana, Martinique, Guadeloupe), but not vice versa - so we don't cover
+        # this edge case for now and for those cases return the version including
+        # country calling code. Details here:
+        # http://www.petitfute.com/voyage/225-info-pratiques-reunion
+        return self.format_number(number, PHONE_NUMBER_FORMAT[:NATIONAL])
+      end
+      
+      formatted_national_number = self.format_national_number(national_significant_number, region_code, PHONE_NUMBER_FORMAT[:INTERNATIONAL])
+      metadata = self.get_metadata_for_region(region_calling_from)
+      international_prefix = metadata.get_international_prefix_or_default
+      formatted_extension = self.maybe_get_formatted_extension(number, region_code, PHONE_NUMBER_FORMAT[:INTERNATIONAL])
+
+      # For regions that have multiple international prefixes, the international
+      # format of the number is returned, unless there is a preferred international
+      # prefix.
+      international_prefix_for_formatting = ""
+      
+      if self.matches_entirely(UNIQUE_INTERNATIONAL_PREFIX, international_prefix)
+        international_prefix_for_formatting = international_prefix
+      elsif metadata.has_preferred_international_prefix
+        international_prefix_for_formatting = metadata.get_preffered_international_prefix_or_default
+      end
+      
+      return international_prefix_for_formatting.nonzero? ? international_prefix_for_formatting + " " + country_calling_code + " " + formatted_national_number + formatted_extension : this.format_number_by_format(country_calling_code, PHONE_NUMBER_FORMAT[:INTERNATIONAL], formatted_national_number, formatted_extension)
+    end
+    
+    # Gets the national significant number of the a phone number. Note a national
+    # significant number doesn't contain a national prefix or any formatting.
+    def self.get_national_significant_number(number)
+      # The leading zero in the national (significant) number of an Italian phone
+      # number has a special meaning. Unlike the rest of the world, it indicates
+      # the number is a landline number. There have been plans to migrate landline
+      # numbers to start with the digit two since December 2000, but it has not yet
+      # happened. See http://en.wikipedia.org/wiki/%2B39 for more details. Other
+      # regions such as Cote d'Ivoire and Gabon use this for their mobile numbers.
+      national_number = "#{number.national_number}"
+      
+      if number.italian_leading_zero && self.is_leading_zero_possible(number.country_code)
+        return "0" + national_number
+      end
+    end
+    
+    # Formats a phone number in the specified format using default rules. Note that
+    # this does not promise to produce a phone number that the user can dial from
+    # where they are - although we do format in either 'national' or
+    # 'international' format depending on what the client asks for, we do not
+    # currently support a more abbreviated format, such as for users in the same
+    # 'area' who could potentially dial the number without area code. Note that if
+    # the phone number has a country calling code of 0 or an otherwise invalid
+    # country calling code, we cannot work out which formatting rules to apply so
+    # we return the national significant number with no formatting applied.
+    def self.format_number(number, number_format)
+      country_calling_code = number.country_code
+      national_significant_number = self.get_national_significant_number(number)
+      if number_format == PHONE_NUMBER_FORMAT[:E164]
+        # Early exit for E164 case since no formatting of the national number needs
+        # to be applied. Extensions are not formatted.
+        return self.format_number_by_format(country_calling_code, PHONE_NUMBER_FORMAT[:E164], national_significant_number, "")
+      end
+      
+      # Note getRegionCodeForCountryCode() is used because formatting information
+      # for regions which share a country calling code is contained by only one
+      # region for performance reasons. For example, for NANPA regions it will be
+      # contained in the metadata for US.
+      region_code = self.get_region_code_for_country_code(country_calling_code)
+      unless self.is_valid_region_code(region_code)
+        return national_significant_number
+      end
+      
+      formatted_extension = self.maybe_get_formatted_extension(number, region_code, number_format)
+      formatted_national_number = self.format_national_number(national_significant_number, region_code, number_format)
+      self.format_number_by_format(country_calling_code, number_format, formatted_national_number, formatted_extension)
+    end
+    
+    # Note in some regions, the national number can be written in two completely
+    # different ways depending on whether it forms part of the NATIONAL format or
+    # INTERNATIONAL format. The numberFormat parameter here is used to specify
+    # which format to use for those cases. If a carrierCode is specified, this will
+    # be inserted into the formatted string to replace $CC.
+    def format_national_number(number, region_code, number_format, opt_carrier_code)
+      metadata = Metadata.for_region(region_code)
+      international_number_formats = metadata['intlNumberFormat']
+      # When the intlNumberFormats exists, we use that to format national number
+      # for the INTERNATIONAL format instead of using the numberDesc.numberFormats.
+      
+      available_formats = (international_number_formats.length == 0 or numberFormat PHONE_NUMBER_FORMAT[:NATIONAL]) ? metadata.number_formats : metadata.international_number_formats
+      formatted_national_number = this.format_according_to_formats(number, available_formats, number_format, opt_carrier_code)
+      if number_format == PHONE_NUMBER_FORMAT[:RFC3966]
+        formatted_national_number = formatted_national_number.replace(SEPARATOR_PATTERN, '-')
+      end
+      return
+    end
+    
+    # Gets the formatted extension of a phone number, if the phone number had an
+    # extension specified. If not, it returns an empty string.
+    def self.maybe_get_formatted_extension(number, region_code, number_format)
+      if !number.extension or number.extension().length == 0
+        return ""
+      else
+        if number_format == PHONE_NUMBER_FORMAT[:RFC3966]
+          return RFC3966_EXTN_PREFIX + number.extension
+        end
+        
+        return this.format_extension(number.extension, region_code)
+      end
+    end
+    
+    # Formats the extension part of the phone number by prefixing it with the
+    # appropriate extension prefix. This will be the default extension prefix,
+    # unless overridden by a preferred extension prefix for this region.
+    def format_extension(extension_digits, region_code)
+      metadata = Metadata.for_region(region_code)
+      
+      if metadata['preferredExtensionPrefix']
+        return metadata['preferredExtensionPrefix'] + extension_digits
+      else
+        return DEFAULT_EXTN_PREFIX + extension_digits
+      end
+    end
+    
+    # Helper function to check region code is not unknown or null.
+    def self.is_valid_region_code(region_code)
+      region_code && Metadata.for_region(region_code.upcase)
+    end
+    
+    # Returns the region code that matches the specific country calling code. In
+    # the case of no region code being found, ZZ will be returned. In the case of
+    # multiple regions, the one designated in the metadata as the 'main' region for
+    # this calling code will be returned.
+    def self.get_region_code_for_country_code(country_calling_code)
+      region_codes = Metadata.country_code_to_region[country_calling_code]
+      region_codes ? region_codes.first : UNKNOWN_REGION
     end
     
   end

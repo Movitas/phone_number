@@ -13,49 +13,45 @@ class NumberUtilTest < Test::Unit::TestCase
   BS_NUMBER = PhoneNumber::NumberUtil.new "2423651234", :country_code => "1"
   
   # Note that this is the same as the example number for DE in the metadata.
-  DE_NUMBER = PhoneNumber::NumberUtil.new "30123456", :country_code => "49"
-  DE_SHORT_NUMBER = PhoneNumber::NumberUtil.new "1234", :country_code => "49"
-  GB_MOBILE = PhoneNumber::NumberUtil.new "7912345678", :country_code => "44"
-  GB_NUMBER = PhoneNumber::NumberUtil.new "2070313000", :country_code => "44"
-  IT_MOBILE = PhoneNumber::NumberUtil.new "345678901", :country_code => "39"
-  IT_NUMBER = PhoneNumber::NumberUtil.new "236618300", :country_code => "39", :italian_leading_zero => true
+  DE_NUMBER = PhoneNumber::Number.new "30123456", :country_code => "49"
+  DE_SHORT_NUMBER = PhoneNumber::Number.new "1234", :country_code => "49"
+  GB_MOBILE = PhoneNumber::Number.new "7912345678", :country_code => "44"
+  GB_NUMBER = PhoneNumber::Number.new "2070313000", :country_code => "44"
+  IT_MOBILE = PhoneNumber::Number.new "345678901", :country_code => "39"
+  IT_NUMBER = PhoneNumber::Number.new "236618300", :country_code => "39", :italian_leading_zero => true
   
   # Numbers to test the formatting rules from Mexico.
-  MX_MOBILE1 = PhoneNumber::NumberUtil.new "12345678900", :country_code => "52"
-  MX_MOBILE2 = PhoneNumber::NumberUtil.new "15512345678", :country_code => "52"
-  MX_NUMBER1 = PhoneNumber::NumberUtil.new "3312345678", :country_code => "52"
-  MX_NUMBER2 = PhoneNumber::NumberUtil.new "8211234567", :country_code => "52"
-  NZ_NUMBER = PhoneNumber::NumberUtil.new "33316005", :country_code => "64"
-  SG_NUMBER = PhoneNumber::NumberUtil.new "65218000", :country_code => "65"
+  MX_MOBILE1 = PhoneNumber::Number.new "12345678900", :country_code => "52"
+  MX_MOBILE2 = PhoneNumber::Number.new "15512345678", :country_code => "52"
+  MX_NUMBER1 = PhoneNumber::Number.new "3312345678", :country_code => "52"
+  MX_NUMBER2 = PhoneNumber::Number.new "8211234567", :country_code => "52"
+  NZ_NUMBER = PhoneNumber::Number.new "33316005", :country_code => "64"
+  SG_NUMBER = PhoneNumber::Number.new "65218000", :country_code => "65"
   
   # A too-long and hence invalid US number.
-  US_LONG_NUMBER = PhoneNumber::NumberUtil.new "65025300001", :country_code => "1"
-  US_NUMBER = PhoneNumber::NumberUtil.new "6502530000", :country_code => "1"
-  US_PREMIUM = PhoneNumber::NumberUtil.new "9002530000", :country_code => "1"
+  US_LONG_NUMBER = PhoneNumber::Number.new "65025300001", :country_code => "1"
+  US_NUMBER = PhoneNumber::Number.new "6502530000", :country_code => "1"
+  US_PREMIUM = PhoneNumber::Number.new "9002530000", :country_code => "1"
   
   # Too short, but still possible US numbers.
-  US_LOCAL_NUMBER = PhoneNumber::NumberUtil.new "2530000", :country_code => "1"
-  US_SHORT_BY_ONE_NUMBER = PhoneNumber::NumberUtil.new "650253000", :country_code => "1"
-  US_TOLLFREE = PhoneNumber::NumberUtil.new "8002530000", :country_code => "1"
+  US_LOCAL_NUMBER = PhoneNumber::Number.new "2530000", :country_code => "1"
+  US_SHORT_BY_ONE_NUMBER = PhoneNumber::Number.new "650253000", :country_code => "1"
+  US_TOLLFREE = PhoneNumber::Number.new "8002530000", :country_code => "1"
   
   test "should require an argument" do
-    assert_raise(ArgumentError) { PhoneNumber::NumberUtil.new }
+    assert_raise(ArgumentError) { PhoneNumber::Number.new }
   end
   
   test "should instantiate with a valid phone number" do
-    assert PhoneNumber::NumberUtil.new "+12155551212"
+    assert PhoneNumber::Number.new "+12155551212"
   end
   
   test "should instantiate with a country_code option" do
-    pn = PhoneNumber::NumberUtil.new "2155551212", :country_code => "1"
+    pn = PhoneNumber::Number.new "2155551212", :country_code => "1"
     assert pn
     assert_equal "2155551212", pn.number
     assert_equal "1", pn.country_code
     # assert_equal "+12155551212", number.to_s
-  end
-  
-  test "should return dialed number when to_s is called" do
-    assert_equal "+12155551212", PhoneNumber::NumberUtil.new("+12155551212").to_s
   end
   
   test "is viable phone number" do
@@ -131,11 +127,35 @@ class NumberUtilTest < Test::Unit::TestCase
     end
   end
   
-  test "is alpha number" do
-    assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags"), "<\"1800 six-flags\"> input"
-    assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags ext. 1234"), "\"<1800 six-flags ext. 1234\"> input"
-    assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234"), "<\"1800 123-1234\"> input"
-    assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234 extension: 1234"), "<\"1800 123-1234 extension: 1234\"> input"
+  # test "is alpha number" do
+  #   assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags"), "<\"1800 six-flags\"> input"
+  #   assert PhoneNumber::NumberUtil.is_alpha_number("1800 six-flags ext. 1234"), "\"<1800 six-flags ext. 1234\"> input"
+  #   assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234"), "<\"1800 123-1234\"> input"
+  #   assert !PhoneNumber::NumberUtil.is_alpha_number("1800 123-1234 extension: 1234"), "<\"1800 123-1234 extension: 1234\"> input"
+  # end
+  
+  test "format out of country calling number" do
+    assert_equal "00 1 900 253 0000", PhoneNumber::NumberUtil.format_out_of_country_calling_number(US_PREMIUM, "DE")
+    assert_equal "1 650 253 0000", PhoneNumber::NumberUtil.format_out_of_country_calling_number(US_NUMBER, "BS")
+    assert_equal "0~0 1 650 253 0000", PhoneNumber::NumberUtil.format_out_of_country_calling_number(US_NUMBER, "PL")
+    assert_equal "011 44 7912 345 678", PhoneNumber::NumberUtil.format_out_of_country_calling_number(GB_MOBILE, "US")
+    assert_equal "00 49 1234", PhoneNumber::NumberUtil.format_out_of_country_calling_number(DE_SHORT_NUMBER, "GB")
+    
+    # Note this number is correctly formatted without national prefix. Most of
+    # the numbers that are treated as invalid numbers by the library are short
+    # numbers, and they are usually not dialed with national prefix.
+    assert_equal "1234", PhoneNumber::NumberUtil.format_out_of_country_calling_number(DE_SHORT_NUMBER, "DE")
+    assert_equal "011 39 02 3661 8300", PhoneNumber::NumberUtil.format_out_of_country_calling_number(IT_NUMBER, "US")
+    assert_equal "02 3661 8300", PhoneNumber::NumberUtil.format_out_of_country_calling_number(IT_NUMBER, "IT")
+    assert_equal "+39 02 3661 8300", PhoneNumber::NumberUtil.format_out_of_country_calling_number(IT_NUMBER, "SG")
+    assert_equal "6521 8000", PhoneNumber::NumberUtil.format_out_of_country_calling_number(SG_NUMBER, "SG")
+    assert_equal "011 54 9 11 8765 4321", PhoneNumber::NumberUtil.format_out_of_country_calling_number(AR_MOBILE, "US")
+    
+    # var arNumberWithExtn = AR_MOBILE.clone();
+    # arNumberWithExtn.setExtension('1234');
+    # assertEquals('011 54 9 11 8765 4321 ext. 1234', phoneUtil.formatOutOfCountryCallingNumber(arNumberWithExtn, RegionCode.US));
+    # assertEquals('0011 54 9 11 8765 4321 ext. 1234', phoneUtil.formatOutOfCountryCallingNumber(arNumberWithExtn, RegionCode.AU));
+    # assertEquals('011 15 8765-4321 ext. 1234'
   end
   
 end
